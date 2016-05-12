@@ -22,15 +22,17 @@ angular.module("controllers.enjoy",[])
             })
         }
 
-        $scope.checkFiles = function($file){
-            console.log("change");
-            console.log($file);
+        $scope.getChangFile = function(file){
+            if(file!=null){
+                $scope.fileCu = file;
+            }
         }
 
-        $scope.beforeChange = function($file){
-            console.log("beforChange");
-            console.log($file);
+        $scope.submitEnjoy = function(){
+            console.log($scope.fileCu)
         }
+
+
 
 
 

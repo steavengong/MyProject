@@ -49,9 +49,10 @@
                     参赛照片
                 </div>
                 <div class="col col-top padding-normal-right">
-                    <div class="photo-group"　ngf-background="file | ngfDataUrl">
-                        <div class="input-file" ngf-select ngf-change="checkFiles($file)" ngf-keep="true"  ngf-before-model-change="beforeChange($file)" ngf-multiple="false">
+                    <div class="photo-group">
+                        <div class="bg-file" ngf-background="fileCu | ngfDataUrl">
                         </div>
+                        <div class="input-file" ngf-select ngf-keep="false"   ngf-change="getChangFile($file)"></div>
                     </div>
                 </div>
             </div>
@@ -65,7 +66,7 @@
             </div>
             <div class="row margin-normal-top font-color-white">
                 <div class="col col-80 col-offset-10">
-                    <div class="bg-positive-reversal text-center border-radius-big padding-small-vertical">确认提交</div>
+                    <div class="bg-positive-reversal text-center border-radius-big padding-small-vertical" ng-click="submitEnjoy()">确认提交</div>
                 </div>
             </div>
         </ion-scroll>
