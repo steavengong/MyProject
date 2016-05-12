@@ -1,3 +1,6 @@
+.gitignore
 *.iml
 .idea/
-.gitignore
+TestProject/
+Bower/
+
