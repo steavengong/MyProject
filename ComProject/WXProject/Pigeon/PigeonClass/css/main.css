@@ -1,0 +1,276 @@
+.page{
+    background-color: #daf9ff;
+}
+
+
+p{
+    margin: 0px;
+    display: block;
+}
+
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+}
+
+/*page-header logo*/
+.page-header{
+    padding-top: 0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    width: 45%;
+}
+
+/*page-home-body*/
+.page-home-body{
+    padding-top: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+/*首页标签页设置开始*/
+.buttons-tab.buttons-home{
+    background-color: transparent;
+}
+
+.buttons-tab.buttons-home>.button{
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0 .2rem;
+    color: #FFFFFF;
+    border: 2px solid #64b3dc;
+    background-color: #73c2eb;
+    border-radius: 7px 7px 0px 0px;
+    height: auto;
+    line-height: 1.5rem;
+    border-bottom: none;
+}
+
+.buttons-tab.buttons-home>.button.active{
+    background-color: #FFFFFF;
+    color: #73c2eb;
+}
+/*首页标签页设置结束*/
+
+
+/*首页标签页 主要内容部分开始*/
+.contents-home{
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid #64b3dc;
+    border-top: none;
+    background-color: #FFFFFF;
+    border-radius: 0px 0px 7px 7px ;
+}
+
+.contents-home .content-block{
+    margin: 0px;
+    padding: 0.75rem;
+    color: #73c2eb;
+}
+
+.title-center{
+    padding: 0.75rem 0px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #E72E35;
+}
+
+.description>span{
+    font-size: 0.7rem;
+    text-indent: 2em;
+    display: block;
+    line-height: 1.2rem;
+}
+
+
+/*专家页面*/
+.expert-group{
+    display: inline-block;
+    clear: both;
+    width: 100%;
+}
+
+.expert-img{
+    float: left;
+    width: 30%;
+}
+
+.expert-description{
+    float: left;
+    font-size: 0.8rem;
+    font-weight: bold;
+    word-break: break-all;
+    width: 60%;
+    margin-left: 0.75rem;
+}
+
+
+/*报名详情*/
+.description-item{
+    margin-top: 0.75rem;
+}
+
+.description-item>p.title-left{
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.description-item>p.description-left{
+    font-size: 0.7rem;
+    font-weight: normal;
+    text-align: left;
+}
+
+.description-item>p.description-left>a{
+    color: #73c2eb;
+}
+
+/*活动礼品*/
+.gift-title-center{
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.gift-img{
+    width: 100%;
+    margin: 0px auto;
+    margin-top: 0.25rem;
+}
+
+.code-img{
+    width: 50%;
+    margin: 0px auto;
+    margin-top: 0.25rem;
+}
+
+/*首页标签页 主要内容部分结束*/
+
+
+/*底部按钮*/
+.page-bottom{
+    padding-top: 0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.float{
+    clear: both;
+    display: inline-block;
+    width: 100%;
+}
+
+.button-left{
+    float: left;
+    width: 45%;
+}
+
+.button-right{
+    float: right;
+    width: 45%;
+}
+
+.button-center{
+    display: block;
+    width: 45%;
+    margin: 0px auto;
+}
+
+/*注册页面开始*/
+.page-register-body{
+    padding-top: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    color: #73c2eb;
+}
+
+.form-group{
+    margin: 0px;
+    font-size: 0.7rem;
+}
+
+.form-group>ul:before,
+.form-group>ul:after{
+    height: 0px;
+}
+
+.form-group>ul{
+    border: 2px solid #64b3dc;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;;
+    padding: 0.75rem;
+}
+
+.form-group>ul>li>.item-content{
+    padding: 0px;
+}
+
+.form-group>ul>li>.item-content>.item-media{
+    width: 100%;
+}
+
+.form-group>ul>li>.item-content>.item-inner:after{
+    height: 0px;
+}
+
+.form-group>ul>li.register-title>.item-content>.item-inner>.item-title{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.form-group>ul>li>.item-content>.item-inner>.item-title.label{
+    width: 30%;
+}
+
+.form-group>ul>li>.item-content>.item-inner>.item-input>select,
+.form-group>ul>li>.item-content>.item-inner>.item-input>input{
+    border: 2px solid #64b3dc;
+    font-size: 0.7rem;
+    color: #73c2eb;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #73c2eb;
+}
+
+
+.form-group>ul>li.register-item+li.register-item{
+    margin-top: 1rem;
+}
+
+
+/*注册页面结束*/
+
+
+/*结果页面*/
+.page-congratulations{
+    margin-bottom: 2rem;
+}
+
+.page-share{
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    padding: 0.75rem;
+}
+
+.address-notice{
+    color: #FF4E72;
+    font-size: 0.6rem;
+}
+
+.activityLogo{
+    width: 80%;
+}
