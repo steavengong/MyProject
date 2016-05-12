@@ -1,0 +1,75 @@
+<ion-modal-view ng-controller="enjoyCtrl" class="bg-modal">
+    <span class="icon mzc mzc-close close-modal" ng-click="closeModal(2)"></span>
+    <ion-content class="bg-balanced border-radius-big padding-normal" scroll="false">
+        <div class="row row-no-padding">
+            <div class="col col-25">
+                <img class="img-auto" ng-src="img/logo.png">
+            </div>
+        </div>
+        <div class="text-center font-color-white font-size-normal font-weight-normal margin-normal-vertical">我要参与</div>
+        <ion-scroll delegate-handle="enjoyScroll" zooming="false" class="enjoy-scroll font-color-normal font-size-normal">
+            <div class="row">
+                <div class="col-33 padding-normal-left col-center font-color-positive">
+                    宝宝姓名
+                </div>
+                <div class="col col-center padding-normal-right">
+                    <input type="text" maxlength="4" class="input-type">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33 padding-normal-left col-center font-color-positive">
+                    宝宝生日
+                </div>
+                <div class="col col-center padding-normal-right">
+                    <!--<input type="text" placeholder="年/月/日" class="input-type">-->
+                    <div class="date-group">
+                        <input type="text" placeholder="年/月/日" class="input-type" ng-model="dateInput">
+                        <input type="date" class="input-date" ng-model="dateValue" ng-change="changeDate(dateValue)">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33 padding-normal-left col-center font-color-positive">
+                    手机号
+                </div>
+                <div class="col col-center padding-normal-right">
+                    <input type="tel" maxlength="11" class="input-type">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33 padding-normal-left col-center font-color-positive">
+                    微信号
+                </div>
+                <div class="col col-center padding-normal-right">
+                    <input type="text" maxlength="20" class="input-type">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33 padding-normal-left col-top font-color-positive">
+                    参赛照片
+                </div>
+                <div class="col col-top padding-normal-right">
+                    <div class="photo-group"　ngf-background="file | ngfDataUrl">
+                        <div class="input-file" ngf-select ngf-change="checkFiles($file)" ngf-keep="true"  ngf-before-model-change="beforeChange($file)" ngf-multiple="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33 padding-normal-left col-top font-color-positive">
+                    简介
+                </div>
+                <div class="col col-top padding-normal-right">
+                    <textarea class="textarea-big" maxlength="100"></textarea>
+                </div>
+            </div>
+            <div class="row margin-normal-top font-color-white">
+                <div class="col col-80 col-offset-10">
+                    <div class="bg-positive-reversal text-center border-radius-big padding-small-vertical">确认提交</div>
+                </div>
+            </div>
+        </ion-scroll>
+        <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-left" ng-click="goHome()">返回首页</span>
+        <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-right" ng-click="showRule()">活动规则</span>
+    </ion-content>
+</ion-modal-view>

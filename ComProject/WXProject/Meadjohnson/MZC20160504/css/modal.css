@@ -1,0 +1,135 @@
+.bg-modal > ion-content{
+    width: 88%;
+    height: 90%;
+    margin: 0px auto;
+    top: 5%;
+}
+
+.close-modal{
+    font-size: 32px;
+    border:1px solid white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background: white;
+    color: #002e83;
+    position: absolute;
+    z-index: 999;
+    right: 3%;
+    top: 3%;
+}
+
+.rule-scroll{
+    height: 70%;
+}
+.enjoy-scroll{
+    height: 80%;
+}
+
+.scroll-more{
+    color: #FFFFFF;
+    font-size: 20px;
+    display: block;
+    position: relative;
+    z-index: 99;
+    left: calc(50% - 10px);
+    left: -webkit-calc(50% - 10px);
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-height: 480px) {
+    .rule-scroll{
+        height: 55%;
+    }
+
+    .enjoy-scroll{
+        height: 78%;
+    }
+
+    .scroll-more{
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+
+}
+
+.bg-modal .btn-positive{
+    padding-top: 3px;
+    padding-bottom: 5px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.bg-modal .btn-positive.btn-positive-left{
+    left: calc(10% + 20px);
+    left: -webkit-calc(10% + 20px);
+}
+
+.bg-modal .btn-positive.btn-positive-right{
+    right: calc(10% + 20px);
+    right: -webkit-calc(10% + 20px);
+
+}
+
+.input-type{
+    width: 100%;
+    padding: 5px 10px!important;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+}
+
+.textarea-big{
+    background-color: #FFFFFF;
+    color: #333333;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    padding: 5px 10px;
+    font-size: 14px;
+    height: 100px;
+    width: 100%;
+    word-break: break-all;
+}
+
+.photo-group{
+    width: 80px;
+    height: 80px;
+    background-image: url("../img/add-new-photo.png");
+    -webkit-background-image: url("../img/add-new-photo.png");
+    background-repeat: none;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.input-file{
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.date-placeholder{
+    color: #999999;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.input-date{
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index:999;
+    top: 0px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.date-group{
+    position: relative;
+}

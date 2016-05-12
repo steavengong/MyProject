@@ -1,0 +1,30 @@
+.rank-list .list{
+    padding: 0px 15px;
+}
+
+.rank-list .item{
+    border-left: 1px solid #002e83;
+    border-right: 1px solid #002e83;
+    padding: 15px 5px 10px;
+}
+
+.rank-list .item.item-title + .item{
+    border-top: 1px solid #002e83;
+}
+
+.rank-list .item.item-divider,
+.rank-list .item:last-child.item-divider{
+    border: none;
+}
+
+.rank-list .item:last-child{
+    border-bottom: 1px solid #002e83;
+}
+
+.rank-list .item>a{
+    padding: 0px;
+}
+
+.rank-list .item>a.activated{
+    background-color: #FFFFFF;
+}

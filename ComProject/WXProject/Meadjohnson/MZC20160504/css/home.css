@@ -1,0 +1,42 @@
+.btn-bar + .btn-bar{
+    margin-left: 10px;
+}
+
+.home-list{
+    position: relative;
+}
+
+.home-box{
+    position: relative;
+    padding: 10px 0px 0px 10px;
+    float: left;
+    width: 49%;
+}
+
+.home-box-body{
+    padding: 10px;
+    border: 1px solid #DDDDDD;
+    border-radius: 7px;
+    -webkit-box-shadow: 0 0 5px #DDDDDD;
+    box-shadow: 0 0 5px #DDDDDD;
+    background: #FFFFFF;
+}
+
+.home-box-number{
+    position: absolute;
+    z-index:999;
+    width: 45px;
+    height: 30px;
+    background-image: url("../img/box-number.png");
+    -webkit-background-image: url("../img/box-number.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    top: 11px;
+    left: 11px;
+    font-size:  12px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 2px 5px 0px;
+}

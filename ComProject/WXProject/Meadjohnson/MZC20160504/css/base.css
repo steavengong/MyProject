@@ -1,0 +1,492 @@
+/* Empty. Add your own CSS if you like */
+/*基础样式*/
+/*背景*/
+.bg-main{
+    background-image: url("../img/bg-main.jpg");
+    -webkit-background-image: url("../img/bg-main.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
+}
+
+.bg-balance{
+    background-color: #E3CA8A;
+}
+
+.bg-balanced{
+    background-color: #E4C98A;
+}
+
+.bg-positive{
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#0364B1), to(#002e83));
+    background: -webkit-linear-gradient(top, #0364B1, #002e83);
+}
+
+.bg-positive-reversal{
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#002e83), to(#0364B1));
+    background: -webkit-linear-gradient(top, #002e83, #0364B1);
+}
+
+.bg-calm{
+    background-color: #89CDF4;
+}
+
+.bg-light{
+    background-color: #FFFFFF;
+}
+
+.bg-modal{
+    background-color: rgba(0,0,0,.7);
+}
+
+.bg-transparent{
+    background-color: transparent;
+}
+
+.no-bg{
+    background-image: none;
+    -webkit-background-image: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none ;
+    box-shadow: none ;
+    border:none;
+}
+
+
+
+/*字体颜色*/
+.font-color-normal{
+    color: #333333!important;
+}
+
+.font-color-strong{
+    color: #666666;
+}
+
+.font-color-thin{
+    color: #999999;
+}
+
+.font-color-white{
+    color: #FFFFFF!important;
+}
+
+.font-color-red{
+    color: #FF4E72!important;
+}
+
+.font-color-balance{
+    color: #E3CA8A;
+}
+
+.font-color-positive{
+    color: #002e83;
+}
+
+.font-color-gray,
+::-webkit-input-placeholder{
+    color: #C1C1C1!important;
+}
+
+/*字体大小*/
+.font-size-normal{
+    font-size: 16px;
+}
+
+.font-size-small{
+    font-size: 14px;
+}
+
+.font-size-smaller{
+    font-size: 12px;
+}
+
+.font-size-big{
+    font-size: 20px;
+}
+
+.font-size-larger{
+    font-size: 32px;
+}
+
+.font-weight-normal{
+    font-weight: 500;
+}
+
+.font-weight-big{
+    font-weight: 700;
+}
+
+.row-font-size{
+    font-size: 14px;
+}
+@media screen and (max-width: 320px) {
+    .row-font-size{
+        font-size: 12px;
+    }
+}
+
+
+/*边框线*/
+/*宽度*/
+.border-width-normal-left,
+.border-width-normal-horizontal{
+    border-left-width: 1px!important;
+}
+
+.border-width-normal-right,
+.border-width-normal-horizontal{
+    border-right-width: 1px!important;
+}
+
+.border-width-normal-top,
+.border-width-normal-vertical{
+    border-top-width: 1px!important;
+}
+
+.border-width-normal-bottom,
+.border-width-normal-vertical{
+    border-bottom-width: 1px!important;
+}
+
+.border-width-normal{
+    border-width: 1px!important;
+}
+
+.border-width-none-left,
+.border-width-none-horizontal{
+    border-left-width: 0px!important;
+}
+
+.border-width-none-right,
+.border-width-none-horizontal{
+    border-right-width: 0px!important;
+}
+
+.border-width-none-top,
+.border-width-none-vertical{
+    border-top-width: 0px!important;
+}
+
+.border-width-none-bottom,
+.border-width-none-vertical{
+    border-bottom-width: 0px!important;
+}
+
+.border-width-none{
+    border-width: 0px!important;
+}
+/*颜色*/
+.border-color-balance{
+    border-color:  #E3CA8A;
+}
+
+.border-color-light{
+    border-color:  #FFFFFF;
+}
+
+.border-color-none{
+    border-color:  transparent;
+}
+/*弧度*/
+.border-radius-normal-left-top{
+    border-top-left-radius: 7px;
+    -webkit-border-top-left-radius: 7px;
+}
+
+.border-radius-normal-left-bottom{
+    border-bottom-left-radius: 7px;
+    -webkit-border-bottom-left-radius: 7px;
+}
+
+.border-radius-normal-right-top{
+    border-top-right-radius: 7px;
+    -webkit-border-top-right-radius: 7px;
+}
+
+.border-radius-normal-right-bottom{
+    border-bottom-right-radius: 7px;
+    -webkit-border-bottom-right-radius: 7px;
+}
+
+.border-radius-normal{
+    border-radius: 7px;
+}
+
+.border-radius-big-left-top{
+    border-top-left-radius: 14px;
+    -webkit-border-top-left-radius: 14px;
+}
+
+.border-radius-big-left-bottom{
+    border-bottom-left-radius: 14px;
+    -webkit-border-bottom-left-radius: 14px;
+}
+
+.border-radius-big-right-top{
+    border-top-right-radius: 14px;
+    -webkit-border-top-right-radius: 14px;
+}
+
+.border-radius-big-right-bottom{
+    border-bottom-right-radius: 14px;
+    -webkit-border-bottom-right-radius: 14px;
+}
+
+.border-radius-big{
+    border-radius: 14px;
+}
+
+.border-radius-round-left-top{
+    border-top-left-radius: 50%;
+    -webkit-border-top-left-radius: 50%;
+}
+
+.border-radius-round-left-bottom{
+    border-bottom-left-radius: 50%;
+    -webkit-border-bottom-left-radius: 50%;
+}
+
+.border-radius-round-right-top{
+    border-top-right-radius: 50%;
+    -webkit-border-top-right-radius: 50%;
+}
+
+.border-radius-round-right-bottom{
+    border-bottom-right-radius: 50%;
+    -webkit-border-bottom-right-radius: 50%;
+}
+
+.border-radius-round{
+    border-radius: 50%;
+}
+/*类型*/
+.border-style-solid{
+    border-style: solid;
+}
+
+/*图片尺寸*/
+.img-auto{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+}
+
+/*边距*/
+.padding-small-left,
+.padding-small-horizontal{
+    padding-left: 5px!important;
+}
+
+.padding-small-right,
+.padding-small-horizontal{
+    padding-right: 5px!important;
+}
+
+.padding-small-top,
+.padding-small-vertical{
+    padding-top: 5px!important;
+}
+
+.padding-small-bottom,
+.padding-small-vertical{
+    padding-bottom: 5px!important;
+}
+
+.padding-small{
+    padding: 5px!important;
+}
+
+.padding-normal-left,
+.padding-normal-horizontal{
+    padding-left: 10px!important;
+}
+
+.padding-normal-right,
+.padding-normal-horizontal{
+    padding-right: 10px!important;
+}
+
+.padding-normal-top,
+.padding-normal-vertical{
+    padding-top: 10px!important;
+}
+
+.padding-normal-bottom,
+.padding-normal-vertical{
+    padding-bottom: 10px!important;
+}
+
+.padding-normal{
+    padding: 10px!important;
+}
+
+.padding-big-left,
+.padding-big-horizontal{
+    padding-left: 15px!important;
+}
+
+.padding-big-right,
+.padding-big-horizontal{
+    padding-right: 15px!important;
+}
+
+.padding-big-top,
+.padding-big-vertical{
+    padding-top: 15px!important;
+}
+
+.padding-big-bottom,
+.padding-big-vertical{
+    padding-bottom: 15px!important;
+}
+
+.padding-big{
+    padding: 15px!important;
+}
+
+.padding-none-left,
+.padding-none-horizontal{
+    padding-left: 0px!important;
+}
+
+.padding-none-right,
+.padding-none-horizontal{
+    padding-right: 0px!important;
+}
+
+.padding-none-top,
+.padding-none-vertical{
+    padding-top: 0px!important;
+}
+
+.padding-none-bottom,
+.padding-none-vertical{
+    padding-bottom: 0px!important;
+}
+
+.padding-none{
+    padding: 0px!important;
+}
+
+.margin-small-left,
+.margin-small-horizontal{
+    margin-left: 5px!important;
+}
+
+.margin-small-right,
+.margin-small-horizontal{
+    margin-right: 5px!important;
+}
+
+.margin-small-top,
+.margin-small-vertical{
+    margin-top: 5px!important;
+}
+
+.margin-small-bottom,
+.margin-small-vertical{
+    margin-bottom: 5px!important;
+}
+
+.margin-small{
+    margin: 5px!important;
+}
+
+.margin-normal-left,
+.margin-normal-horizontal{
+    margin-left: 10px!important;
+}
+
+.margin-normal-right,
+.margin-normal-horizontal{
+    margin-right: 10px!important;
+}
+
+.margin-normal-top,
+.margin-normal-vertical{
+    margin-top: 10px!important;
+}
+
+.margin-normal-bottom,
+.margin-normal-vertical{
+    margin-bottom: 10px!important;
+}
+
+.margin-normal{
+    margin: 10px!important;
+}
+
+.margin-big-left,
+.margin-big-horizontal{
+    margin-left: 15px!important;
+}
+
+.margin-big-right,
+.margin-big-horizontal{
+    margin-right: 15px!important;
+}
+
+.margin-big-top,
+.margin-big-vertical{
+    margin-top: 15px!important;
+}
+
+.margin-big-bottom,
+.margin-big-vertical{
+    margin-bottom: 15px!important;
+}
+
+.margin-big{
+    margin: 15px!important;
+}
+
+/*输入框*/
+.inout-auto{
+    height: auto!important;
+    padding-right: 0px!important;
+}
+
+.fixed-button-left{
+    position: fixed;
+    bottom: calc(0% + 20px);
+    left: calc(0% + 10px);
+    font-size: 24px;
+    background-color: rgba(153,153,153,.2);
+    color: rgba(102,102,102,.6);
+    padding: 10px;
+    z-index: 999;
+}
+
+
+.fixed-button-right{
+    position: fixed;
+    bottom: calc(0% + 20px);
+    right: calc(0% + 10px);
+    font-size: 24px;
+    background-color: rgba(153,153,153,.2);
+    color: rgba(102,102,102,.6);
+    padding: 10px;
+    z-index: 999;
+}
+
+
+.col-65 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 65%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 65%;
+    -ms-flex: 0 0 65%;
+    flex: 0 0 65%;
+    max-width: 65%; }
+
+.col-55 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 55%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 55%;
+    -ms-flex: 0 0 55%;
+    flex: 0 0 55%;
+    max-width: 55%; }

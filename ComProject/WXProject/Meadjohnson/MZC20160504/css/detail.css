@@ -1,0 +1,13 @@
+.detail-image{
+    position: relative;
+}
+
+.btn-edit{
+    background-color: rgba(102,102,102,.6);
+    color: #FFFFFF;
+    position: absolute;
+    z-index: 999;
+    right: 5px;
+    bottom: 5px;
+    padding: 5px 10px;
+}
