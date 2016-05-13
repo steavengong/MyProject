@@ -4,7 +4,7 @@
 angular.module("controllers.starter",[])
     .controller("starterCtrl",["$scope","$state","$config","$wx","$modal",function($scope,$state,$config,$wx,$modal){
 
-        $scope.subscribe = 1;
+        $scope.subscribe = 0;
         $wx.personInfo.openId = "osFl-s9U62wClHjqywSNyFIy-Inc";
         $state.go($config.controllers.home.name);
         /*$modal.init($config.modals.rule);

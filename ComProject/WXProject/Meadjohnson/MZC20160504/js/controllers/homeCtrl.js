@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/5/6.
  */
 angular.module("controllers.home",[])
-    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$ionicScrollDelegate","$timeout",function($scope,$state,$config,$wx,$location,$ionicScrollDelegate,$timeout){
+    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$ionicScrollDelegate","$timeout","$alert",function($scope,$state,$config,$wx,$location,$ionicScrollDelegate,$timeout,$alert){
 
         //console.log($wx.personInfo.openId)
 
@@ -74,7 +74,14 @@ angular.module("controllers.home",[])
 
         $scope.voteByBallot = function($event,openId){
             $event.stopPropagation();
-            console.log("voteByBallot")
+            //console.log("voteByBallot")
+            if($scope.subscribe==0){
+                $alert.show("请先关注请先关注请先关注请先关注请先关注请先关注","voteByBallot")
+            }
+            else{
+                $alert.show("投票成功","voteByBallot");
+            }
+
         }
 
 

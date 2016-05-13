@@ -1,0 +1,35 @@
+.mzc-popup-container .popup{
+    background-color: #E3CA8A;
+    border-radius: 14px;
+    -webkit-border-radius: 14px;
+    color: #FFFFFF;
+    padding: 10px 0px;
+}
+
+.mzc-popup-container .popup-head{
+    display: none;
+}
+
+.mzc-popup-container .popup-body{
+    font-size: 16px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.mzc-popup-container .popup-buttons{
+    display: block;
+    text-align: center;
+    min-height: 0px;
+}
+
+.mzc-popup-container .popup-buttons .mzc-popup-button.button{
+    display: inline;
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#0364B1), to(#002e83));
+    background: -webkit-linear-gradient(top, #0364B1, #002e83);
+    color: #FFFFFF;
+    border-radius: 14px;
+    -webkit-border-radius: 14px;
+    min-height: 0px;
+    border:none;
+    padding: 5px 30px;
+}
