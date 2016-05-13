@@ -3,8 +3,6 @@
  */
 angular.module("controllers.detail",[])
     .controller("detailCtrl",["$scope","$state","$config","$wx","$stateParams","$modal","$httpServices",function($scope,$state,$config,$wx,$stateParams,$modal,$httpServices){
-        console.log($stateParams.openId)
-
         findBabyDetail();
 
         function findBabyDetail(){
@@ -17,7 +15,7 @@ angular.module("controllers.detail",[])
             };
             $httpServices.getJsonFromPost(action,data)
                 .then(function(result){
-                    console.log(result)
+                    $scope.detailObj = result.response;
                 })
         }
 
