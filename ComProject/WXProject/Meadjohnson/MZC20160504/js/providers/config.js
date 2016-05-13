@@ -9,16 +9,15 @@ angular.module("providers.config",[])
 
         $config.debug = true;
 
-        $config.requestAction = "q";
+        $config.requestAction = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
 
-        $config.requestActionDebug = "http://192.168.100.212:8081/wine-weixin-rest/cgi";
+        $config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
 
-        $config.appId = "";
+        $config.appId = "wx5bb398c959489ae4";
 
         $config.appIdDebug = "wx03fc01e909d9a654";
-        //$config.appIdDebug = "wx97c23153d718bccf";
 
-        $config.indexUrl = "";
+        $config.indexUrl = "http://www.mengbp.com/Meadjohnson/MZC20160504/index.html";
 
         $config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
 
