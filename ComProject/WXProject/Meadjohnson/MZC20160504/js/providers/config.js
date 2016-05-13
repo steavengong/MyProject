@@ -11,7 +11,9 @@ angular.module("providers.config",[])
 
         $config.requestAction = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
 
+        //$config.requestActionDebug = "http://192.168.100.212:8081/wine-weixin-rest/cgi";
         $config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
+        //$config.requestActionDebug = "http://192.168.100.64:8090/wine-weixin-rest/cgi";
 
         $config.appId = "wx5bb398c959489ae4";
 
@@ -26,7 +28,22 @@ angular.module("providers.config",[])
             searchName:"mzc/weixin/searchName",    //参数：searchName（搜索）  ranking：0.首页  1.排行榜
             attendMzc:"mzc/weixin/attendMzc",
             voteByBallot:"mzc/weixin/voteByBallot",  //参数：openId（当前登录的）   passiveOpenId（被投票的）
-            findBabyDetail:"mzc/weixin/findBabyDetail"//参数：openId（当前登录的）
+            findBabyDetail:"mzc/weixin/findBabyDetail",//参数：openId（当前登录的）
+            setWXSign:"christ/weixin/setSign"
+        }
+
+        $config.shareObject = {
+            shareTitle : "Test",
+            shareDescription : "Test",
+            shareImageUrl : "",
+            shareLinkUrl : ""
+        }
+
+        $config.personInfo = {
+            subscribe:0,
+            isJoin:0,
+            openId:"",
+            name:"",
         }
 
         $config.controllers = {

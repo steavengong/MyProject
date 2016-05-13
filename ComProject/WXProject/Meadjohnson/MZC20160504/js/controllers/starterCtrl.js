@@ -4,15 +4,15 @@
 angular.module("controllers.starter",[])
     .controller("starterCtrl",["$scope","$state","$config","$wx",function($scope,$state,$config,$wx){
 
-        $scope.subscribe = 0;
-        $wx.personInfo.openId = "osFl-s9U62wClHjqywSNyFIy-Inc";
-        $state.go($config.controllers.home.name);
-
-        /*$wx.redirect().then(function(result){
+        $wx.redirect().then(function(result){
             var response = result.response;
-            if(response.status == 1){
-                $scope.subscribe = response.subscribe;
-                $wx.personInfo.openId = response.openid;
+            if(response.status){
+                $config.personInfo.subscribe = response.subscribe;
+                $config.personInfo.openId = response.openid;
+                $config.personInfo.isJoin = response.isJoin;
+                /*$wx.setWXSign().then(function(){
+                    $state.go($config.controllers.home.name);
+                })*/
                 $state.go($config.controllers.home.name);
             }
             else{
@@ -20,6 +20,6 @@ angular.module("controllers.starter",[])
             }
         },function(){
             $wx.initCode();
-        })*/
+        })
 
     }])

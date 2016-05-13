@@ -31,25 +31,25 @@
         </div>
         <!--列表-->
         <div class="home-list"  id="home-list">
-            <div class="home-box" ng-click="findBabyDetail('1251121')">
+            <div class="home-box" ng-click="findBabyDetail(homeBoxItem.openId)" ng-repeat="homeBoxItem in homeBoxItems track by $index">
                 <div class="home-box-body">
                     <div class="home-box-number">
-                        <span>99999</span>
+                        <span ng-bind="homeBoxItem.photoNumber"></span>
                     </div>
-                    <img ng-src="img/add-new-photo.png" class="img-auto margin-normal-bottom">
+                    <img ng-src="{{checkPhoto(homeBoxItem.photo)}}" class="img-auto margin-normal-bottom">
                     <div class="row row-no-padding margin-normal-bottom">
                         <div class="col col-55 col-center">
                             <span class="icon mzc mzc-heart font-color-red"></span>
-                            <span class="font-color-normal font-size-smaller">上官林佳</span>
+                            <span class="font-color-normal font-size-smaller" ng-bind="homeBoxItem.babyNick"></span>
                         </div>
                         <div class="col text-right font-size-smaller col-center">
-                            <span class="font-color-red">99999</span>票
+                            <span class="font-color-red" ng-bind="homeBoxItem.number"></span>票
                         </div>
                     </div>
-                    <button class="button-block bg-calm border-radius-big no-bg font-color-white padding-small-vertical margin-small-bottom" type="button" ng-click="voteByBallot($event)">投TA一票</button>
+                    <button class="button-block bg-calm border-radius-big no-bg font-color-white padding-small-vertical margin-small-bottom" type="button" ng-click="voteByBallot($event,homeBoxItem.openId)">投TA一票</button>
                 </div>
             </div>
-            <div class="home-box" ng-click="findBabyDetail('31451')">
+            <!--<div class="home-box" ng-click="findBabyDetail('31451')">
                 <div class="home-box-body">
                     <div class="home-box-number">
                         <span>99999</span>
@@ -102,7 +102,7 @@
                     </div>
                     <button class="button-block bg-calm border-radius-big no-bg font-color-white padding-small-vertical margin-small-bottom" type="button"  ng-click="voteByBallot($event)">投TA一票</button>
                 </div>
-            </div>
+            </div>-->
         </div>
     </ion-content>
 </ion-view>
