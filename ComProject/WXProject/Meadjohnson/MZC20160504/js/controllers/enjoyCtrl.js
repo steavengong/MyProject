@@ -74,7 +74,7 @@ angular.module("controllers.enjoy",[])
                 return;
             }
 
-            /*var action = $config.getRequestAction();
+            var action = $config.getRequestAction();
             var data = {
                 "cmd":$config.cmds.attendMzc,
                 "parameters":{
@@ -93,9 +93,9 @@ angular.module("controllers.enjoy",[])
                     console.log(result)
                 },function(error){
                     console.log(error)
-                })*/
+                })
 
-            var action = $config.getRequestAction();
+            /*var action = $config.getRequestAction();
             var formData = needsFormDataShim ? new FormDataShim() : new FormData();
             formData.append("cmd",$config.cmds.attendMzc);
             var parameters = {
@@ -117,7 +117,7 @@ angular.module("controllers.enjoy",[])
                 }
             }
             xhr.open('POST',action,true);
-            xhr.send(formData);
+            xhr.send(formData);*/
         }
 
 
