@@ -28,7 +28,6 @@ angular.module("controllers.rankingList",[])
             $httpServices.getJsonFromPost(action,data)
                 .then(function(result){
                     $scope.detailObj = result.response;
-                    console.log($scope.detailObj);
                 })
         }
 
@@ -62,7 +61,6 @@ angular.module("controllers.rankingList",[])
             for(var item in items){
                 $scope.rankItems.push(items[item]);
             }
-            console.log($scope.rankItems);
         }
 
 

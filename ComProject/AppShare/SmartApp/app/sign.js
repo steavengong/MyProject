@@ -84,7 +84,7 @@ $(document).on("pageInit","#page-sign",function(e,id,page){
                     }
                     else{     //0
                         $(".sign-price").append("<p>当前奖励:20成长值</br>" +
-                            " <span>成功签到7天，奖励20成长值</span></p>");
+                            " <span>已连续签到7天，奖励20成长值</span></p>");
                     }
                     $(".button-sign").attr({"disabled":"disabled"});
                 }
@@ -95,7 +95,7 @@ $(document).on("pageInit","#page-sign",function(e,id,page){
                 date = result.response.date;
                 signCount = result.response.signCount;
                 $(".sign-date").html(formateShotDate(date));
-                $(".sign-days").html("已签到" + signCount +"天");
+                $(".sign-days").html("共签到" + signCount +"天");
                 $(".table-cell").remove();
                 dayRows = result.response.dayRows;
                 for(var i=0;i<dayRows.length;i++){
@@ -148,11 +148,11 @@ $(document).on("pageInit","#page-sign",function(e,id,page){
                 }
                 else{     //0
                     $(".sign-price").append($("<p>当前奖励:20成长值</br>" +
-                        " <span>成功签到7天，奖励20成长值</span></p>"));
+                        " <span>已连续签到7天，奖励20成长值</span></p>"));
                 }
                 $(".button-sign").attr({"disabled":"disabled"});
 
-                $(".sign-days").html("已签到" + (signCount+1) +"天");
+                $(".sign-days").html("共签到" + (signCount+1) +"天");
 
                 for(var i = 0 ; i< dayRows.length; i++){
                     var dayItem = dayRows[i];

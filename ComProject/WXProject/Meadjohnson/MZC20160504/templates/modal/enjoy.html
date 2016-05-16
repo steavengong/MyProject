@@ -13,7 +13,7 @@
                     宝宝姓名
                 </div>
                 <div class="col col-center padding-normal-right">
-                    <input type="text" maxlength="4" class="input-type">
+                    <input type="text" maxlength="4" class="input-type" ng-model="enjoyObj.babyName">
                 </div>
             </div>
             <div class="row">
@@ -23,7 +23,7 @@
                 <div class="col col-center padding-normal-right">
                     <!--<input type="text" placeholder="年/月/日" class="input-type">-->
                     <div class="date-group">
-                        <input type="text" placeholder="年/月/日" class="input-type" ng-model="dateInput">
+                        <input type="text" placeholder="年/月/日" class="input-type" ng-model="enjoyObj.dateInput">
                         <input type="date" class="input-date" ng-model="dateValue" ng-change="changeDate(dateValue)">
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                     手机号
                 </div>
                 <div class="col col-center padding-normal-right">
-                    <input type="tel" maxlength="11" class="input-type">
+                    <input type="tel" maxlength="11" class="input-type" ng-model="enjoyObj.phoneNumber">
                 </div>
             </div>
             <div class="row">
@@ -41,7 +41,7 @@
                     微信号
                 </div>
                 <div class="col col-center padding-normal-right">
-                    <input type="text" maxlength="20" class="input-type">
+                    <input type="text" maxlength="20" class="input-type" ng-model="enjoyObj.wxNumber">
                 </div>
             </div>
             <div class="row">
@@ -50,9 +50,9 @@
                 </div>
                 <div class="col col-top padding-normal-right">
                     <div class="photo-group">
-                        <div class="bg-file" ngf-background="fileCu | ngfDataUrl">
+                        <div class="bg-file" ngf-background="enjoyObj.fileCu | ngfDataUrl">
                         </div>
-                        <div class="input-file" ngf-select ngf-keep="false"   ngf-change="getChangFile($file)"></div>
+                        <div class="input-file" ngf-select ngf-keep="false" ngf-accept="'image/*'" ngf-validate-fn="validate($file)"  ngf-change="getChangFile($file)"></div>
                     </div>
                 </div>
             </div>
@@ -61,12 +61,12 @@
                     简介
                 </div>
                 <div class="col col-top padding-normal-right">
-                    <textarea class="textarea-big" maxlength="100"></textarea>
+                    <textarea class="textarea-big" maxlength="100" ng-model="enjoyObj.remark"></textarea>
                 </div>
             </div>
             <div class="row margin-normal-top font-color-white">
                 <div class="col col-80 col-offset-10">
-                    <div class="bg-positive-reversal text-center border-radius-big padding-small-vertical" ng-click="submitEnjoy()">确认提交</div>
+                    <div class="bg-positive-reversal text-center border-radius-big padding-small-vertical" ng-click="submitEnjoy(enjoyObj)">确认提交</div>
                 </div>
             </div>
         </ion-scroll>

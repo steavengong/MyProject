@@ -11,8 +11,8 @@ angular.module("providers.config",[])
 
         $config.requestAction = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
 
-        //$config.requestActionDebug = "http://192.168.100.212:8081/wine-weixin-rest/cgi";
-        $config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
+        $config.requestActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/cgi";
+        //$config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
         //$config.requestActionDebug = "http://192.168.100.64:8090/wine-weixin-rest/cgi";
 
         $config.appId = "wx5bb398c959489ae4";
@@ -40,9 +40,9 @@ angular.module("providers.config",[])
         }
 
         $config.personInfo = {
-            subscribe:0,
+            subscribe:1,
             isJoin:0,
-            openId:"",
+            openId:"osFl-s9U62wClHjqywSNyFIy-Inc",
             name:"",
         }
 
