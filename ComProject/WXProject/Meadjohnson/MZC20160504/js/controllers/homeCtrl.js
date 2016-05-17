@@ -4,7 +4,6 @@
 angular.module("controllers.home",[])
     .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal",function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal){
 
-
         $scope.showPage = function(){
             $state.go($config.controllers.rankingList.name);
         }
@@ -17,12 +16,12 @@ angular.module("controllers.home",[])
                 searchFor(searchBy);
             }
             else{
-                $alert.show("搜索内容不能为空")
+                $alert.show($config.messages.search.notNull)
             }
         }
 
         $scope.cleanSearch = function(){
-            $scope.$$childTail.searchFor = "";
+            $scope.$$childTail.searchFor= "";
             $scope.homeBoxItems = cacheRankBoxItems;
             cacheSearchBoxItems = [];
             waterFullTimeOut = $timeout(function(){
@@ -141,12 +140,12 @@ angular.module("controllers.home",[])
                             addSearchItem(responseData.rows);
                         }
                         else{
-                            $alert.show("没有找到您需要的");
+                            $alert.show($config.messages.search.noFound);
                         }
 
                     }
                     else{
-                        $alert.show("没有找到您需要的");
+                        $alert.show($config.messages.search.noFound);
                     }
                 })
 
@@ -166,42 +165,33 @@ angular.module("controllers.home",[])
             },100)
         }
 
-        $scope.checkPhoto = function(photo){
-            var base = "img/";
-            switch (photo){
-                case "1":
-                    base = base + "add-new-photo.png";
-                    break;
-                case "2":
-                    base = base + "bg-main.jpg";
-                    break;
-                case "3":
-                    base = base + "ionic.png";
-                    break;
-                case "4":
-                    base = base + "logo.png";
-                    break;
-            }
-            return base;
-        }
-
-
 
         $scope.findBabyDetail = function(openId){
             $state.go($config.controllers.detail.name,{"openId":openId});
         }
 
-        $scope.voteByBallot = function($event,openId){
+        $scope.voteByBallot = function($event,openId,$index){
             $event.stopPropagation();
+
+            if($config.personInfo.isDeadline == 3){
+                $alert.show($config.messages.activityStatus.end);
+                return ;
+            }
+
+            if($config.personInfo.openId == openId){
+                $alert.show($config.messages.voteByBallot.error)
+                return;
+            }
+
             if($config.personInfo.subscribe==0){
-                $alert.show("请先关注")
+                $alert.show($config.messages.voteByBallot.noAttentions)
             }
             else{
-                voteByBallot(openId)
+                voteByBallot(openId,$index)
             }
         }
 
-        function voteByBallot(openId){
+        function voteByBallot(openId,$index){
             var action = $config.getRequestAction();
             var data = {
                 "cmd" : $config.cmds.voteByBallot,
@@ -215,7 +205,11 @@ angular.module("controllers.home",[])
                 .then(function(result){
                     var response = result.response;
                     $alert.show(response.flag);
+                    if(response.flag == "投票成功"){
+                        $scope.homeBoxItems[$index].number ++;
+                    }
                 })
         }
+
 
     }])

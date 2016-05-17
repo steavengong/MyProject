@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="text-center font-color-white font-size-normal font-weight-normal margin-normal-vertical">我要参与</div>
-        <ion-scroll delegate-handle="enjoyScroll" zooming="false" class="enjoy-scroll font-color-normal font-size-normal">
+        <ion-scroll delegate-handle="enjoyScroll" zooming="false" class="modal-scroll font-color-normal font-size-normal">
             <div class="row">
                 <div class="col-33 padding-normal-left col-center font-color-positive">
                     宝宝姓名
@@ -70,7 +70,9 @@
                 </div>
             </div>
         </ion-scroll>
-        <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-left" ng-click="goHome()">返回首页</span>
-        <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-right" ng-click="showRule()">活动规则</span>
+        <div class="button-group">
+            <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-left" ng-click="goHome()">返回首页</span>
+            <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-right" ng-click="showRule()">活动规则</span>
+        </div>
     </ion-content>
 </ion-modal-view>

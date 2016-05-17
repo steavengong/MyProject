@@ -7,7 +7,7 @@
         </div>
         <div class="row padding-normal-top padding-normal-horizontal font-color-white text-center row-font-size">
             <div class="col bg-positive-reversal padding-big-vertical">
-                <span ng-bind="detailObj.photoNumber"></span>号
+                <span ng-bind="detailObj.photoNumber + '号'"></span>
             </div>
             <div class="col col-20 bg-positive-reversal padding-big-vertical">
                 <span ng-bind="detailObj.babyNick"></span>
@@ -16,11 +16,11 @@
                 排名:<span ng-bind="detailObj.rank"></span>
             </div>
             <div class="col bg-positive-reversal padding-big-vertical">
-                票数:<span ng-bind="detailObj.number"></span>
+                票数:<span ng-bind="detailObj.number||0"></span>
             </div>
         </div>
         <div class="detail-image padding-normal-horizontal margin-small-top">
-            <img class="img-auto" ng-src="img/add-new-photo.png">
+            <img class="img-auto" ng-src="{{checkPhoto(detailObj.photo)}}">
             <div ng-show="false" class="btn-edit">点击编辑</div>
         </div>
         <div class="row padding-normal-horizontal margin-small-top font-size-normal">
@@ -38,7 +38,7 @@
                 <div class="border-radius-normal font-color-white padding-small-vertical margin-small-bottom bg-positive-reversal text-center" ng-click="voteByBallot($event)">投TA一票</div>
             </div>
         </div>
-        <div class="row margin-small-top" ng-if="!checkIsJoin()">
+        <div class="row margin-small-top" ng-if="checkIsJoin()">
             <div class="col col-80 col-offset-10 padding-none">
                 <div ng-click="openModal(2)" class="border-radius-normal font-color-white padding-small-vertical margin-small-bottom bg-positive-reversal text-center">我也要参加</div>
             </div>

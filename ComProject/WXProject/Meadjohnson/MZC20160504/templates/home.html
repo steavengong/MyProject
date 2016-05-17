@@ -36,17 +36,17 @@
                     <div class="home-box-number">
                         <span ng-bind="homeBoxItem.photoNumber"></span>
                     </div>
-                    <img ng-src="{{checkPhoto(homeBoxItem.photo)}}" class="img-auto margin-normal-bottom">
+                    <img ng-src="{{homeBoxItem.photo}}" class="img-auto margin-normal-bottom">
                     <div class="row row-no-padding margin-normal-bottom">
                         <div class="col col-55 col-center">
                             <span class="icon mzc mzc-heart font-color-red"></span>
                             <span class="font-color-normal font-size-smaller" ng-bind="homeBoxItem.babyNick"></span>
                         </div>
                         <div class="col text-right font-size-smaller col-center">
-                            <span class="font-color-red" ng-bind="homeBoxItem.number"></span>票
+                            <span class="font-color-red" ng-bind="(homeBoxItem.number||0)"></span>票
                         </div>
                     </div>
-                    <button class="button-block bg-calm border-radius-big no-bg font-color-white padding-small-vertical margin-small-bottom" type="button" ng-click="voteByBallot($event,homeBoxItem.openId)">投TA一票</button>
+                    <button class="button-block bg-calm border-radius-big no-bg font-color-white padding-small-vertical margin-small-bottom" type="button" ng-click="voteByBallot($event,homeBoxItem.openId,$index)">投TA一票</button>
                 </div>
             </div>
             <!--<div class="home-box" ng-click="findBabyDetail('31451')">

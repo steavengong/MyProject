@@ -18,39 +18,23 @@
     top: 3%;
 }
 
-.rule-scroll{
-    height: 70%;
-}
-.enjoy-scroll{
-    height: 80%;
-}
+.modal-scroll{
+    width: 100%;
+    position: absolute;
+    z-index:999;
+    left: 0px;
+    bottom: 48px;
+    top: 65px;
 
-.scroll-more{
-    color: #FFFFFF;
-    font-size: 20px;
-    display: block;
-    position: relative;
-    z-index: 99;
-    left: calc(50% - 10px);
-    left: -webkit-calc(50% - 10px);
-    margin-top: 15px;
-    margin-bottom: 20px;
 }
 
-@media screen and (max-height: 480px) {
-    .rule-scroll{
-        height: 55%;
-    }
-
-    .enjoy-scroll{
-        height: 78%;
-    }
-
-    .scroll-more{
-        padding-top: 5px;
-        padding-bottom: 10px;
-    }
-
+.button-group{
+    height: 48px;
+    position: absolute;
+    bottom: 0px;
+    z-index:999;
+    width: 100%;
+    left: 0px;
 }
 
 .bg-modal .btn-positive{

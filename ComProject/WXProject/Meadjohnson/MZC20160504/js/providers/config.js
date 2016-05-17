@@ -5,15 +5,21 @@ angular.module("providers.config",[])
     .provider("$config",function(){
         var $config = {};
 
-        $config.message = "Hello";
-
         $config.debug = true;
+
+        $config.hook = false;
 
         $config.requestAction = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
 
         $config.requestActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/cgi";
         //$config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
         //$config.requestActionDebug = "http://192.168.100.64:8090/wine-weixin-rest/cgi";
+
+        $config.requestEnjoyAction = "http://weixin.mengbp.com/wine-weixin-rest/mzc/weixin/attendMzc";
+
+        $config.requestEnjoyActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/mzc/weixin/attendMzc";
+        //$config.requestEnjoyActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/mzc/weixin/attendMzc";
+        //$config.requestEnjoyActionDebug = "http://192.168.100.64:8090/wine-weixin-rest/mzc/weixin/attendMzc";
 
         $config.appId = "wx5bb398c959489ae4";
 
@@ -26,7 +32,6 @@ angular.module("providers.config",[])
         $config.cmds = {
             isAttentions:"mzc/weixin/isAttentions", //参数：code
             searchName:"mzc/weixin/searchName",    //参数：searchName（搜索）  ranking：0.首页  1.排行榜
-            attendMzc:"mzc/weixin/attendMzc",
             voteByBallot:"mzc/weixin/voteByBallot",  //参数：openId（当前登录的）   passiveOpenId（被投票的）
             findBabyDetail:"mzc/weixin/findBabyDetail",//参数：openId（当前登录的）
             setWXSign:"christ/weixin/setSign"
@@ -43,7 +48,25 @@ angular.module("providers.config",[])
             subscribe:1,
             isJoin:0,
             openId:"osFl-s9U62wClHjqywSNyFIy-Inc",
-            name:"",
+            status:0,
+            isDeadline:1
+        }
+
+        $config.messages = {
+            search:{
+                noFound:"没有找到您需要的",
+                notNull:"搜索内容不能为空"
+            },
+            voteByBallot:{
+                noAttentions:"请先关注",
+                error:"无法给自己投票",
+            },
+            activityStatus:{
+                end:"活动已结束",
+                noJoin:"第二期活动开始，无法再报名",
+                hasJoin:"您已报名参加过了"
+            }
+
         }
 
         $config.controllers = {
@@ -97,6 +120,13 @@ angular.module("providers.config",[])
                 return  this.requestActionDebug;
             }
             return this.requestAction;
+        }
+
+        $config.getRequestEnjoyAction = function(){
+            if(this.debug){
+                return  this.requestEnjoyActionDebug;
+            }
+            return this.requestEnjoyAction;
         }
 
         $config.getAppId = function(){

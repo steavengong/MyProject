@@ -15,8 +15,31 @@ angular.module("controllers.detail",[])
             };
             $httpServices.getJsonFromPost(action,data)
                 .then(function(result){
+                    console.log(result);
                     $scope.detailObj = result.response;
                 })
+        }
+
+        $scope.checkPhoto = function(photo){
+            var base = "img/";
+            switch (photo){
+                case "1":
+                    base = base + "add-new-photo.png";
+                    break;
+                case "2":
+                    base = base + "bg-main.jpg";
+                    break;
+                case "3":
+                    base = base + "ionic.png";
+                    break;
+                case "4":
+                    base = base + "logo.png";
+                    break;
+                default:
+                    base = photo;
+                    break;
+            }
+            return base;
         }
 
         $scope.goHome = function(){
@@ -32,8 +55,14 @@ angular.module("controllers.detail",[])
 
         $scope.voteByBallot = function($event){
             $event.stopPropagation();
+
+            if($config.personInfo.isDeadline == 3){
+                $alert.show($config.messages.activityStatus.end);
+                return ;
+            }
+
             if($config.personInfo.subscribe==0){
-                $alert.show("请先关注")
+                $alert.show($config.messages.voteByBallot.noAttentions)
             }
             else{
                 voteByBallot()
@@ -58,8 +87,13 @@ angular.module("controllers.detail",[])
         }
 
         $scope.checkIsJoin = function(){
-            if($config.personInfo.isJoin){
-                return true;
+            if($config.personInfo.isDeadline==1){
+                if($config.personInfo.isJoin == 0){
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
             return false;
         }

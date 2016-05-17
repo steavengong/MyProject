@@ -15,21 +15,21 @@
         <div ng-show="detailObj!=null" class="row padding-big font-color-white font-size-normal">
             <div class="col col-40 bg-positive-reversal border-radius-big-left-bottom border-radius-big-left-top padding-normal-vertical">
                 <div class="col col-80 col-offset-10">
-                    <img ng-src="img/ionic.png" class="img-auto border-width-normal border-color-light border-style-solid border-radius-round">
+                    <img ng-src="{{detailObj.headImg}}" class="img-auto border-width-normal border-color-light border-style-solid border-radius-round">
                 </div>
             </div>
             <div class="col bg-positive-reversal border-radius-big-right-bottom border-radius-big-right-top padding-normal-vertical">
                 <div class="margin-normal-bottom">
-                    <span>99999号</span>
-                    <span  class="padding-big-left">上官佳林</span>
+                    <span ng-bind="detailObj.photoNumber + '号'"></span>
+                    <span  class="padding-big-left" ng-bind="detailObj.babyNick"></span>
                 </div>
                 <div class="margin-normal-bottom">
                     投票数:
-                    <span class="padding-big-left">99999票</span>
+                    <span class="padding-big-left" ng-bind="(detailObj.number || 0) + '票'"></span>
                 </div>
                 <div>
                     排名:
-                    <span class="padding-big-left">99999名</span>
+                    <span class="padding-big-left" ng-bind="detailObj.rank + '名'"></span>
                 </div>
 
             </div>
@@ -67,7 +67,7 @@
                         <span class="font-color-positive" ng-bind="item.photoNumber + '号'"></span>
                     </div>
                     <div class="col">
-                        <span class="font-color-red" ng-bind="item.number"></span>
+                        <span class="font-color-red" ng-bind="(item.number||0)"></span>
                     </div>
                 </div>
             </ion-item>
