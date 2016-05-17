@@ -1,5 +1,5 @@
 angular.module("services.http",[])
-    .factory("$httpServices",["$http","Upload","$q",function($http,Upload,$q){
+    .factory("$httpServices",["$http","Upload","$q","$config",function($http,Upload,$q,$config){
         var $httpServices = {}
         $httpServices.getObjectFromGet = function(action){
             return $http.get(action).success(function(result){
@@ -11,10 +11,12 @@ angular.module("services.http",[])
             var deferred = $q.defer();
             $http.post(action,data)
                 .success(function(result){
+                    $config.hook = false;
                     deferred.resolve(result);
                 })
                 .error(function(error){
                     deferred.reject(error);
+                    $config.hook = false;
                 })
             return deferred.promise;
         }

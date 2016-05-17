@@ -85,7 +85,7 @@ angular.module("providers.config",[])
             },
             detail:{
                 name:"detail",
-                url:"/detail/:openId",
+                url:"/detail/:openId/:index",
                 templateUrl:"templates/detail.html",
                 ctrl:"detailCtrl",
                 cache:false

@@ -2,7 +2,8 @@
  * Created by Administrator on 2016/5/6.
  */
 angular.module("controllers.home",[])
-    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal",function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal){
+    .controller("homeCtrl",["$rootScope","$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal",
+        function($rootScope,$scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal){
 
         $scope.showPage = function(){
             $state.go($config.controllers.rankingList.name);
@@ -12,17 +13,21 @@ angular.module("controllers.home",[])
 
         $scope.searchFor = "";
         $scope.search = function(searchBy){
-            if(searchBy){
-                searchFor(searchBy);
-            }
-            else{
-                $alert.show($config.messages.search.notNull)
+            if(!$config.hook){
+                $config.hook = true;
+                if(searchBy){
+                    searchFor(searchBy);
+                }
+                else{
+                    $alert.show($config.messages.search.notNull)
+                    $config.hook = false;
+                }
             }
         }
 
         $scope.cleanSearch = function(){
             $scope.$$childTail.searchFor= "";
-            $scope.homeBoxItems = cacheRankBoxItems;
+            $rootScope.homeBoxItems = cacheRankBoxItems;
             cacheSearchBoxItems = [];
             waterFullTimeOut = $timeout(function(){
                 waterFull("home-list",".home-box");
@@ -80,7 +85,7 @@ angular.module("controllers.home",[])
         var itemRankTotal = 0;
         var itemPerPage = 30;
         var itemSearchTotal = 0;
-        $scope.homeBoxItems = [];
+        $rootScope.homeBoxItems = [];
         var scrollFlage = true;
         var cacheRankBoxItems = [];
         var cacheSearchBoxItems = [];
@@ -98,6 +103,7 @@ angular.module("controllers.home",[])
             $httpServices.getJsonFromPost(action,data)
                 .then(function(result){
                     if(result.response){
+                        console.log(result.response);
                         var responseData = result.response.data;
                         if(responseData.rows.length>0){
                             itemRankTotal = responseData.records;
@@ -111,7 +117,7 @@ angular.module("controllers.home",[])
             for(var item in items){
                 cacheRankBoxItems.push(items[item]);
             }
-            $scope.homeBoxItems = cacheRankBoxItems
+            $rootScope.homeBoxItems = cacheRankBoxItems
             waterFullTimeOut = $timeout(function(){
                 waterFull("home-list",".home-box");
                 $scope.$on("$destroy",
@@ -155,7 +161,7 @@ angular.module("controllers.home",[])
             for(var item in items){
                 cacheSearchBoxItems.push(items[item]);
             }
-            $scope.homeBoxItems = cacheSearchBoxItems
+            $rootScope.homeBoxItems = cacheSearchBoxItems
             waterFullTimeOut = $timeout(function(){
                 waterFull("home-list",".home-box");
                 $scope.$on("$destroy",
@@ -166,29 +172,36 @@ angular.module("controllers.home",[])
         }
 
 
-        $scope.findBabyDetail = function(openId){
-            $state.go($config.controllers.detail.name,{"openId":openId});
+        $scope.findBabyDetail = function(openId,$index){
+            $state.go($config.controllers.detail.name,{"openId":openId,"index":$index});
         }
 
         $scope.voteByBallot = function($event,openId,$index){
             $event.stopPropagation();
 
-            if($config.personInfo.isDeadline == 3){
-                $alert.show($config.messages.activityStatus.end);
-                return ;
+            if(!$config.hook){
+                $config.hook = true;
+                if($config.personInfo.isDeadline == 3){
+                    $alert.show($config.messages.activityStatus.end);
+                    $config.hook = false;
+                    return ;
+                }
+
+                if($config.personInfo.openId == openId){
+                    $alert.show($config.messages.voteByBallot.error);
+                    $config.hook = false;
+                    return;
+                }
+
+                if($config.personInfo.subscribe==0){
+                    $alert.show($config.messages.voteByBallot.noAttentions)
+                    $config.hook = false;
+                }
+                else{
+                    voteByBallot(openId,$index)
+                }
             }
 
-            if($config.personInfo.openId == openId){
-                $alert.show($config.messages.voteByBallot.error)
-                return;
-            }
-
-            if($config.personInfo.subscribe==0){
-                $alert.show($config.messages.voteByBallot.noAttentions)
-            }
-            else{
-                voteByBallot(openId,$index)
-            }
         }
 
         function voteByBallot(openId,$index){
@@ -206,7 +219,7 @@ angular.module("controllers.home",[])
                     var response = result.response;
                     $alert.show(response.flag);
                     if(response.flag == "投票成功"){
-                        $scope.homeBoxItems[$index].number ++;
+                        $rootScope.homeBoxItems[$index].number ++;
                     }
                 })
         }

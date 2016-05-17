@@ -2,7 +2,8 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("controllers.detail",[])
-    .controller("detailCtrl",["$scope","$state","$config","$wx","$stateParams","$modal","$httpServices","$alert",function($scope,$state,$config,$wx,$stateParams,$modal,$httpServices,$alert){
+    .controller("detailCtrl",["$rootScope","$scope","$state","$config","$wx","$stateParams","$modal","$httpServices","$alert",
+        function($rootScope,$scope,$state,$config,$wx,$stateParams,$modal,$httpServices,$alert){
         findBabyDetail();
 
         function findBabyDetail(){
@@ -56,16 +57,21 @@ angular.module("controllers.detail",[])
         $scope.voteByBallot = function($event){
             $event.stopPropagation();
 
-            if($config.personInfo.isDeadline == 3){
-                $alert.show($config.messages.activityStatus.end);
-                return ;
-            }
+            if(!$config.hook){
+                $config.hook = true;
+                if($config.personInfo.isDeadline == 3){
+                    $alert.show($config.messages.activityStatus.end);
+                    $config.hook = false;
+                    return ;
+                }
 
-            if($config.personInfo.subscribe==0){
-                $alert.show($config.messages.voteByBallot.noAttentions)
-            }
-            else{
-                voteByBallot()
+                if($config.personInfo.subscribe==0){
+                    $alert.show($config.messages.voteByBallot.noAttentions);
+                    $config.hook = false;
+                }
+                else{
+                    voteByBallot()
+                }
             }
         }
 
@@ -83,6 +89,10 @@ angular.module("controllers.detail",[])
                 .then(function(result){
                     var response = result.response;
                     $alert.show(response.flag);
+                    if(response.flag == "投票成功"){
+                        $scope.detailObj.number ++;
+                        $rootScope.homeBoxItems[$stateParams.index].number ++;
+                    }
                 })
         }
 
