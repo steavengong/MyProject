@@ -28,8 +28,10 @@ angular.module("services.http",[])
                 data:data
             }).then(function(result){
                 deferred.resolve(result);
+                $config.hook = false;
             },function(error){
                 deferred.reject(error);
+                $config.hook = false;
             })
             return deferred.promise;
         }

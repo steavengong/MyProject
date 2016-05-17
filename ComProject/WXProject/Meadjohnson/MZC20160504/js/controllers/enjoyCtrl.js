@@ -48,71 +48,82 @@ angular.module("controllers.enjoy",[])
             console.log(enjoyObj);
             console.log($config.personInfo);
 
-            if($config.personInfo.isDeadline==3){
-                $alert.show($config.messages.activityStatus.end);
-                return;
-            }
-            if($config.personInfo.isDeadline==2){
-                $alert.show($config.messages.activityStatus.noJoin);
-                return;
-            }
-            else{
-                if($config.personInfo.isJoin==1){
-                    $alert.show($config.messages.activityStatus.hasJoin);
+            if(!$config.hook){
+                $config.hook = true;
+                if($config.personInfo.isDeadline==3){
+                    $alert.show($config.messages.activityStatus.end);
+                    $config.hook = false;
                     return;
                 }
-            }
-
-            if(enjoyObj.babyName==""){
-                $alert.show("宝宝姓名不能为空");
-                return;
-            }
-
-            if(enjoyObj.dateInput==""){
-                $alert.show("宝宝生日不能为空");
-                return;
-            }
-
-            if(enjoyObj.phoneNumber==""){
-                $alert.show("手机号不能为空");
-                return;
-            }
-            if(enjoyObj.wxNumber==""){
-                $alert.show("微信号不能为空");
-                return;
-            }
-            if(enjoyObj.fileCu==""){
-                $alert.show("参赛图片不能少");
-                return;
-            }
-            if(enjoyObj.remark==""){
-                $alert.show("简介不能为空");
-                return;
-            }
-
-            var action = $config.getRequestEnjoyAction();
-            var data = {
-                "openId" : $config.personInfo.openId,
-                "babyNick":enjoyObj.babyName,
-                "phoneNumber":enjoyObj.phoneNumber,
-                "wxNumber":enjoyObj.wxNumber,
-                "babyBrithday":enjoyObj.dateInput,
-                "remark":enjoyObj.remark,
-                "image":enjoyObj.fileCu
-            }
-
-            $httpServices.uploadWithFile(action,data)
-                .then(function(result){
-                    console.log(result)
-                    var response = result.data;
-                    if(response.status==1){
-                        $alert.show(response.msg);
-                        $config.personInfo.isJoin = 1;
+                if($config.personInfo.isDeadline==2){
+                    $alert.show($config.messages.activityStatus.noJoin);
+                    $config.hook = false;
+                    return;
+                }
+                else{
+                    if($config.personInfo.isJoin==1){
+                        $alert.show($config.messages.activityStatus.hasJoin);
+                        $config.hook = false;
+                        return;
                     }
-                },function(error){
-                    console.log(error)
-                })
+                }
 
+                if(enjoyObj.babyName==""){
+                    $alert.show("宝宝姓名不能为空");
+                    $config.hook = false;
+                    return;
+                }
+
+                if(enjoyObj.dateInput==""){
+                    $alert.show("宝宝生日不能为空");
+                    $config.hook = false;
+                    return;
+                }
+
+                if(enjoyObj.phoneNumber==""){
+                    $alert.show("手机号不能为空");
+                    $config.hook = false;
+                    return;
+                }
+                if(enjoyObj.wxNumber==""){
+                    $alert.show("微信号不能为空");
+                    $config.hook = false;
+                    return;
+                }
+                if(enjoyObj.fileCu==""){
+                    $alert.show("参赛图片不能少");
+                    $config.hook = false;
+                    return;
+                }
+                if(enjoyObj.remark==""){
+                    $alert.show("简介不能为空");
+                    $config.hook = false;
+                    return;
+                }
+
+                var action = $config.getRequestEnjoyAction();
+                var data = {
+                    "openId" : $config.personInfo.openId,
+                    "babyNick":enjoyObj.babyName,
+                    "phoneNumber":enjoyObj.phoneNumber,
+                    "wxNumber":enjoyObj.wxNumber,
+                    "babyBrithday":enjoyObj.dateInput,
+                    "remark":enjoyObj.remark,
+                    "image":enjoyObj.fileCu
+                }
+
+                $httpServices.uploadWithFile(action,data)
+                    .then(function(result){
+                        console.log(result)
+                        var response = result.data;
+                        if(response.status==1){
+                            $alert.show(response.msg);
+                            $config.personInfo.isJoin = 1;
+                        }
+                    },function(error){
+                        console.log(error)
+                    })
+            }
         }
 
     }])

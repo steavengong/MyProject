@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("controllers.detail",[])
-    .controller("detailCtrl",["$rootScope","$scope","$state","$config","$wx","$stateParams","$modal","$httpServices","$alert",
-        function($rootScope,$scope,$state,$config,$wx,$stateParams,$modal,$httpServices,$alert){
+    .controller("detailCtrl",["$scope","$state","$config","$wx","$stateParams","$modal","$httpServices","$alert",
+        function($scope,$state,$config,$wx,$stateParams,$modal,$httpServices,$alert){
         findBabyDetail();
 
         function findBabyDetail(){
@@ -19,28 +19,6 @@ angular.module("controllers.detail",[])
                     console.log(result);
                     $scope.detailObj = result.response;
                 })
-        }
-
-        $scope.checkPhoto = function(photo){
-            var base = "img/";
-            switch (photo){
-                case "1":
-                    base = base + "add-new-photo.png";
-                    break;
-                case "2":
-                    base = base + "bg-main.jpg";
-                    break;
-                case "3":
-                    base = base + "ionic.png";
-                    break;
-                case "4":
-                    base = base + "logo.png";
-                    break;
-                default:
-                    base = photo;
-                    break;
-            }
-            return base;
         }
 
         $scope.goHome = function(){
@@ -91,7 +69,6 @@ angular.module("controllers.detail",[])
                     $alert.show(response.flag);
                     if(response.flag == "投票成功"){
                         $scope.detailObj.number ++;
-                        $rootScope.homeBoxItems[$stateParams.index].number ++;
                     }
                 })
         }
