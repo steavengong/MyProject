@@ -51,18 +51,24 @@ angular.module("controllers.enjoy",[])
             if(!$config.hook){
                 $config.hook = true;
                 if($config.personInfo.isDeadline==3){
-                    $alert.show($config.messages.activityStatus.end);
+                    $alert.show($config.messages.activityStatus.end).then(function(){
+                            $modal.closeModal($config.modals.enjoy);
+                    })
                     $config.hook = false;
                     return;
                 }
                 if($config.personInfo.isDeadline==2){
-                    $alert.show($config.messages.activityStatus.noJoin);
+                    $alert.show($config.messages.activityStatus.noJoin).then(function(){
+                        $modal.closeModal($config.modals.enjoy);
+                    })
                     $config.hook = false;
                     return;
                 }
                 else{
                     if($config.personInfo.isJoin==1){
-                        $alert.show($config.messages.activityStatus.hasJoin);
+                        $alert.show($config.messages.activityStatus.hasJoin).then(function(){
+                            $modal.closeModal($config.modals.enjoy);
+                        })
                         $config.hook = false;
                         return;
                     }
@@ -120,6 +126,7 @@ angular.module("controllers.enjoy",[])
                             $alert.show(response.msg);
                             $config.personInfo.isJoin = 1;
                         }
+                        $modal.closeModal($config.modals.enjoy);
                     },function(error){
                         console.log(error)
                     })
