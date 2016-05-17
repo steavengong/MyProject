@@ -7,12 +7,12 @@
                 <img ng-src="img/logo.png" class="img-auto">
             </div>
         </div>
-        <div ng-show="detailObj==null" class="row padding-normal-top padding-normal-horizontal font-color-white font-size-normal">
+        <div ng-show="!checkIsJoin()" class="row padding-normal-top padding-normal-horizontal font-color-white font-size-normal">
             <div class="col">
                 <div class="text-center bg-positive-reversal padding-small-vertical border-radius-big" ng-click="openModal(2)">点击报名参加</div>
             </div>
         </div>
-        <div ng-show="detailObj!=null" class="row padding-big font-color-white font-size-normal">
+        <div ng-show="checkIsJoin()" class="row padding-big font-color-white font-size-normal">
             <div class="col col-40 bg-positive-reversal border-radius-big-left-bottom border-radius-big-left-top padding-normal-vertical">
                 <div class="col col-80 col-offset-10">
                     <img ng-src="{{detailObj.headImg}}" class="img-auto border-width-normal border-color-light border-style-solid border-radius-round">

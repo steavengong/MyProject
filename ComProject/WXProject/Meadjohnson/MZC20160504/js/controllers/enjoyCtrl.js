@@ -2,9 +2,8 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("controllers.enjoy",[])
-    .controller("enjoyCtrl",["$scope","$state","$config","$wx","$modal","$timeout","Upload","$alert","$httpServices",function($scope,$state,$config,$wx,$modal,$timeout,Upload,$alert,$httpServices){
-
-
+    .controller("enjoyCtrl",["$scope","$state","$config","$wx","$modal","$timeout","Upload","$alert","$httpServices","$ionicLoading",
+        function($scope,$state,$config,$wx,$modal,$timeout,Upload,$alert,$httpServices,$ionicLoading){
 
         $scope.showRule = function(){
             $modal.closeModal($config.modals.enjoy);
@@ -50,11 +49,13 @@ angular.module("controllers.enjoy",[])
 
             if(!$config.hook){
                 $config.hook = true;
+                $ionicLoading.show();
                 if($config.personInfo.isDeadline==3){
                     $alert.show($config.messages.activityStatus.end).then(function(){
                             $modal.closeModal($config.modals.enjoy);
                     })
                     $config.hook = false;
+                    $ionicLoading.hide();
                     return;
                 }
                 if($config.personInfo.isDeadline==2){
@@ -62,6 +63,7 @@ angular.module("controllers.enjoy",[])
                         $modal.closeModal($config.modals.enjoy);
                     })
                     $config.hook = false;
+                    $ionicLoading.hide();
                     return;
                 }
                 else{
@@ -70,6 +72,7 @@ angular.module("controllers.enjoy",[])
                             $modal.closeModal($config.modals.enjoy);
                         })
                         $config.hook = false;
+                        $ionicLoading.hide();
                         return;
                     }
                 }
@@ -77,33 +80,39 @@ angular.module("controllers.enjoy",[])
                 if(enjoyObj.babyName==""){
                     $alert.show("宝宝姓名不能为空");
                     $config.hook = false;
+                    $ionicLoading.hide();
                     return;
                 }
 
                 if(enjoyObj.dateInput==""){
                     $alert.show("宝宝生日不能为空");
                     $config.hook = false;
+                    $ionicLoading.hide();
                     return;
                 }
 
                 if(enjoyObj.phoneNumber==""){
                     $alert.show("手机号不能为空");
                     $config.hook = false;
+                    $ionicLoading.hide();
                     return;
                 }
                 if(enjoyObj.wxNumber==""){
                     $alert.show("微信号不能为空");
                     $config.hook = false;
+                    $ionicLoading.hide();
                     return;
                 }
                 if(enjoyObj.fileCu==""){
                     $alert.show("参赛图片不能少");
                     $config.hook = false;
+                    $ionicLoading.hide();
                     return;
                 }
                 if(enjoyObj.remark==""){
                     $alert.show("简介不能为空");
                     $config.hook = false;
+                    $ionicLoading.hide();
                     return;
                 }
 
@@ -127,8 +136,6 @@ angular.module("controllers.enjoy",[])
                             $config.personInfo.isJoin = 1;
                         }
                         $modal.closeModal($config.modals.enjoy);
-                    },function(error){
-                        console.log(error)
                     })
             }
         }

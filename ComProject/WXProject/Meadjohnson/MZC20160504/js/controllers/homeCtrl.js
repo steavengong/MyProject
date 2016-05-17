@@ -2,8 +2,9 @@
  * Created by Administrator on 2016/5/6.
  */
 angular.module("controllers.home",[])
-    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal",
-        function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal){
+    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal","$ionicLoading",
+        function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading){
+            $ionicLoading.show();
 
             $scope.showPage = function(){
                 $state.go($config.controllers.rankingList.name);
@@ -15,12 +16,14 @@ angular.module("controllers.home",[])
             $scope.search = function(searchBy){
                 if(!$config.hook){
                     $config.hook = true;
+                    $ionicLoading.show();
                     if(searchBy){
                         searchFor(searchBy);
                     }
                     else{
                         $alert.show($config.messages.search.notNull)
                         $config.hook = false;
+                        $ionicLoading.hide();
                     }
                 }
             }
@@ -91,7 +94,6 @@ angular.module("controllers.home",[])
             var cacheSearchBoxItems = [];
 
             function searchRanking(){
-
                 var action = $config.getRequestAction();
                 var data = {
                     "cmd" : $config.cmds.searchName,
@@ -183,21 +185,25 @@ angular.module("controllers.home",[])
 
                 if(!$config.hook){
                     $config.hook = true;
+                    $ionicLoading.show();
                     if($config.personInfo.isDeadline == 3){
                         $alert.show($config.messages.activityStatus.end);
                         $config.hook = false;
+                        $ionicLoading.hide();
                         return ;
                     }
 
                     if($config.personInfo.openId == openId){
                         $alert.show($config.messages.voteByBallot.error);
                         $config.hook = false;
+                        $ionicLoading.hide();
                         return;
                     }
 
                     if($config.personInfo.subscribe==0){
                         $alert.show($config.messages.voteByBallot.noAttentions)
                         $config.hook = false;
+                        $ionicLoading.hide();
                     }
                     else{
                         voteByBallot(openId,$index)
@@ -224,6 +230,20 @@ angular.module("controllers.home",[])
                             $scope.homeBoxItems[$index].number ++;
                         }
                     })
+            }
+
+            var flag = true;
+            $scope.hasMore = function() {
+                return flag;
+            }
+
+            $scope.loadMore = function(){
+                if(flag){
+                    flag = false;
+                    $timeout(function(){
+                        flag = true;
+                    },3000)
+                }
             }
 
 

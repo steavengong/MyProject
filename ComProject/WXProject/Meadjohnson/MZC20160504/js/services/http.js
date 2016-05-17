@@ -1,5 +1,5 @@
 angular.module("services.http",[])
-    .factory("$httpServices",["$http","Upload","$q","$config",function($http,Upload,$q,$config){
+    .factory("$httpServices",["$http","Upload","$q","$config","$ionicLoading",function($http,Upload,$q,$config,$ionicLoading){
         var $httpServices = {}
         $httpServices.getObjectFromGet = function(action){
             return $http.get(action).success(function(result){
@@ -13,10 +13,12 @@ angular.module("services.http",[])
                 .success(function(result){
                     $config.hook = false;
                     deferred.resolve(result);
+                    $ionicLoading.hide();
                 })
                 .error(function(error){
                     deferred.reject(error);
                     $config.hook = false;
+                    $ionicLoading.hide();
                 })
             return deferred.promise;
         }
