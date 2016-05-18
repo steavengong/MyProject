@@ -15,7 +15,7 @@ angular.module("controllers.home",[])
             var rankFlag = true;
             var searchName = "";
 
-            $ionicLoading.show();
+            //$ionicLoading.show();
 
             $scope.showPage = function(){
                 $state.go($config.controllers.rankingList.name);
@@ -99,7 +99,6 @@ angular.module("controllers.home",[])
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
                         if(result.response){
-                            console.log(result.response);
                             var responseData = result.response.data;
                             if(responseData.rows.length>0){
                                 itemRankPageNo++;
@@ -154,7 +153,6 @@ angular.module("controllers.home",[])
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
                         if(result.response){
-                            console.log(result.response);
                             var responseData = result.response.data;
                             if(responseData.rows.length>0){
                                 itemSearchPageNo++;

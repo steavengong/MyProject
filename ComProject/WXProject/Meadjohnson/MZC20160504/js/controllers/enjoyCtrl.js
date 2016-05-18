@@ -28,12 +28,12 @@ angular.module("controllers.enjoy",[])
         }
 
         $scope.enjoyObj = {
-            babyName:"Hello",
-            dateInput:"2016/05/16",
-            phoneNumber:"12345678911",
-            wxNumber:"test123",
+            babyName:"",
+            dateInput:"",
+            phoneNumber:"",
+            wxNumber:"",
             fileCu:"",
-            remark:"test123"
+            remark:""
         }
 
         $scope.validate = function($file){
@@ -44,9 +44,6 @@ angular.module("controllers.enjoy",[])
         }
 
         $scope.submitEnjoy = function(enjoyObj){
-            console.log(enjoyObj);
-            console.log($config.personInfo);
-
             if(!$config.hook){
                 $config.hook = true;
                 $ionicLoading.show();
@@ -129,7 +126,6 @@ angular.module("controllers.enjoy",[])
 
                 $httpServices.uploadWithFile(action,data)
                     .then(function(result){
-                        console.log(result)
                         var response = result.data;
                         if(response.status==1){
                             $alert.show(response.msg);

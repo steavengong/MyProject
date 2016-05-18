@@ -18,7 +18,6 @@ angular.module("controllers.detail",[])
                 };
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
-                        console.log(result);
                         $scope.detailObj = result.response;
                     })
             }

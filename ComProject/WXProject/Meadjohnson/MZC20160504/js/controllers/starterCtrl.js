@@ -5,7 +5,6 @@ angular.module("controllers.starter",[])
     .controller("starterCtrl",["$scope","$state","$config","$wx","$alert",function($scope,$state,$config,$wx,$alert){
 
         /*$wx.redirect().then(function(result){
-            console.log(result);
             var response = result.response;
             if(response.status){
                 $config.personInfo.subscribe = response.subscribe;

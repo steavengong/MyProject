@@ -1,15 +1,41 @@
 <ion-modal-view ng-controller="ruleMamCtrl" class="bg-modal">
     <span class="icon mzc mzc-close close-modal" ng-click="closeModal(4)"></span>
-    <ion-content class="bg-light border-radius-big padding-normal" scroll="false">
+    <ion-content class="bg-light border-radius-big padding-normal-vertical padding-big-horizontal" scroll="false">
         <div class="row row-no-padding">
             <div class="col col-25">
                 <img class="img-auto" ng-src="img/logo.png">
             </div>
         </div>
-        <ion-scroll zooming="false" class="modal-scroll font-color-white font-size-normal padding-normal-horizontal" >
+        <ion-scroll zooming="false" class="modal-scroll font-color-positive font-size-small padding-big-horizontal" >
+            <img class="img-auto" ng-src="img/mzmam.jpg">
+            <div class="rule-title">
+                幸福孕育——美赞超级SHOW
+            </div>
+            <div class="rule-part">
+                怀孕的女性也应该美美哒！我们将提供孕妈一个展现自我的舞台，分享即将成为人母的欣喜！
+                尽情释放你的热情与才华，充分展现怀孕女性的独特魅力，让伟大的母爱与甜美的笑容洒满申城！
+            </div>
+            <div class="rule-part">
+                <span class="font-weight-big">时间：</span>2016年XX月XX日  上午/下午  XX：XX~XX：XX<br/>
+                <span class="font-weight-big">地点：</span>上海市XX区XX路XXX号XX楼XX室<br/>
+                <span class="font-weight-big">报名对象：</span>孕妈妈<br/>
+                <span class="font-weight-big">参与方式：</span>通过联系XXXX报名，留下您的姓名、手机号码、孕几周等信息，工作人员会联系您进行确认。<br/>
+            </div>
+            <div class="rule-part">
+                <span class="font-weight-big">A+爹地妈咪大比拼</span><br/>
+                考验你带娃技巧的时候到了！你是否是个合格的准爸准妈？参与A+爹地妈咪大比拼，看看谁是最优秀的准妈妈！<br/>
+                •	所有参赛家庭均可获得价值200元礼品<br/>
+                •	6强孕妈家庭将获赠价值500元礼品<br/>
+            </div>
+            <div class="rule-part">
+                <span class="font-weight-big">现场才艺T台秀</span><br/>
+                每个女人都有属于自己的美丽梦想，渴望绽放属于自己的独特魅力。然而对于孕妇来说，由于孕期的各种限制，很少能有机会展示自己。
+                这次，孕妈咪们把握住机会,向大家展现出什么是真正的“孕”味十足吧！<br/>
+                •	3强孕妈家庭将分别获得价值500元，800元，1000元礼品 ！<br/>
+            </div>
         </ion-scroll>
-        <div class="button-group">
-            <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-left" ng-click="goHome()">返回首页</span>
+        <div class="button-group text-center">
+            <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-center" ng-click="goHome()">返回首页</span>
         </div>
     </ion-content>
 </ion-modal-view>

@@ -84,9 +84,12 @@
     color: #002e83;
 }
 
-.font-color-gray,
-::-webkit-input-placeholder{
+.font-color-gray{
     color: #C1C1C1!important;
+}
+
+::-webkit-input-placeholder{
+    color: #AEB8DD!important;
 }
 
 /*字体大小*/

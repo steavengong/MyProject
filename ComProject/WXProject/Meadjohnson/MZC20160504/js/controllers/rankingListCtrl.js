@@ -57,7 +57,6 @@ angular.module("controllers.rankingList",[])
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
                         if(result.response){
-                            console.log(result.response);
                             var responseData = result.response.data;
                             if(responseData.rows.length>0){
                                 pageNo++;

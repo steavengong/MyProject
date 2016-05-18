@@ -17,8 +17,8 @@ angular.module("controllers.rule",[])
     }])
     .controller("ruleMamCtrl",["$scope","$state","$config","$wx","$modal",function($scope,$state,$config,$wx,$modal){
 
-        $scope.showEnjoy = function(){
+        $scope.goHome = function(){
             $modal.closeModal($config.modals.ruleMam);
-            $modal.openModal($config.modals.enjoy);
+            $state.go($config.controllers.home.name);
         }
     }])
