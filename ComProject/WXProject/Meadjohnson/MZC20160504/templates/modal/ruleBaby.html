@@ -1,12 +1,26 @@
 <ion-modal-view ng-controller="ruleBabyCtrl" class="bg-modal">
     <span class="icon mzc mzc-close close-modal" ng-click="closeModal(1)"></span>
+    <ion-content class="bg-light border-radius-big padding-normal-vertical padding-big-horizontal">
+        <div class="logo">
+            <div class="row row-no-padding">
+                <div class="col col-25">
+                    <img class="img-auto" ng-src="img/logo.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-left" ng-click="goHome()">返回首页</span>
+            <span class="font-color-white bg-positive border-radius-big padding-normal-horizontal btn-positive btn-positive-right" ng-click="showEnjoy()">我要参与</span>
+        </div>
+    </ion-content>
     <ion-content class="bg-light border-radius-big padding-normal-vertical padding-big-horizontal" scroll="false">
         <div class="row row-no-padding">
             <div class="col col-25">
                 <img class="img-auto" ng-src="img/logo.png">
             </div>
         </div>
-        <ion-scroll zooming="false" class="modal-scroll font-color-positive font-size-small padding-big-horizontal" >
+        <ion-scroll overflow-scroll="false" zooming="false" class="modal-scroll font-color-positive font-size-small padding-big-horizontal">
             <img class="img-auto" ng-src="img/mzbaby.jpg">
             <div class="rule-title">
                 幸福孕育——美赞超级SHOW
@@ -53,6 +67,7 @@
                 1.只有关注萌宝派（微信号：mengbaopai）的粉丝才可以进行投票。<br/>
                 2.在萌宝派微信服务号内回复“投票”，打开萌宝投票页面，搜索宝宝编号，即可为指定宝宝投票<br/>
                 3.每人每天（24小时）可投1票，24小时后可以继续投票，所以记得不要选错哦！<br/>
+
             </div>
         </ion-scroll>
         <div class="button-group">

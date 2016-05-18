@@ -6,7 +6,7 @@ angular.module("controllers.home",[])
         function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading,$popover){
             var itemRankPageNo = 0;
             var itemRankFlag = true;
-            var numberOfPerPage = 5;
+            var numberOfPerPage = 10;
             var itemSearchPageNo = 0;
             var itemSearchFlag = true;
             $scope.homeBoxItems = [];

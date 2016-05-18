@@ -1,5 +1,5 @@
 .mzc-popup-container .popup{
-    background-color: #E3CA8A;
+    background-color: #FFFFFF;
     border-radius: 14px;
     -webkit-border-radius: 14px;
     color: #FFFFFF;
@@ -14,6 +14,7 @@
     font-size: 16px;
     text-align: center;
     font-weight: 700;
+    color: #002e83;
 }
 
 .mzc-popup-container .popup-buttons{
