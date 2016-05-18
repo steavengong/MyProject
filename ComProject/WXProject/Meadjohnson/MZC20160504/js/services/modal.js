@@ -1,6 +1,6 @@
 angular.module("services.modal",[])
     /*模态框*/
-    .factory("$modal",["$rootScope","$ionicModal","$config",function($rootScope,$ionicModal,$config){
+    .factory("$modal",["$rootScope","$ionicModal","$config","$popover",function($rootScope,$ionicModal,$config,$popover){
         var $modal = {};
 
         $modal.init = function(modal){
@@ -17,6 +17,7 @@ angular.module("services.modal",[])
             switch(modalType){
                 case 1:
                     $modal.openModal($config.modals.ruleBaby);
+                    $popover.closePop($config.popover.rule)
                     break;
                 case 2:
                     $modal.openModal($config.modals.enjoy);
@@ -26,6 +27,7 @@ angular.module("services.modal",[])
                     break;
                 case 4:
                     $modal.openModal($config.modals.ruleMam);
+                    $popover.closePop($config.popover.rule)
                     break;
             }
         }
