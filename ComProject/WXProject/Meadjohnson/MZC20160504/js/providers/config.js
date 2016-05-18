@@ -60,11 +60,15 @@ angular.module("providers.config",[])
             voteByBallot:{
                 noAttentions:"请先关注",
                 error:"无法给自己投票",
+                success:"恭喜您，投票成功了哦！"
             },
             activityStatus:{
                 end:"活动已结束",
                 noJoin:"第二期活动开始，无法再报名",
                 hasJoin:"您已报名参加过了"
+            },
+            enjoy:{
+                notNullName:"宝宝姓名不能为空"
             }
 
         }

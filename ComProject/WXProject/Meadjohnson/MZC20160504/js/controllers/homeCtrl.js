@@ -79,9 +79,12 @@ angular.module("controllers.home",[])
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
                         var response = result.response;
-                        $alert.show(response.flag);
                         if(response.flag == "投票成功"){
                             $scope.homeBoxItems[$index].number ++;
+                            $alert.show($config.messages.voteByBallot.success);
+                        }
+                        else{
+                            $alert.show(response.flag);
                         }
                     })
             }
