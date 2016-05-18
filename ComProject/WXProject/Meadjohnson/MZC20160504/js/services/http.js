@@ -31,9 +31,11 @@ angular.module("services.http",[])
             }).then(function(result){
                 deferred.resolve(result);
                 $config.hook = false;
+                $ionicLoading.hide();
             },function(error){
                 deferred.reject(error);
                 $config.hook = false;
+                $ionicLoading.hide();
             })
             return deferred.promise;
         }
