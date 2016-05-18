@@ -120,15 +120,6 @@
     top: 0px;
 }
 
-.date-placeholder{
-    color: #999999;
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    padding: 5px 10px;
-    font-size: 14px;
-}
-
 .input-date{
     display: block;
     width: 100%;
