@@ -7,7 +7,7 @@ angular.module("controllers.enjoy",[])
 
         $scope.showRule = function(){
             $modal.closeModal($config.modals.enjoy);
-            $modal.openModal($config.modals.rule);
+            $modal.openModal($config.modals.ruleBaby);
         }
 
         $scope.goHome = function(){

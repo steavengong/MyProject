@@ -94,9 +94,13 @@ angular.module("providers.config",[])
         }
 
         $config.modals = {
-            "rule":{
-                name:"rule",
-                templateUrl:"templates/modal/rule.html"
+            "ruleBaby":{
+                name:"ruleBaby",
+                templateUrl:"templates/modal/ruleBaby.html"
+            },
+            "ruleMam":{
+                name:"ruleMam",
+                templateUrl:"templates/modal/ruleMam.html"
             },
             "enjoy":{
                 name:"enjoy",
@@ -105,6 +109,13 @@ angular.module("providers.config",[])
             "prize":{
                 name:"prize",
                 templateUrl:"templates/modal/prize.html"
+            }
+        }
+
+        $config.popover = {
+            rule:{
+                name:"rulePop",
+                templateUrl:"templates/popover/popover.html"
             }
         }
 

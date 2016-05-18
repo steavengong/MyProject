@@ -16,7 +16,7 @@ angular.module("services.modal",[])
         $rootScope.openModal = function(modalType){
             switch(modalType){
                 case 1:
-                    $modal.openModal($config.modals.rule);
+                    $modal.openModal($config.modals.ruleBaby);
                     break;
                 case 2:
                     $modal.openModal($config.modals.enjoy);
@@ -24,19 +24,25 @@ angular.module("services.modal",[])
                 case 3:
                     $modal.openModal($config.modals.prize);
                     break;
+                case 4:
+                    $modal.openModal($config.modals.ruleMam);
+                    break;
             }
         }
 
         $rootScope.closeModal = function(modalType) {
             switch (modalType) {
                 case 1:
-                    $modal.closeModal($config.modals.rule);
+                    $modal.closeModal($config.modals.ruleBaby);
                     break;
                 case 2:
                     $modal.closeModal($config.modals.enjoy);
                     break;
                 case 3:
                     $modal.closeModal($config.modals.prize);
+                    break;
+                case 4:
+                    $modal.closeModal($config.modals.ruleMam);
                     break;
             }
         }
@@ -46,8 +52,7 @@ angular.module("services.modal",[])
         }
 
         $modal.closeModal = function(modal) {
-            $rootScope[modal.name].hide();
-            $rootScope[modal.name] = null
+            $rootScope[modal.name].remove();
         };
 
 

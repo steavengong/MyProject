@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/6.
  */
 angular.module("controllers.home",[])
-    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal","$ionicLoading",
-        function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading){
+    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal","$ionicLoading","$popover",
+        function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading,$popover){
             var itemRankPageNo = 0;
             var itemRankFlag = true;
             var numberOfPerPage = 5;
