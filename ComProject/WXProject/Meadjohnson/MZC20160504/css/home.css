@@ -2,15 +2,18 @@
     margin-left: 10px;
 }
 
-.home-list{
-    position: relative;
+.masonry-brick {
+    display: none;
 }
 
-.home-box{
-    position: relative;
+.masonry-brick.loaded {
+    display: block;
     padding: 10px 0px 0px 10px;
-    float: left;
     width: 49%;
+}
+
+.home-list{
+    position: relative;
 }
 
 .home-box-body{

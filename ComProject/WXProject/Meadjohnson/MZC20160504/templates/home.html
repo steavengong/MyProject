@@ -29,9 +29,8 @@
                 搜索
             </div>
         </div>
-        <!--列表-->
-        <div class="home-list"  id="home-list">
-            <div class="home-box" ng-click="findBabyDetail(homeBoxItem.openId)" ng-repeat="homeBoxItem in homeBoxItems track by $index">
+        <div masonry>
+            <div class="masonry-brick" ng-repeat="homeBoxItem in homeBoxItems track by $index" ng-click="findBabyDetail(homeBoxItem.openId)">
                 <div class="home-box-body">
                     <div class="home-box-number">
                         <span ng-bind="homeBoxItem.photoNumber"></span>
@@ -49,9 +48,13 @@
                     <button class="button-block bg-calm border-radius-big no-bg font-color-white padding-small-vertical margin-small-bottom" type="button" ng-click="voteByBallot($event,homeBoxItem.openId,$index)">投TA一票</button>
                 </div>
             </div>
-            <div class="load-more" ng-show="hasMore()">
-                <span class="bg-positive font-color-white border-radius-big" ng-click="loadMore()">加载更多</span>
-            </div>
         </div>
+        <ion-infinite-scroll
+                on-infinite="loadMore()"
+                distance="1%"
+                immediate-check="true"
+                ng-if="noMore()"
+        >
+        </ion-infinite-scroll>
     </ion-content>
 </ion-view>

@@ -40,27 +40,39 @@ angular.module("controllers.rankingList",[])
             }
 
             $scope.rankItems = [];
-            var itemRankTotal = 0;
-            var itemPerPage = 30;
-            searchRanking();
+            var pageNo = 0;
+            var numberOfPerPage = 30;
+            var rankFlag = true;
             function searchRanking(){
-
                 var action = $config.getRequestAction();
                 var data = {
                     "cmd" : $config.cmds.searchName,
                     "parameters" : {
-                        "ranking" : 1
+                        "ranking" : 1,
+                        "numberOfPerPage":numberOfPerPage,
+                        "pageNo":pageNo
                     }
                 };
 
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
                         if(result.response){
+                            console.log(result.response);
                             var responseData = result.response.data;
                             if(responseData.rows.length>0){
-                                itemRankTotal = responseData.records;
+                                pageNo++;
                                 addRankItem(responseData.rows);
+                                $scope.$broadcast('scroll.infiniteScrollComplete');
+                                rankFlag = true;
                             }
+                            else{
+                                $scope.$broadcast('scroll.infiniteScrollComplete');
+                                rankFlag = false;
+                            }
+                        }
+                        else{
+                            $scope.$broadcast('scroll.infiniteScrollComplete');
+                            rankFlag = false;
                         }
                     })
             }
@@ -71,6 +83,15 @@ angular.module("controllers.rankingList",[])
                 }
             }
 
+            $scope.loadMore = function() {
+                if(!$config.hook){
+                    $config.hook = true;
+                    searchRanking();
+                }
+            };
 
+            $scope.noMore = function(){
+                return rankFlag;
+            }
 
         }])
