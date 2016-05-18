@@ -66,6 +66,10 @@
     -webkit-border-radius: 20px;
 }
 
+.scroll-view.overflow-scroll{
+    position: inherit;
+}
+
 .textarea-big{
     background-color: #DFF1FD;
     color: #333333;
@@ -73,9 +77,10 @@
     -webkit-border-radius: 12px;
     padding: 5px 10px;
     font-size: 14px;
-    height: 100px;
+    min-height: 100px;
     width: 100%;
     word-break: break-all;
+    /*overflow: scroll;*/
 }
 
 .photo-group{
