@@ -13,13 +13,11 @@ angular.module("providers.config",[])
 
         //$config.requestActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/cgi";
         $config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
-        //$config.requestActionDebug = "http://192.168.100.64:8090/wine-weixin-rest/cgi";
 
         $config.requestEnjoyAction = "http://weixin.mengbp.com/wine-weixin-rest/mzc/weixin/attendMzc";
 
         //$config.requestEnjoyActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/mzc/weixin/attendMzc";
         $config.requestEnjoyActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/mzc/weixin/attendMzc";
-        //$config.requestEnjoyActionDebug = "http://192.168.100.64:8090/wine-weixin-rest/mzc/weixin/attendMzc";
 
         $config.appId = "wx5bb398c959489ae4";
 
@@ -27,7 +25,8 @@ angular.module("providers.config",[])
 
         $config.indexUrl = "http://www.mengbp.com/Meadjohnson/MZC20160504/index.html";
 
-        $config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
+        //$config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
+        $config.indexUrlDebug = "http://www.mengbp.com/Meadjohnson/MZC20160504/index.html";
 
         $config.cmds = {
             isAttentions:"mzc/weixin/isAttentions", //参数：code
