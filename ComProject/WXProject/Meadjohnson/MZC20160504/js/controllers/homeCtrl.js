@@ -47,15 +47,7 @@ angular.module("controllers.home",[])
                         return ;
                     }
 
-                    if($config.personInfo.openId == openId){
-                        $alert.show($config.messages.voteByBallot.error);
-                        $config.hook = false;
-                        $ionicLoading.hide();
-                        return;
-                    }
-
                     if($config.personInfo.subscribe==0){
-                        //$alert.show($config.messages.voteByBallot.noAttentions)
                         $config.hook = false;
                         $ionicLoading.hide();
                         $modal.openModal($config.modals.qrCode);

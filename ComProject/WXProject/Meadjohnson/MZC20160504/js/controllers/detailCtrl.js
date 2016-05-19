@@ -26,13 +26,6 @@ angular.module("controllers.detail",[])
                 $state.go($config.controllers.home.name);
             }
 
-            $scope.checkOpenId = function(){
-                if($stateParams.openId == $config.personInfo.openId){
-                    return true;
-                }
-                return false;
-            }
-
             $scope.voteByBallot = function($event){
                 $event.stopPropagation();
 
@@ -47,9 +40,9 @@ angular.module("controllers.detail",[])
                     }
 
                     if($config.personInfo.subscribe==0){
-                        $alert.show($config.messages.voteByBallot.noAttentions);
                         $config.hook = false;
                         $ionicLoading.hide();
+                        $modal.openModal($config.modals.qrCode);
                     }
                     else{
                         voteByBallot()
