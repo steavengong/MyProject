@@ -29,7 +29,7 @@ angular.module("controllers.enjoy",[])
 
             $scope.enjoyObj = {
                 babyName:"",
-                dateInput:"2016/05/19",
+                dateInput:"",
                 phoneNumber:"",
                 wxNumber:"",
                 fileCu:"",

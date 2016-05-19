@@ -23,7 +23,7 @@ angular.module("providers.config",[])
 
         $config.appIdDebug = "wx03fc01e909d9a654";
 
-        $config.indexUrl = "http://www.mengbp.com/Meadjohnson/MZC20160504/index.html";
+        $config.indexUrl = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
 
         //$config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
         $config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
