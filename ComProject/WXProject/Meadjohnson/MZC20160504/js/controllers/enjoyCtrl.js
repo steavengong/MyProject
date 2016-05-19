@@ -38,7 +38,7 @@ angular.module("controllers.enjoy",[])
 
             $scope.validate = function($file){
                 if (!/image\/\w+/.test($file.type)){
-                    $alert.show($config.message.enjoy.notRexFile);
+                    $alert.show($config.messages.enjoy.notRexFile);
                     return false;
                 }
             }
@@ -75,41 +75,41 @@ angular.module("controllers.enjoy",[])
                     }
 
                     if(enjoyObj.babyName==""){
-                        $alert.show($config.message.enjoy.notNullName);
+                        $alert.show($config.messages.enjoy.notNullName);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
 
                     if(enjoyObj.dateInput==""){
-                        $alert.show($config.message.enjoy.notNullDate);
+                        $alert.show($config.messages.enjoy.notNullDate);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
 
                     if(enjoyObj.phoneNumber==""){
-                        $alert.show($config.message.enjoy.notNullPhone);
+                        $alert.show($config.messages.enjoy.notNullPhone);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
 
                     if (!/^(13\d{9})|(147\d{8})|(15[02356789]\d{8})|(17[08]\d{8})|(18[012356789]\d{8})$/.test(enjoyObj.phoneNumber)){
-                        $alert.show($config.message.enjoy.notRexPhone);
+                        $alert.show($config.messages.enjoy.notRexPhone);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return false;
                     }
 
                     if(enjoyObj.wxNumber==""){
-                        $alert.show($config.message.enjoy.notNullWX);
+                        $alert.show($config.messages.enjoy.notNullWX);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
                     if(enjoyObj.fileCu==""){
-                        $alert.show($config.message.enjoy.notNullFile);
+                        $alert.show($config.messages.enjoy.notNullFile);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;

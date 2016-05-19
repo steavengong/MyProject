@@ -1,6 +1,10 @@
 <ion-view class="bg-main">
     <a class="fixed-button-right border-radius-round"  ng-click="backToTop('homeTop')"><span class="icon mzc mzc-back-to-top"></span></a>
     <ion-content>
+        <ion-refresher
+                pulling-text="下来刷新"
+                on-refresh="doRefresh()">
+        </ion-refresher>
         <!--头部广告部分-->
         <div id="homeTop"><img class="img-auto" ng-src="img/head.jpg"></div>
         <!--模块按钮-->

@@ -70,9 +70,12 @@ angular.module("controllers.detail",[])
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
                         var response = result.response;
-                        $alert.show(response.flag);
                         if(response.flag == "投票成功"){
                             $scope.detailObj.number ++;
+                            $alert.show($config.messages.voteByBallot.success);
+                        }
+                        else{
+                            $alert.show(response.flag);
                         }
                     })
             }
@@ -87,6 +90,12 @@ angular.module("controllers.detail",[])
                     }
                 }
                 return false;
+            }
+
+            $scope.doRefresh = function(){
+                $scope.$broadcast('scroll.refreshComplete');
+                $ionicLoading.show();
+                findBabyDetail();
             }
 
         }])

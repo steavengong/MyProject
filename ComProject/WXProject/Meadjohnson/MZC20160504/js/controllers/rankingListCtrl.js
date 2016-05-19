@@ -93,4 +93,11 @@ angular.module("controllers.rankingList",[])
                 return rankFlag;
             }
 
+            $scope.doRefresh = function(){
+                $scope.$broadcast('scroll.refreshComplete');
+                $ionicLoading.show();
+                findBabyDetail();
+                searchRanking();
+            }
+
         }])

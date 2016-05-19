@@ -15,7 +15,7 @@ angular.module("controllers.home",[])
             var rankFlag = true;
             var searchName = "";
 
-            //$ionicLoading.show();
+            $ionicLoading.show();
 
             $scope.showPage = function(){
                 $state.go($config.controllers.rankingList.name);
@@ -220,5 +220,21 @@ angular.module("controllers.home",[])
                     }
                 }
             };
+
+            $scope.doRefresh = function(){
+                $scope.$broadcast('scroll.refreshComplete');
+                itemRankPageNo = 0;
+                itemRankFlag = true;
+                itemSearchPageNo = 0;
+                itemSearchFlag = true;
+                $scope.homeBoxItems = [];
+                cacheRankBoxItems = [];
+                cacheSearchBoxItems = [];
+                rankFlag = true;
+                searchName = "";
+                $scope.$$childTail.searchFor = "";
+                $ionicLoading.show();
+                initList();
+            }
 
         }])
