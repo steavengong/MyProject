@@ -68,7 +68,14 @@ angular.module("providers.config",[])
                 hasJoin:"您已报名参加过了"
             },
             enjoy:{
-                notNullName:"宝宝姓名不能为空"
+                notNullName:"宝宝姓名不能为空",
+                notNullDate:"宝宝生日不能为空",
+                notNullPhone:"手机号不能为空",
+                notRexPhone:"手机号格式不正确",
+                notNullWX:"微信号不能为空",
+                notNullFile:"参赛图片不能少",
+                notRexFile:"图片格式错误",
+                notNullRemark:"简介不能为空",
             }
 
         }

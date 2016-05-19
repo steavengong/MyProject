@@ -29,7 +29,7 @@ angular.module("controllers.enjoy",[])
 
             $scope.enjoyObj = {
                 babyName:"",
-                dateInput:"",
+                dateInput:"2016/05/19",
                 phoneNumber:"",
                 wxNumber:"",
                 fileCu:"",
@@ -38,13 +38,10 @@ angular.module("controllers.enjoy",[])
 
             $scope.validate = function($file){
                 if (!/image\/\w+/.test($file.type)){
-                    $alert.show("图片格式错误");
+                    $alert.show($config.message.enjoy.notRexFile);
                     return false;
                 }
             }
-
-
-
 
             $scope.submitEnjoy = function(enjoyObj){
                 if(!$config.hook){
@@ -78,39 +75,47 @@ angular.module("controllers.enjoy",[])
                     }
 
                     if(enjoyObj.babyName==""){
-                        $alert.show("宝宝姓名不能为空");
+                        $alert.show($config.message.enjoy.notNullName);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
 
                     if(enjoyObj.dateInput==""){
-                        $alert.show("宝宝生日不能为空");
+                        $alert.show($config.message.enjoy.notNullDate);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
 
                     if(enjoyObj.phoneNumber==""){
-                        $alert.show("手机号不能为空");
+                        $alert.show($config.message.enjoy.notNullPhone);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
+
+                    if (!/^(13\d{9})|(147\d{8})|(15[02356789]\d{8})|(17[08]\d{8})|(18[012356789]\d{8})$/.test(enjoyObj.phoneNumber)){
+                        $alert.show($config.message.enjoy.notRexPhone);
+                        $config.hook = false;
+                        $ionicLoading.hide();
+                        return false;
+                    }
+
                     if(enjoyObj.wxNumber==""){
-                        $alert.show("微信号不能为空");
+                        $alert.show($config.message.enjoy.notNullWX);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
                     if(enjoyObj.fileCu==""){
-                        $alert.show("参赛图片不能少");
+                        $alert.show($config.message.enjoy.notNullFile);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
                     }
                     if(enjoyObj.remark==""){
-                        $alert.show("简介不能为空");
+                        $alert.show($config.message.enjoy.notNullRemark);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;
