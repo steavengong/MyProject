@@ -26,7 +26,7 @@
         <div class="row padding-small-horizontal padding-big-vertical">
             <div class="col-80 item-input padding-none border-radius-big border-style-solid border-color-balance border-width-normal bg-light">
                 <i class="icon mzc mzc-search font-color-balance padding-small-horizontal"></i>
-                <input class="inout-auto font-color-normal" type="text" placeholder="请输入参赛者姓名或编号进行投票" ng-model="searchFor">
+                <input class="inout-auto font-color-normal" type="text" placeholder="请输入参赛者姓名或编号进行投票" ng-model="searchFor" ng-change="changeSearch(searchFor)">
                 <i ng-if="searchFor!=''" class="icon ion-close-circled padding-small-horizontal font-color-balance" ng-click="cleanSearch()"></i>
             </div>
             <div class="col text-center bg-balance font-color-white border-radius-big margin-normal-left" ng-click="search(searchFor)">

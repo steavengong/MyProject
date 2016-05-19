@@ -55,9 +55,10 @@ angular.module("controllers.home",[])
                     }
 
                     if($config.personInfo.subscribe==0){
-                        $alert.show($config.messages.voteByBallot.noAttentions)
+                        //$alert.show($config.messages.voteByBallot.noAttentions)
                         $config.hook = false;
                         $ionicLoading.hide();
+                        $modal.openModal($config.modals.qrCode);
                     }
                     else{
                         voteByBallot(openId,$index)
@@ -235,6 +236,13 @@ angular.module("controllers.home",[])
                 $scope.$$childTail.searchFor = "";
                 $ionicLoading.show();
                 initList();
+            }
+
+            $scope.changeSearch = function(searchFor){
+                if(!searchFor){
+                    rankFlag = true;
+                    $scope.homeBoxItems = cacheRankBoxItems;
+                }
             }
 
         }])

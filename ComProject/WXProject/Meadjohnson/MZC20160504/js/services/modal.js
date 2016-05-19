@@ -29,6 +29,9 @@ angular.module("services.modal",[])
                     $modal.openModal($config.modals.ruleMam);
                     $popover.closePop($config.popover.rule)
                     break;
+                case 5:
+                    $modal.openModal($config.modals.qrCode);
+                    break;
             }
         }
 
@@ -45,6 +48,9 @@ angular.module("services.modal",[])
                     break;
                 case 4:
                     $modal.closeModal($config.modals.ruleMam);
+                    break;
+                case 5:
+                    $modal.closeModal($config.modals.qrCode);
                     break;
             }
         }

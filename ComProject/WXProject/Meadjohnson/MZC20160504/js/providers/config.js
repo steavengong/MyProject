@@ -11,14 +11,14 @@ angular.module("providers.config",[])
 
         $config.requestAction = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
 
-        $config.requestActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/cgi";
-        //$config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
+        //$config.requestActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/cgi";
+        $config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
         //$config.requestActionDebug = "http://192.168.100.64:8090/wine-weixin-rest/cgi";
 
         $config.requestEnjoyAction = "http://weixin.mengbp.com/wine-weixin-rest/mzc/weixin/attendMzc";
 
-        $config.requestEnjoyActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/mzc/weixin/attendMzc";
-        //$config.requestEnjoyActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/mzc/weixin/attendMzc";
+        //$config.requestEnjoyActionDebug = "http://192.168.100.228:8081/wine-weixin-rest/mzc/weixin/attendMzc";
+        $config.requestEnjoyActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/mzc/weixin/attendMzc";
         //$config.requestEnjoyActionDebug = "http://192.168.100.64:8090/wine-weixin-rest/mzc/weixin/attendMzc";
 
         $config.appId = "wx5bb398c959489ae4";
@@ -45,8 +45,8 @@ angular.module("providers.config",[])
         }
 
         $config.personInfo = {
-            subscribe:1,
-            isJoin:0,
+            subscribe:0,
+            isJoin:1,
             openId:"osFl-s9U62wClHjqywSNyFIy-Inc",
             status:0,
             isDeadline:1
@@ -100,7 +100,6 @@ angular.module("providers.config",[])
                 templateUrl:"templates/detail.html",
                 ctrl:"detailCtrl",
                 cache:false
-
             }
         }
 
@@ -120,6 +119,11 @@ angular.module("providers.config",[])
             "prize":{
                 name:"prize",
                 templateUrl:"templates/modal/prize.html"
+            },
+            "qrCode":{
+                name:"qrCode",
+                templateUrl:"templates/modal/qrCode.html",
+                animation:"none"
             }
         }
 
