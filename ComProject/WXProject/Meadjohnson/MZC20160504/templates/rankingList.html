@@ -76,7 +76,7 @@
                 </div>
             </ion-item>
         </ion-list>
-        <div ng-if="pageTotal != (0||1)" class="page-list">
+        <div ng-if="pageTotal > 1" class="page-list">
             <ul class="pagination">
                 <li ng-click="prePage()"><span>«</span></li>
                 <li ng-class="{true: 'active', false: ''}[checkActive(item)]" ng-repeat="item in pageItems track by $index" ng-if="item <= pageTotal" ng-click="searchByItem(item)"><span ng-bind="item"></span></li>
