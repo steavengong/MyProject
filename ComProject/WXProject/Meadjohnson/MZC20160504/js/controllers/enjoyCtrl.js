@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("controllers.enjoy",[])
-    .controller("enjoyCtrl",["$scope","$state","$config","$wx","$modal","$timeout","Upload","$alert","$httpServices","$ionicLoading",
-        function($scope,$state,$config,$wx,$modal,$timeout,Upload,$alert,$httpServices,$ionicLoading){
+    .controller("enjoyCtrl",["$scope","$state","$config","$wx","$modal","$timeout","Upload","$alert","$httpServices","$ionicLoading","$ionicScrollDelegate",
+        function($scope,$state,$config,$wx,$modal,$timeout,Upload,$alert,$httpServices,$ionicLoading,$ionicScrollDelegate){
 
             $scope.showRule = function(){
                 $modal.closeModal($config.modals.enjoy);
@@ -41,6 +41,12 @@ angular.module("controllers.enjoy",[])
                     $alert.show($config.messages.enjoy.notRexFile);
                     return false;
                 }
+            }
+
+            $scope.changeFocus = function(){
+                $timeout(function(){
+                    $ionicScrollDelegate.$getByHandle("enjoyHandle").resize();
+                })
             }
 
             $scope.submitEnjoy = function(enjoyObj){
