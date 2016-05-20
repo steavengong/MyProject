@@ -25,8 +25,8 @@ angular.module("providers.config",[])
 
         $config.indexUrl = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
 
-        //$config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
-        $config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
+        $config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
+        //$config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
 
         $config.cmds = {
             isAttentions:"mzc/weixin/isAttentions", //参数：code
