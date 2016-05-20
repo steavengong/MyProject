@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/6.
  */
 angular.module("controllers.rankingList",[])
-    .controller("rankingListCtrl",["$scope","$ionicScrollDelegate","$location","$ionicHistory","$httpServices","$config","$modal","$ionicLoading","$timeout",
-        function($scope,$ionicScrollDelegate,$location,$ionicHistory,$httpServices,$config,$modal,$ionicLoading,$timeout){
+    .controller("rankingListCtrl",["$scope","$ionicScrollDelegate","$location","$ionicHistory","$httpServices","$config","$modal","$ionicLoading","$timeout","$state",
+        function($scope,$ionicScrollDelegate,$location,$ionicHistory,$httpServices,$config,$modal,$ionicLoading,$timeout,$state){
             $ionicLoading.show();
             $scope.backToTop = function(hashId){
                 if ($location.hash() !== hashId) {
@@ -153,6 +153,9 @@ angular.module("controllers.rankingList",[])
                 $scope.$broadcast('scroll.refreshComplete');
             }
 
+            $scope.findBabyDetail = function(){
+                $state.go($config.controllers.detail.name,{"openId":$config.personInfo.openId});
+            }
 
 
         }])

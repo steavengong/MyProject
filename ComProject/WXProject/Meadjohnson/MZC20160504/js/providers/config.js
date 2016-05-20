@@ -45,7 +45,7 @@ angular.module("providers.config",[])
 
         $config.personInfo = {
             subscribe:1,
-            isJoin:0,
+            isJoin:1,
             openId:"osFl-s9U62wClHjqywSNyFIy-Inc",
             status:0,
             isDeadline:1
