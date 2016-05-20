@@ -62,7 +62,7 @@
                 <div class="row row-no-padding row-font-size text-center">
                     <div class="col text-left">
                         <span class="icon mzc mzc-heart font-color-red font-size-small padding-small-right"></span>
-                        <span class="font-color-positive" ng-bind="$index + 1"></span>
+                        <span class="font-color-positive" ng-bind="getRank($index)"></span>
                     </div>
                     <div class="col">
                         <span class="font-color-positive" ng-bind="item.babyNick"></span>
@@ -76,12 +76,12 @@
                 </div>
             </ion-item>
         </ion-list>
-        <ion-infinite-scroll
-                on-infinite="loadMore()"
-                distance="1%"
-                immediate-check="true"
-                ng-if="noMore()"
-        >
-        </ion-infinite-scroll>
+        <div ng-if="pageTotal != (0||1)" class="page-list">
+            <ul class="pagination">
+                <li ng-click="prePage()"><span>«</span></li>
+                <li ng-class="{true: 'active', false: ''}[checkActive(item)]" ng-repeat="item in pageItems track by $index" ng-if="item <= pageTotal" ng-click="searchByItem(item)"><span ng-bind="item"></span></li>
+                <li ng-click="nextPage()"><span>»</span></li>
+            </ul>
+        </div>
     </ion-content>
 </ion-view>

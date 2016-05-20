@@ -28,3 +28,35 @@
 .rank-list .item>a.activated{
     background-color: #FFFFFF;
 }
+
+/*pagelist*/
+.page-list{
+    position: relative;
+}
+.page-list .pagination
+{
+    padding-left: 0;
+    margin: 20px 0px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px;
+}
+.pagination>li {
+    display: inline;
+}
+
+.pagination>li>span{
+    color:#3D9CEE;
+    padding: 0px 5px;
+}
+.pagination>li:first-child>span,
+.pagination>li:last-child>span{
+    color:#053285;
+}
+.pagination>li.active>span{
+    color:#FF4E72;
+}
+
+.page-list .page-total {
+    display: none;
+}
