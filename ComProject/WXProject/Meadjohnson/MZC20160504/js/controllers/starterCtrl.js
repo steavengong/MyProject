@@ -7,7 +7,6 @@ angular.module("controllers.starter",[])
         $wx.redirect().then(function(result){
             var response = result.response;
             if(response.status){
-                console.log(response);
                 $config.personInfo.subscribe = response.subscribe;
                 $config.personInfo.openId = response.openid;
                 $config.personInfo.isJoin = response.isJoin;//0
