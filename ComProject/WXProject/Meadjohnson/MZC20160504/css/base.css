@@ -245,6 +245,10 @@
     border-radius: 14px;
 }
 
+.border-radius-lager{
+    border-radius: 20px;
+}
+
 .border-radius-round-left-top{
     border-top-left-radius: 50%;
     -webkit-border-top-left-radius: 50%;
