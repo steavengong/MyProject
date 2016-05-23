@@ -27,5 +27,4 @@ angular.module("controllers.starter",[])
         })
 
         //$state.go($config.controllers.home.name);
-
     }])

@@ -37,10 +37,24 @@ angular.module("providers.config",[])
         }
 
         $config.shareObject = {
-            shareTitle : "Test",
-            shareDescription : "Test",
-            shareImageUrl : "",
-            shareLinkUrl : ""
+            shareTitle : "我家萌宝肿么辣么可爱o(〃'▽'〃)o",
+            shareDescription : "参与美赞臣宝宝SHOW，晒出你家最可爱软萌的新生宝宝，丰富奖品收到手软！",
+            shareImageUrl : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/img/share.jpg",
+            shareImageUrlDebug : "http://192.168.100.67:8080/MZC/img/share.jpg",
+            shareLinkUrl : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html",
+            shareLinkUrlDebug : "http://192.168.100.67:8080/MZC/index.html",
+            getShareImageUrl : function(){
+                if($config.debug){
+                    return $config.shareObject.shareImageUrlDebug
+                }
+                return $config.shareObject.shareImageUrl
+            },
+            getShareUrl: function(){
+                if($config.debug){
+                    return $config.shareObject.shareLinkUrlDebug
+                }
+                return $config.shareObject.shareLinkUrl
+            }
         }
 
         $config.personInfo = {
