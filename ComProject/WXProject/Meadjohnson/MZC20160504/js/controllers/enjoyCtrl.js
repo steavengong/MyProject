@@ -43,11 +43,6 @@ angular.module("controllers.enjoy",[])
                 }
             }
 
-            $scope.changeFocus = function(){
-                $timeout(function(){
-                    $ionicScrollDelegate.$getByHandle("enjoyHandle").resize();
-                })
-            }
 
             $scope.submitEnjoy = function(enjoyObj){
                 if(!$config.hook){
