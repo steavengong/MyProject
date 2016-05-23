@@ -11,13 +11,17 @@ angular.module("controllers.starter",[])
                 $config.personInfo.openId = response.openid;
                 $config.personInfo.isJoin = response.isJoin;//0
                 $config.personInfo.isDeadline = response.isDeadline;//1
-                /*$wx.setWXSign().then(function(){
+                $wx.setWXSign().then(function(){
+                    if($config.personInfo.isDeadline==3){
+                        $alert.show($config.messages.activityStatus.end);
+                    }
                     $state.go($config.controllers.home.name);
-                })*/
-                if($config.personInfo.isDeadline==3){
-                    $alert.show($config.messages.activityStatus.end);
-                }
-                $state.go($config.controllers.home.name);
+                },function(){
+                    if($config.personInfo.isDeadline==3){
+                        $alert.show($config.messages.activityStatus.end);
+                    }
+                    $state.go($config.controllers.home.name);
+                })
             }
             else{
                 $wx.initCode();
@@ -27,4 +31,5 @@ angular.module("controllers.starter",[])
         })
 
         //$state.go($config.controllers.home.name);
+
     }])

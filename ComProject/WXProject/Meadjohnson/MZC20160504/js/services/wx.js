@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("services.wx",[])
-    .service("$wx",["$window","$config","$httpServices","$q",function($window,$config,$httpServices,$q){
+    .service("$wx",["$window","$config","$httpServices","$q","$location",function($window,$config,$httpServices,$q,$location){
         var $wx = {}
 
         $wx.redirect = function(){
@@ -26,9 +26,10 @@ angular.module("services.wx",[])
             var data = {
                 "cmd" : $config.cmds.setWXSign,
                 "parameters" : {
-                    "url" : $config.getIndexUrl()
+                    "url" : $location.absUrl().split("#")[0]
                 }
             };
+            console.log(data);
 
             $httpServices.getJsonFromPost(action,data)
                 .then(function(result){
@@ -52,7 +53,7 @@ angular.module("services.wx",[])
                                     "onMenuShareAppMessage",
                                     "onMenuShareQQ", "onMenuShareWeibo","showMenuItems","hideMenuItems"]
                             });
-                            $wx.shareItems($config.shareObject.shareTitle,$config.shareObject.shareDescription,$config.shareObject.shareLinkUrl,$config.shareObject.shareImageUrl);
+                            $wx.shareItems($config.shareObject.shareTitle,$config.shareObject.shareDescription,$config.shareObject.getShareUrl(),$config.shareObject.getShareImageUrl());
                             deferred.resolve();
 
                         });
