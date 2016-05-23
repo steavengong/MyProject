@@ -6,7 +6,7 @@ angular.module("controllers.home",[])
         function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading,$popover){
             var itemRankPageNo = 0;
             var itemRankFlag = true;
-            var numberOfPerPage = 10;
+            var numberOfPerPage = 1;
             var itemSearchPageNo = 0;
             var itemSearchFlag = true;
             $scope.homeBoxItems = [];
@@ -95,12 +95,18 @@ angular.module("controllers.home",[])
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
                         if(result.response){
+                            console.log(result.response);
                             var responseData = result.response.data;
                             if(responseData.rows.length>0){
                                 itemRankPageNo++;
                                 addRankItem(responseData.rows);
                                 $scope.$broadcast('scroll.infiniteScrollComplete');
-                                itemRankFlag = true;
+                                if($config.personInfo.isDeadline==1){
+                                    itemRankFlag = true;
+                                }
+                                else{
+                                    itemRankFlag = false;
+                                }
                             }
                             else{
                                 $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -149,12 +155,19 @@ angular.module("controllers.home",[])
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
                         if(result.response){
+                            console.log(result.response);
                             var responseData = result.response.data;
                             if(responseData.rows.length>0){
                                 itemSearchPageNo++;
                                 addSearchItem(responseData.rows);
                                 $scope.$broadcast('scroll.infiniteScrollComplete');
-                                itemSearchFlag = true;
+                                if($config.personInfo.isDeadline==1){
+                                    itemSearchFlag = true;
+                                }
+                                else{
+                                    itemSearchFlag = false;
+                                }
+
                             }
                             else{
                                 $alert.show($config.messages.search.noFound);

@@ -18,6 +18,7 @@ angular.module("controllers.detail",[])
                 };
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
+                        console.log(result.response)
                         $scope.detailObj = result.response;
                     })
             }
@@ -89,6 +90,13 @@ angular.module("controllers.detail",[])
                 $scope.$broadcast('scroll.refreshComplete');
                 $ionicLoading.show();
                 findBabyDetail();
+            }
+
+            $scope.checkEdit = function(){
+                if($config.personInfo.isDeadline==2 && $config.personInfo.openId==$stateParams.openId){
+                    return true
+                }
+                return false;
             }
 
         }])
