@@ -7,13 +7,12 @@
     <title>二手市场</title>
     <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/base.css">
-    <script type="application/javascript" src="../../lib/jquery/js/jquery.min.js"></script>
-    <script type="application/javascript" src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../css/tabs/tabs.css">
+
 </head>
 <body>
 <div>
 
-    <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
         <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
@@ -21,7 +20,6 @@
         <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
     </ul>
 
-    <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">1</div>
         <div role="tabpanel" class="tab-pane" id="profile">2</div>
@@ -29,12 +27,15 @@
         <div role="tabpanel" class="tab-pane" id="settings">4</div>
     </div>
 
-    <script>
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            e.target // newly activated tab
-            e.relatedTarget // previous active tab
-        })
-    </script>
+
+
 </div>
+
+<script type="text/javascript" src="../../lib/jquery/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/base.js"></script>
+<script type="text/javascript">
+    require(["tabs/tabs"]);
+</script>
 </body>
 </html>
