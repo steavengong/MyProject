@@ -2,3 +2,5 @@
 .idea/
 TestProject/
 Bower/
+JavaScriptLibrary/
+.gitignore
