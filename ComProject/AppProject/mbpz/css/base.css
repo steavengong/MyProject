@@ -36,6 +36,27 @@
     box-shadow: 0 -5px 5px rgba(0,0,0,.1);
 }
 
+/*边框圆角*/
+.border-radius-normal{
+    border-radius: 10px;
+}
+
+.border-radius-small{
+    border-radius: 5px;
+}
+
+.border-radius-big{
+    border-radius: 15px;
+}
+
+.border-radius-large{
+    border-radius: 20px;
+}
+
+.border-radius-round{
+    border-radius: 50%;
+}
+
 /*字体颜色*/
 .font-color-normal{
     color: #666666;

@@ -1,3 +1,47 @@
 .mui-tab-item{
     color: #666666!important;
 }
+
+.mui-tab-item.mui-active{
+    color: #FF4E72!important;
+}
+
+.mui-tab-item-center{
+    display:table-cell;
+    width:1%;
+    height:50px;
+    text-align:center;
+    vertical-align:middle;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    color: #FF4E72!important;
+    position: relative;
+}
+
+.mui-tab-item-center .mui-icon{
+    position: absolute;
+    display: block;
+    width: 48px;
+    height: 48px;
+    font-size: 48px;
+    padding: 0px;
+    top: -20px;
+    left: calc(50% - 24px);
+    left: -webkit-calc(50% - 24px);
+}
+
+.mui-tab-item-center:active .mui-icon{
+    opacity: 1!important;
+}
+
+
+.mui-tab-item-center .mui-tab-label{
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 2px;
+}
