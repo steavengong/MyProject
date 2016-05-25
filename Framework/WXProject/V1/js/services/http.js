@@ -9,7 +9,7 @@ angular.module("services.http",[])
 
         $httpServices.getJsonFromPost = function(action,data){
             var deferred = $q.defer();
-            $http.post(action,data)
+            $http.jsonp(action,data)
                 .success(function(result){
                     deferred.resolve(result);
                 })
