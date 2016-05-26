@@ -151,6 +151,8 @@ angular.module("providers.config",[])
             }
         }
 
+        $config.numberOfPage = 30;
+
         $config.getIndexUrl = function(){
             if(this.debug){
                 return  this.indexUrlDebug;

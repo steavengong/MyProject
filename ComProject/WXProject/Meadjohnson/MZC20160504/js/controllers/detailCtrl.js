@@ -20,7 +20,6 @@ angular.module("controllers.detail",[])
                     .then(function(result){
                         $console("detailCtrl findBabyDetail =======");
                         $console(result);
-                        $console(result);
                         $scope.detailObj = result.response;
                         $rootScope.rank = $scope.detailObj.rank;
                     })
@@ -101,10 +100,8 @@ angular.module("controllers.detail",[])
                 })
             }
 
-            var numberOfPage = 2
-
             $scope.checkEdit = function(){
-                if($scope.detailObj!=undefined && $scope.detailObj!=null && $config.personInfo.isDeadline!=1 && $config.personInfo.openId==$stateParams.openId && $scope.detailObj.rank <= numberOfPage && $scope.detailObj.updateTime==null){
+                if($scope.detailObj!=undefined && $scope.detailObj!=null && $config.personInfo.isDeadline!=1 && $config.personInfo.openId==$stateParams.openId && $scope.detailObj.rank <= $config.numberOfPage && $scope.detailObj.updateTime==null){
                     return true;
                 }
                 return false;

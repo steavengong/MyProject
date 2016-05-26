@@ -28,7 +28,7 @@ angular.module("controllers.rankingList",[])
                 };
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
-                        $console("rankCtrl findBabyDetail =======");
+                        $console("detailCtrl voteByBallot =======");
                         $console(result);
                         $scope.detailObj = result.response;
                     })
@@ -44,7 +44,6 @@ angular.module("controllers.rankingList",[])
             $scope.rankItems = [];
             $scope.pageItems = [];
             var pageNo = 0;
-            var numberOfPerPage = 1;
             var countTotal = 0;
             $scope.pageTotal = 0;
             var itemPerPage = 6;
@@ -57,21 +56,21 @@ angular.module("controllers.rankingList",[])
                     "cmd" : $config.cmds.searchName,
                     "parameters" : {
                         "ranking" : 1,
-                        "numberOfPerPage":numberOfPerPage,
+                        "numberOfPerPage":$config.numberOfPage,
                         "pageNo":pageNo
                     }
                 };
 
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
-                        $console("rankCtrl searchRanking =======");
+                        $console("detailCtrl searchRanking =======");
                         $console(result);
                         if(result.response){
                             var responseData = result.response.data;
                             pageNo = responseData.page;
                             countTotal = responseData.records;
                             $scope.rankItems = responseData.rows;
-                            $scope.pageTotal = countTotal % numberOfPerPage == 0 ? countTotal / numberOfPerPage : (Math.floor(countTotal / numberOfPerPage)) + 1;
+                            $scope.pageTotal = countTotal % $config.numberOfPage == 0 ? countTotal / $config.numberOfPage : (Math.floor(countTotal / $config.numberOfPage)) + 1;
                             pagePages = $scope.pageTotal % itemPerPage == 0 ? $scope.pageTotal / itemPerPage : (Math.floor($scope.pageTotal / itemPerPage)) + 1;
                             checkPageGroup();
                         }
@@ -117,15 +116,13 @@ angular.module("controllers.rankingList",[])
                     "cmd" : $config.cmds.searchName,
                     "parameters" : {
                         "ranking" : 1,
-                        "numberOfPerPage":numberOfPerPage,
+                        "numberOfPerPage":$config.numberOfPage,
                         "pageNo":item-1
                     }
                 };
 
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
-                        $console("rankCtrl searchByItem =======");
-                        $console(result);
                         if(result.response){
                             var responseData = result.response.data;
                             pageNo = responseData.page;
@@ -139,7 +136,7 @@ angular.module("controllers.rankingList",[])
             }
 
             $scope.getRank = function(index){
-                return (pageNo-1) * numberOfPerPage + index + 1;
+                return (pageNo-1) * $config.numberOfPage + index + 1;
             }
 
 

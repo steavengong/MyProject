@@ -6,7 +6,6 @@ angular.module("controllers.home",[])
         function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading,$popover,$console){
             var itemRankPageNo = 0;
             var itemRankFlag = true;
-            var numberOfPerPage = 1;
             var itemSearchPageNo = 0;
             var itemSearchFlag = true;
             $scope.homeBoxItems = [];
@@ -90,7 +89,7 @@ angular.module("controllers.home",[])
                     "cmd" : $config.cmds.searchName,
                     "parameters" : {
                         "ranking" : 0,
-                        "numberOfPerPage":numberOfPerPage,
+                        "numberOfPerPage":$config.numberOfPage,
                         "pageNo":itemRankPageNo
                     }
                 };
@@ -150,7 +149,7 @@ angular.module("controllers.home",[])
                     "parameters" : {
                         "searchName" : searchBy,
                         "ranking" : 0,
-                        "numberOfPerPage":numberOfPerPage,
+                        "numberOfPerPage":$config.numberOfPage,
                         "pageNo":itemSearchPageNo
                     }
                 };
