@@ -24,7 +24,7 @@ angular.module("controllers.edit",[])
                 $config.hook = true;
                 $ionicLoading.show();
 
-                if(fileCu==""){
+                if(fileCu==undefined || fileCu==null || fileCu==""){
                     $alert.show($config.messages.enjoy.notNullFile);
                     $config.hook = false;
                     $ionicLoading.hide();
