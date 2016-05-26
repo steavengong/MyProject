@@ -3,7 +3,6 @@
  */
 angular.module("controllers.prize",[])
     .controller("prizeCtrl",["$scope","$state","$config","$wx","$modal",function($scope,$state,$config,$wx,$modal){
-
             console.log("prize");
 
     }])

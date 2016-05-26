@@ -1,0 +1,28 @@
+<ion-modal-view ng-controller="editCtrl" class="bg-modal">
+    <span class="icon mzc mzc-close close-modal close-edit" ng-click="closeModal(6)"></span>
+    <ion-content class="bg-light border-radius-big padding-normal-vertical padding-big-horizontal edit-content" scroll="false">
+        <div class="row row-no-padding">
+            <div class="col col-25">
+                <img class="img-auto" ng-src="img/logo.png">
+            </div>
+        </div>
+        <div class="text-center font-color-positive font-weight-big">更换图片</div>
+        <div class="row">
+            <div class="col-33 padding-normal-left col-top font-color-positive font-weight-big">
+                参赛照片
+            </div>
+            <div class="col col-top padding-normal-right">
+                <div class="photo-group" ng-class="{true:'active',false:''}[hasFile]">
+                    <div class="bg-file" ngf-background="fileCu | ngfDataUrl">
+                    </div>
+                    <div class="input-file" ngf-select ngf-keep="false" ngf-accept="'image/*'" ngf-validate-fn="validate($file)"  ngf-change="getChangFile($file)"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-normal-top font-color-white">
+            <div class="col col-80 col-offset-10">
+                <div class="bg-positive-reversal text-center border-radius-big padding-small-vertical" ng-click="submitEdit(fileCu)">更换图片</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

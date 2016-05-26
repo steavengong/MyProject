@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/6.
  */
 angular.module("controllers.home",[])
-    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal","$ionicLoading","$popover",
-        function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading,$popover){
+    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal","$ionicLoading","$popover","$console",
+        function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading,$popover,$console){
             var itemRankPageNo = 0;
             var itemRankFlag = true;
             var numberOfPerPage = 1;
@@ -71,6 +71,8 @@ angular.module("controllers.home",[])
 
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
+                        $console("homeCtrl voteByBallot =======");
+                        $console(result);
                         var response = result.response;
                         if(response.flag == "投票成功"){
                             $scope.homeBoxItems[$index].number ++;
@@ -94,8 +96,9 @@ angular.module("controllers.home",[])
                 };
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
+                        $console("homeCtrl searchName initList =======");
+                        $console(result);
                         if(result.response){
-                            console.log(result.response);
                             var responseData = result.response.data;
                             if(responseData.rows.length>0){
                                 itemRankPageNo++;
@@ -154,8 +157,9 @@ angular.module("controllers.home",[])
 
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
+                        $console("homeCtrl searchName searchFor =======");
+                        $console(result);
                         if(result.response){
-                            console.log(result.response);
                             var responseData = result.response.data;
                             if(responseData.rows.length>0){
                                 itemSearchPageNo++;

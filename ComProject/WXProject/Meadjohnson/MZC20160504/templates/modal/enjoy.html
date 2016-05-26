@@ -48,7 +48,7 @@
                     参赛照片
                 </div>
                 <div class="col col-top padding-normal-right">
-                    <div class="photo-group">
+                    <div class="photo-group" ng-class="{true:'active',false:''}[hasFile]">
                         <div class="bg-file" ngf-background="enjoyObj.fileCu | ngfDataUrl">
                         </div>
                         <div class="input-file" ngf-select ngf-keep="false" ngf-accept="'image/*'" ngf-validate-fn="validate($file)"  ngf-change="getChangFile($file)"></div>

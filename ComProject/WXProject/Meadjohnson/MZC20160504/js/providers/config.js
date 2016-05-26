@@ -11,12 +11,12 @@ angular.module("providers.config",[])
 
         $config.requestAction = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
 
-        //$config.requestActionDebug = "http://192.168.100.74:8081/wine-weixin-rest/cgi";
+        //$config.requestActionDebug = "http://192.168.100.80:8081/wine-weixin-rest/cgi";
         $config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
 
         $config.requestEnjoyAction = "http://weixin.mengbp.com/wine-weixin-rest/mzc/weixin/attendMzc";
 
-        //$config.requestEnjoyActionDebug = "http://192.168.100.74:8081/wine-weixin-rest/mzc/weixin/attendMzc";
+        //$config.requestEnjoyActionDebug = "http://192.168.100.80:8081/wine-weixin-rest/mzc/weixin/attendMzc";
         $config.requestEnjoyActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/mzc/weixin/attendMzc";
 
         $config.appId = "wx5bb398c959489ae4";
@@ -25,8 +25,8 @@ angular.module("providers.config",[])
 
         $config.indexUrl = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
 
-        //$config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
-        $config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
+        $config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
+        //$config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
 
         $config.cmds = {
             isAttentions:"mzc/weixin/isAttentions", //参数：code
@@ -59,7 +59,7 @@ angular.module("providers.config",[])
 
         $config.personInfo = {
             subscribe:1,
-            isJoin:1,
+            isJoin:0,
             openId:"osFl-s9U62wClHjqywSNyFIy-Inc",
             status:0,
             isDeadline:1
@@ -137,6 +137,10 @@ angular.module("providers.config",[])
                 name:"qrCode",
                 templateUrl:"templates/modal/qrCode.html",
                 animation:"none"
+            },
+            "edit":{
+                name:"edit",
+                templateUrl:"templates/modal/edit.html"
             }
         }
 

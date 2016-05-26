@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/6.
  */
 angular.module("controllers.rankingList",[])
-    .controller("rankingListCtrl",["$scope","$ionicScrollDelegate","$location","$ionicHistory","$httpServices","$config","$modal","$ionicLoading","$timeout","$state",
-        function($scope,$ionicScrollDelegate,$location,$ionicHistory,$httpServices,$config,$modal,$ionicLoading,$timeout,$state){
+    .controller("rankingListCtrl",["$scope","$ionicScrollDelegate","$location","$ionicHistory","$httpServices","$config","$modal","$ionicLoading","$timeout","$state","$console",
+        function($scope,$ionicScrollDelegate,$location,$ionicHistory,$httpServices,$config,$modal,$ionicLoading,$timeout,$state,$console){
             $ionicLoading.show();
             $scope.backToTop = function(hashId){
                 if ($location.hash() !== hashId) {
@@ -28,6 +28,8 @@ angular.module("controllers.rankingList",[])
                 };
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
+                        $console("rankCtrl findBabyDetail =======");
+                        $console(result);
                         $scope.detailObj = result.response;
                     })
             }
@@ -42,7 +44,7 @@ angular.module("controllers.rankingList",[])
             $scope.rankItems = [];
             $scope.pageItems = [];
             var pageNo = 0;
-            var numberOfPerPage = 30;
+            var numberOfPerPage = 1;
             var countTotal = 0;
             $scope.pageTotal = 0;
             var itemPerPage = 6;
@@ -62,7 +64,8 @@ angular.module("controllers.rankingList",[])
 
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
-                        console.log(result);
+                        $console("rankCtrl searchRanking =======");
+                        $console(result);
                         if(result.response){
                             var responseData = result.response.data;
                             pageNo = responseData.page;
@@ -121,7 +124,8 @@ angular.module("controllers.rankingList",[])
 
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
-                        console.log(result);
+                        $console("rankCtrl searchByItem =======");
+                        $console(result);
                         if(result.response){
                             var responseData = result.response.data;
                             pageNo = responseData.page;
@@ -155,6 +159,15 @@ angular.module("controllers.rankingList",[])
 
             $scope.findBabyDetail = function(){
                 $state.go($config.controllers.detail.name,{"openId":$config.personInfo.openId});
+            }
+
+            $scope.checkPagination = function(){
+                if($config.personInfo.isDeadline==1){
+                    if($scope.pageTotal > 1){
+                        return true;
+                    }
+                }
+                return false
             }
 
 

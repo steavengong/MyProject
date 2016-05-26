@@ -32,6 +32,9 @@ angular.module("services.modal",[])
                 case 5:
                     $modal.openModal($config.modals.qrCode);
                     break;
+                case 6:
+                    $modal.openModal($config.modals.edit);
+                    break;
             }
         }
 
@@ -51,6 +54,9 @@ angular.module("services.modal",[])
                     break;
                 case 5:
                     $modal.closeModal($config.modals.qrCode);
+                    break;
+                case 6:
+                    $modal.closeModal($config.modals.edit);
                     break;
             }
         }

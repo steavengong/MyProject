@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("controllers.enjoy",[])
-    .controller("enjoyCtrl",["$scope","$state","$config","$wx","$modal","$timeout","Upload","$alert","$httpServices","$ionicLoading","$ionicScrollDelegate",
-        function($scope,$state,$config,$wx,$modal,$timeout,Upload,$alert,$httpServices,$ionicLoading,$ionicScrollDelegate){
+    .controller("enjoyCtrl",["$scope","$state","$config","$wx","$modal","$timeout","Upload","$alert","$httpServices","$ionicLoading","$console",
+        function($scope,$state,$config,$wx,$modal,$timeout,Upload,$alert,$httpServices,$ionicLoading,$console){
 
             $scope.showRule = function(){
                 $modal.closeModal($config.modals.enjoy);
@@ -21,15 +21,17 @@ angular.module("controllers.enjoy",[])
                 })
             }
 
+            $scope.hasFile = false;
             $scope.getChangFile = function(file){
                 if(file!=null){
                     $scope.enjoyObj.fileCu = file;
+                    $scope.hasFile = true;
                 }
             }
 
             $scope.enjoyObj = {
                 babyName:"",
-                dateInput:"",
+                dateInput:DateFormat.format.date(new Date(),"yyyy/MM/dd"),
                 phoneNumber:"",
                 wxNumber:"",
                 fileCu:"",
@@ -135,6 +137,8 @@ angular.module("controllers.enjoy",[])
 
                     $httpServices.uploadWithFile(action,data)
                         .then(function(result){
+                            $console("enjoyCtrl submitEnjoy ====");
+                            $console(result);
                             var response = result.data;
                             if(response.status==1){
                                 $alert.show(response.msg);

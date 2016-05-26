@@ -6,6 +6,13 @@
     border: 1px solid #E3CA8A;
 }
 
+.bg-modal > ion-content.edit-content{
+    width: 80%;
+    height: 220px;
+    top: calc(50% - 110px);
+    top: -webkit-calc(50% - 110px);
+}
+
 .bg-qrCode> ion-content{
     width: 200px;
     height: 240px;
@@ -31,6 +38,13 @@
     right: -webkit-calc(50% - 110px);
     top: calc(50% - 130px);
     top: -webkit-calc(50% - 130px);
+}
+
+.close-edit{
+    right: calc(50% - 43%);
+    right: -webkit-calc(50% - 43%);
+    top: calc(50% - 125px);
+    top: -webkit-calc(50% - 125px);
 }
 
 .modal-scroll{
@@ -110,6 +124,10 @@
     border-radius: 7px;
     -webkit-border-radius: 7px;
     background-color: #DFF1FD;
+}
+
+.photo-group.active{
+    background-image: none;
 }
 
 .bg-file{

@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("controllers.detail",[])
-    .controller("detailCtrl",["$scope","$state","$config","$wx","$stateParams","$modal","$httpServices","$alert","$ionicLoading",
-        function($scope,$state,$config,$wx,$stateParams,$modal,$httpServices,$alert,$ionicLoading){
+    .controller("detailCtrl",["$scope","$state","$config","$wx","$stateParams","$modal","$httpServices","$alert","$ionicLoading","$rootScope","$console","$ionicScrollDelegate","$timeout",
+        function($scope,$state,$config,$wx,$stateParams,$modal,$httpServices,$alert,$ionicLoading,$rootScope,$console,$ionicScrollDelegate,$timeout){
             $ionicLoading.show();
 
             findBabyDetail();
@@ -18,8 +18,11 @@ angular.module("controllers.detail",[])
                 };
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
-                        console.log(result.response)
+                        $console("detailCtrl findBabyDetail =======");
+                        $console(result);
+                        $console(result);
                         $scope.detailObj = result.response;
+                        $rootScope.rank = $scope.detailObj.rank;
                     })
             }
 
@@ -63,6 +66,8 @@ angular.module("controllers.detail",[])
 
                 $httpServices.getJsonFromPost(action,data)
                     .then(function(result){
+                        $console("detailCtrl voteByBallot =======");
+                        $console(result);
                         var response = result.response;
                         if(response.flag == "投票成功"){
                             $scope.detailObj.number ++;
@@ -86,17 +91,22 @@ angular.module("controllers.detail",[])
                 return false;
             }
 
-            $scope.doRefresh = function(){
+            $rootScope.doRefresh = function(){
                 $scope.$broadcast('scroll.refreshComplete');
                 $ionicLoading.show();
                 findBabyDetail();
+                $timeout(function(){
+                    $ionicScrollDelegate.resize();
+                    $ionicScrollDelegate.scrollTop();
+                })
             }
 
+            var numberOfPage = 2
+
             $scope.checkEdit = function(){
-                if($config.personInfo.isDeadline==2 && $config.personInfo.openId==$stateParams.openId){
-                    return true
+                if($scope.detailObj!=undefined && $scope.detailObj!=null && $config.personInfo.isDeadline!=1 && $config.personInfo.openId==$stateParams.openId && $scope.detailObj.rank <= numberOfPage && $scope.detailObj.updateTime==null){
+                    return true;
                 }
                 return false;
             }
-
         }])

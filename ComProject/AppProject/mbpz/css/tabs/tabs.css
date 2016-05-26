@@ -1,3 +1,11 @@
+.mui-bar-tab~.mui-content{
+    position: absolute;
+    bottom: 50px;
+    top: 0px;
+    padding-bottom: 0px;
+}
+
+
 .mui-tab-item{
     color: #666666!important;
 }
