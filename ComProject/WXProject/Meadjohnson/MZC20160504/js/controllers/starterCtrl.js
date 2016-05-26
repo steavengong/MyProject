@@ -2,7 +2,8 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("controllers.starter",[])
-    .controller("starterCtrl",["$scope","$state","$config","$wx","$alert","$console",function($scope,$state,$config,$wx,$alert,$console){
+    .controller("starterCtrl",["$scope","$state","$config","$wx","$alert","$console","$httpServices","$ionicPopup","$locals",
+        function($scope,$state,$config,$wx,$alert,$console,$httpServices,$ionicPopup,$locals){
 
         $wx.redirect().then(function(result){
             var response = result.response;
@@ -14,15 +15,9 @@ angular.module("controllers.starter",[])
                 $config.personInfo.isJoin = response.isJoin;//0
                 $config.personInfo.isDeadline = response.isDeadline;//1
                 $wx.setWXSign().then(function(){
-                    if($config.personInfo.isDeadline==3){
-                        $alert.show($config.messages.activityStatus.end);
-                    }
-                    $state.go($config.controllers.home.name);
+                    checkView();
                 },function(){
-                    if($config.personInfo.isDeadline==3){
-                        $alert.show($config.messages.activityStatus.end);
-                    }
-                    $state.go($config.controllers.home.name);
+                    checkView();
                 })
             }
             else{
@@ -31,6 +26,37 @@ angular.module("controllers.starter",[])
         },function(){
             $wx.initCode();
         })
+
+        function checkView(){
+            if($config.personInfo.isDeadline==3){
+                $alert.show($config.messages.activityStatus.end);
+            }
+            else if($config.personInfo.isDeadline==2){
+                if($config.personInfo.isJoin){
+                    var action = $config.getRequestAction();
+                    var data = {
+                        "cmd" : $config.cmds.findBabyDetail,
+                        "parameters" : {
+                            "openId" : $config.personInfo.openId
+                        }
+                    };
+                    $httpServices.getJsonFromPost(action,data)
+                        .then(function(result){
+                            $console("startCtrl findBabyDetail =======");
+                            $console(result);
+                            $scope.detailObj = result.response;
+                            if($scope.detailObj.rank <= $config.numberOfPage && $scope.detailObj.updateTime==null && $locals.get("cancelEdit",0)==0){
+                                $alert.confirm($config.messages.edit.canEdit).then(function(){
+                                    $state.go($config.controllers.detail.name,{"openId":$config.personInfo.openId});
+                                },function(){
+                                    $locals.set("cancelEdit",1);
+                                })
+                            }
+                        })
+                }
+            }
+            $state.go($config.controllers.home.name);
+        }
 
         //$state.go($config.controllers.home.name);
 

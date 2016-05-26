@@ -18,6 +18,26 @@ angular.module("services.alert",[])
             return deferred.promise
         }
 
+        $alert.confirm = function(msg){
+            var deferred = $q.defer();
+            $ionicPopup.confirm({
+                cssClass:"mzc-popup-container",
+                template:msg,
+                cancelText: '取消',
+                cancelType: 'mzc-popup-button',
+                okText:"确定",
+                okType:"mzc-popup-button"
+            }).then(function(res){
+                if(res){
+                    deferred.resolve();
+                }
+                else{
+                    deferred.reject()
+                }
+            })
+            return deferred.promise
+        }
+
 
         return $alert;
 

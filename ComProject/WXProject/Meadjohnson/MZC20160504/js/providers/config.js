@@ -89,6 +89,9 @@ angular.module("providers.config",[])
                 notNullFile:"参赛图片不能少",
                 notRexFile:"图片格式错误",
                 notNullRemark:"简介不能为空",
+            },
+            edit:{
+                canEdit:"恭喜进入第二轮选拔,请更换图片"
             }
 
         }
