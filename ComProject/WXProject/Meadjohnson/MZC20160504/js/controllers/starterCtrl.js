@@ -5,59 +5,74 @@ angular.module("controllers.starter",[])
     .controller("starterCtrl",["$scope","$state","$config","$wx","$alert","$console","$httpServices","$ionicPopup","$locals",
         function($scope,$state,$config,$wx,$alert,$console,$httpServices,$ionicPopup,$locals){
 
-        $wx.redirect().then(function(result){
-            var response = result.response;
-            if(response.status){
-                $console("starterCtrl=====");
-                $console(result);
-                $config.personInfo.subscribe = response.subscribe;
-                $config.personInfo.openId = response.openid;
-                $config.personInfo.isJoin = response.isJoin;//0
-                $config.personInfo.isDeadline = response.isDeadline;//1
-                $wx.setWXSign().then(function(){
-                    checkView();
+            function start(){
+                $wx.redirect().then(function(result){
+                    var response = result.response;
+                    if(response.status){
+                        $console("starterCtrl=====");
+                        $console(result);
+                        $config.personInfo.subscribe = response.subscribe;
+                        $config.personInfo.openId = response.openid;
+                        $config.personInfo.isJoin = response.isJoin;//0
+                        $config.personInfo.isDeadline = response.isDeadline;//1
+                        $wx.setWXSign().then(function(){
+                            checkView();
+                        },function(){
+                            checkView();
+                        })
+                    }
+                    else{
+                        $wx.initCode();
+                    }
                 },function(){
-                    checkView();
+                    $wx.initCode();
                 })
             }
-            else{
-                $wx.initCode();
-            }
-        },function(){
-            $wx.initCode();
-        })
 
-        function checkView(){
-            if($config.personInfo.isDeadline==3){
-                $alert.show($config.messages.activityStatus.end);
+            if(isWeiXin()){
+                start();
             }
-            else if($config.personInfo.isDeadline==2){
-                if($config.personInfo.isJoin){
-                    var action = $config.getRequestAction();
-                    var data = {
-                        "cmd" : $config.cmds.findBabyDetail,
-                        "parameters" : {
-                            "openId" : $config.personInfo.openId
-                        }
-                    };
-                    $httpServices.getJsonFromPost(action,data)
-                        .then(function(result){
-                            $console("startCtrl findBabyDetail =======");
-                            $console(result);
-                            $scope.detailObj = result.response;
-                            if($scope.detailObj.rank <= $config.numberOfPage && $scope.detailObj.updateTime==null && $locals.get("cancelEdit",0)==0){
-                                $alert.confirm($config.messages.edit.canEdit).then(function(){
-                                    $state.go($config.controllers.detail.name,{"openId":$config.personInfo.openId});
-                                },function(){
-                                    $locals.set("cancelEdit",1);
-                                })
-                            }
-                        })
+            else{
+                $alert.show($config.messages.browser.error);
+            }
+
+            function isWeiXin(){
+                var ua = window.navigator.userAgent.toLowerCase();
+                if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+                    return true;
+                }else{
+                    return false;
                 }
             }
-            $state.go($config.controllers.home.name);
-        }
 
-        //$state.go($config.controllers.home.name);
-
-    }])
+            function checkView(){
+                if($config.personInfo.isDeadline==3){
+                    $alert.show($config.messages.activityStatus.end);
+                }
+                else if($config.personInfo.isDeadline==2){
+                    if($config.personInfo.isJoin){
+                        var action = $config.getRequestAction();
+                        var data = {
+                            "cmd" : $config.cmds.findBabyDetail,
+                            "parameters" : {
+                                "openId" : $config.personInfo.openId
+                            }
+                        };
+                        $httpServices.getJsonFromPost(action,data)
+                            .then(function(result){
+                                $console("startCtrl findBabyDetail =======");
+                                $console(result);
+                                $scope.detailObj = result.response;
+                                if($scope.detailObj.rank <= $config.numberOfPage && $scope.detailObj.updateTime==null && $locals.get("cancelEdit",0)==0){
+                                    $alert.confirm($config.messages.edit.canEdit).then(function(){
+                                        $state.go($config.controllers.detail.name,{"openId":$config.personInfo.openId});
+                                    },function(){
+                                        $locals.set("cancelEdit",1);
+                                    })
+                                }
+                            })
+                    }
+                }
+                $state.go($config.controllers.home.name);
+            }
+        }])

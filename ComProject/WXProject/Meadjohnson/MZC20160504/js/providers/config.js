@@ -91,9 +91,14 @@ angular.module("providers.config",[])
                 notNullFile:"参赛图片不能少",
                 notRexFile:"图片格式错误",
                 notNullRemark:"简介不能为空",
+                success:"恭喜您，已成功参赛",
             },
             edit:{
-                canEdit:"恭喜进入第二轮选拔,请更换图片"
+                canEdit:"恭喜进入第二轮选拔,请更换图片",
+                success:"恭喜您，已成功更新",
+            },
+            browser:{
+                error:"请使用微信客户端访问链接",
             }
 
         }

@@ -141,7 +141,7 @@ angular.module("controllers.enjoy",[])
                             $console(result);
                             var response = result.data;
                             if(response.status==1){
-                                $alert.show(response.msg);
+                                $alert.show($config.messages.enjoy.success);
                                 $config.personInfo.isJoin = 1;
                             }
                             $modal.closeModal($config.modals.enjoy);

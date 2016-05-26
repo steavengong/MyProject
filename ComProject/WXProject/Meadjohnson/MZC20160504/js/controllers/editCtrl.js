@@ -43,7 +43,7 @@ angular.module("controllers.edit",[])
                         $console("editCtrl submitEdit===");
                         $console(result)
                         var response = result.data;
-                        $alert.show(response.msg).then(function(){
+                        $alert.show($config.messages.edit.success).then(function(){
                             $rootScope.doRefresh();
                         });
                         $modal.closeModal($config.modals.edit);
