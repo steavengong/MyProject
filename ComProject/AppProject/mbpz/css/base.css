@@ -97,6 +97,16 @@
     padding-right: 0px!important;
 }
 
+.padding-bottom-normal,
+.padding-vertical{
+    padding-bottom: 10px!important;
+}
+
+.padding-up-normal,
+.padding-vertical{
+    padding-up: 10px!important;
+}
+
 
 /*content*/
 html,
