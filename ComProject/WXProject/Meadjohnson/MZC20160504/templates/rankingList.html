@@ -1,7 +1,7 @@
 <ion-view class="bg-main">
     <a class="fixed-button-right border-radius-round"  ng-click="backToTop('rankTop')"><span class="icon mzc mzc-back-to-top"></span></a>
     <a class="fixed-button-left border-radius-round" ng-click="back()"><span class="icon mzc mzc-back"></span></a>
-    <ion-content>
+    <ion-content has-bouncing="true">
         <ion-refresher
                 pulling-text="下来刷新"
                 on-refresh="doRefresh()">

@@ -118,7 +118,7 @@ angular.module("controllers.enjoy",[])
                         return;
                     }
                     if(enjoyObj.remark==""){
-                        $alert.show($config.message.enjoy.notNullRemark);
+                        $alert.show($config.messages.enjoy.notNullRemark);
                         $config.hook = false;
                         $ionicLoading.hide();
                         return;

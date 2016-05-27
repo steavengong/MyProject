@@ -8,12 +8,12 @@
 
 .mbpz-icon {
     font-family:"mbpz" !important;
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 400;
     line-height: 1;
-    display: inline-block;
     text-decoration: none;
-    -webkit-font-smoothing: antialiased;
+    position:relative;top:1px;
+    display:inline-block;
+    -webkit-font-smoothing:antialiased;
 }
 .mbpz-icon-message:before { content: "\e601"; }
 .mbpz-icon-home:before { content: "\e600"; }
@@ -28,6 +28,10 @@
 
 .bg-energized{
     background-color: #FFFFFF;
+}
+
+.bg-main-content{
+    background-color: #F5F5F5;
 }
 
 /*阴影*/
@@ -80,6 +84,28 @@
 
 .font-color-calm{
     color: #2ADFEF;
+}
+
+/*边距操作*/
+.no-padding-left,
+.no-padding-horizontal{
+    padding-left: 0px!important;
+}
+
+.no-padding-right,
+.no-padding-horizontal{
+    padding-right: 0px!important;
+}
+
+
+/*content*/
+html,
+body,
+.mbpz-container-fluid{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 
