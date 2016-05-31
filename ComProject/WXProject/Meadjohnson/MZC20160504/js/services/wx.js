@@ -51,7 +51,7 @@ angular.module("services.wx",[])
                                     "onMenuShareAppMessage",
                                     "onMenuShareQQ", "onMenuShareWeibo","showMenuItems","hideMenuItems"]
                             });
-                            $wx.shareItems($config.shareObject.shareTitle,$config.shareObject.shareDescription,$config.shareObject.getShareUrl(),$config.shareObject.getShareImageUrl());
+                            $wx.shareItems($config.shareObject.shareTitle,$config.shareObject.shareDescription,$config.shareObject.getShareUrl(),$config.shareObject.shareImageUrl);
                             deferred.resolve();
 
                         });
@@ -75,8 +75,8 @@ angular.module("services.wx",[])
         $wx.shareItems = function(title,desc,link,imgUrl){
             this.weChatMoments(desc,link,imgUrl);
             this.weChatFriend(title,desc,link,imgUrl);
-            //this.tencentQFriend(title,desc,link,imgUrl);
-            //this.tencentWeiBo(title,desc,link,imgUrl);
+            this.tencentQFriend(title,desc,link,imgUrl);
+            this.tencentWeiBo(title,desc,link,imgUrl);
         }
         $wx.weChatMoments = function(desc,link,imgUrl){//获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
             wx.onMenuShareTimeline({

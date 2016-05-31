@@ -2,8 +2,20 @@
  * Created by Administrator on 2016/5/4.
  */
 angular.module("controllers.starter",[])
-    .controller("starterCtrl",["$scope","$state","$config","$wx","$alert","$console","$httpServices","$ionicPopup","$locals",
-        function($scope,$state,$config,$wx,$alert,$console,$httpServices,$ionicPopup,$locals){
+    .controller("starterCtrl",["$scope","$state","$config","$wx","$alert","$console","$httpServices","$ionicPopup","$locals","$rootScope",
+        function($scope,$state,$config,$wx,$alert,$console,$httpServices,$ionicPopup,$locals,$rootScope){
+
+            $rootScope.resources = {
+                url:"http://smart.image.alimmdn.com/H5/MZC/Resources/Image/",
+                images :{
+                    head:"head.jpg",
+                    logo:"logo.png",
+                    logoPtl:"logo-ptl.png",
+                    mzbaby:"mzbaby.jpg",
+                    mzmam:"mzmam.jpg",
+                    qrCode:"qrCode.jpg"
+                }
+            }
 
             function start(){
                 $wx.redirect().then(function(result){
@@ -31,6 +43,7 @@ angular.module("controllers.starter",[])
 
             if(isWeiXin()){
                 start();
+                //$state.go($config.controllers.home.name);
             }
             else{
                 $alert.show($config.messages.browser.error);

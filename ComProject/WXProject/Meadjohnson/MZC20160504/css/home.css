@@ -30,8 +30,8 @@
     z-index:999;
     width: 45px;
     height: 30px;
-    background-image: url("../img/box-number.png");
-    -webkit-background-image: url("../img/box-number.png");
+    background-image: url("http://smart.image.alimmdn.com/H5/MZC/Resources/Image/box-number.png");
+    -webkit-background-image: url("http://smart.image.alimmdn.com/H5/MZC/Resources/Image/box-number.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
