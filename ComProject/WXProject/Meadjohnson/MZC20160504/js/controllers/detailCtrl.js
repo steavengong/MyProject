@@ -41,6 +41,14 @@ angular.module("controllers.detail",[])
                         $ionicLoading.hide();
                         return ;
                     }
+                    else if($config.personInfo.isDeadline == 2){
+                        if($scope.detailObj!=undefined && $scope.detailObj!=null && $scope.detailObj.rank > $config.numberOfPage){
+                            $alert.show($config.messages.voteByBallot.outOfRank);
+                            $config.hook = false;
+                            $ionicLoading.hide();
+                            return ;
+                        }
+                    }
 
                     if($config.personInfo.subscribe==0){
                         $config.hook = false;

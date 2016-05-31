@@ -73,12 +73,17 @@ angular.module("controllers.home",[])
                         $console("homeCtrl voteByBallot =======");
                         $console(result);
                         var response = result.response;
-                        if(response.flag == "投票成功"){
-                            $scope.homeBoxItems[$index].number ++;
-                            $alert.show($config.messages.voteByBallot.success);
+                        if(response.rankMsg){
+                            $alert.show(response.rankMsg);
                         }
                         else{
-                            $alert.show(response.flag);
+                            if(response.flag == "投票成功"){
+                                $scope.homeBoxItems[$index].number ++;
+                                $alert.show($config.messages.voteByBallot.success);
+                            }
+                            else{
+                                $alert.show(response.flag);
+                            }
                         }
                     })
             }
