@@ -231,19 +231,24 @@ angular.module("controllers.home",[])
             };
 
             $scope.doRefresh = function(){
-                $scope.$broadcast('scroll.refreshComplete');
-                itemRankPageNo = 0;
-                itemRankFlag = true;
-                itemSearchPageNo = 0;
-                itemSearchFlag = true;
-                $scope.homeBoxItems = [];
-                cacheRankBoxItems = [];
-                cacheSearchBoxItems = [];
-                rankFlag = true;
-                searchName = "";
-                $scope.$$childTail.searchFor = "";
-                $ionicLoading.show();
-                initList();
+                if(!$config.hook){
+                    $config.hook = true;
+                    $ionicLoading.show();
+                    itemRankPageNo = 0;
+                    itemRankFlag = true;
+                    itemSearchPageNo = 0;
+                    itemSearchFlag = true;
+                    $scope.homeBoxItems = [];
+                    cacheRankBoxItems = [];
+                    cacheSearchBoxItems = [];
+                    rankFlag = true;
+                    searchName = "";
+                    $scope.$$childTail.searchFor = "";
+                    $ionicLoading.show();
+                    initList();
+                    $scope.$broadcast('scroll.refreshComplete');
+                }
+
             }
 
             $scope.changeSearch = function(searchFor){

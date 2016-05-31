@@ -14,7 +14,7 @@ angular.module("controllers.starter",[])
                         $config.personInfo.subscribe = response.subscribe;
                         $config.personInfo.openId = response.openid;
                         $config.personInfo.isJoin = response.isJoin;//0
-                        $config.personInfo.isDeadline = response.isDeadline;//1
+                        $config.personInfo.isDeadline = response.isDeadline || 3;//1
                         $wx.setWXSign().then(function(){
                             checkView();
                         },function(){
