@@ -2,11 +2,11 @@
     <ion-content class="bg-color-main">
         <wx-head></wx-head>
 
-        <ion-slide-box class="product-slider-group" does-continue="false" auto-play="true" slide-interval="2000" show-pager="{{showPager}}" delegate-handle="slideBox1" pager-click="showProductImage(index)">
-            <ion-slide ng-repeat="productImage in product.productImageList track by $index">
+        <ion-slides class="product-slider-group margin-big-bottom"  options="options" slider="data.slider">
+            <ion-slide-page ng-repeat="productImage in product.productImageList track by $index">
                 <div class="product-image" ng-style="resizeImage('slider{{$index}}',productImage.location)" id="slider{{$index}}"></div>
-            </ion-slide>
-        </ion-slide-box>
+            </ion-slide-page>
+        </ion-slides>
 
         <div class="bg-color-white color-dark-strong text-size-normal margin-big-bottom hm-border-gray-bottom">
             <div class="row">
@@ -44,8 +44,10 @@
             <div class="row">
                 <div class="col color-positive text-size-smaller">
                     <i class="icon iconfont icon-hm-normal-local"></i>
-                    <span ng-bind="product.userLocation.city" class="padding-normal-right"></span>|
-                    <span ng-bind="product.userLocation.district" class="padding-normal-left"></span>
+                    <span ng-if="product.userLocation==null">未知</span>
+                    <span ng-if="product.userLocation!=null" ng-bind="product.userLocation.city" class="padding-normal-right"></span>
+                    <span ng-if="product.userLocation!=null">|</span>
+                    <span ng-if="product.userLocation!=null" ng-bind="product.userLocation.district" class="padding-normal-left"></span>
                 </div>
             </div>
         </div>

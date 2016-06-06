@@ -2,11 +2,11 @@
     <ion-content class="bg-color-main">
         <wx-head></wx-head>
 
-        <ion-slide-box ng-show="(product.productImageList!=null&&product.productImageList.length!=0)" class="product-slider-group margin-big-bottom" does-continue="false" auto-play="true" slide-interval="2000" show-pager={{showPager}} delegate-handle="slideBox1" pager-click="showProductImage(index)">
-            <ion-slide ng-repeat="productImage in product.productImageList track by $index">
+        <ion-slides ng-show="(product.productImageList!=null&&product.productImageList.length!=0)" class="product-slider-group margin-big-bottom"  options="options" slider="data.slider">
+            <ion-slide-page ng-repeat="productImage in product.productImageList track by $index">
                 <div class="product-image" ng-style="resizeImage('slider{{$index}}',productImage.location)" id="slider{{$index}}"></div>
-            </ion-slide>
-        </ion-slide-box>
+            </ion-slide-page>
+        </ion-slides>
 
         <div class="row margin-big-bottom hm-border-gray-vertical bg-color-white text-size-normal">
             <div class="col col-80">
@@ -43,23 +43,25 @@
             <div class="row">
                 <div class="col color-positive text-size-smaller">
                     <i class="icon iconfont icon-hm-normal-local"></i>
-                    <span ng-bind="product.userLocation.city" class="padding-normal-right"></span>|
-                    <span ng-bind="product.userLocation.district" class="padding-normal-left"></span>
+                    <span ng-if="product.userLocation==null">未知</span>
+                    <span ng-if="product.userLocation!=null" ng-bind="product.userLocation.city" class="padding-normal-right"></span>
+                    <span ng-if="product.userLocation!=null">|</span>
+                    <span ng-if="product.userLocation!=null" ng-bind="product.userLocation.district" class="padding-normal-left"></span>
                 </div>
             </div>
         </div>
 
         <ion-list ng-if="replyList!=null&&replyList.length!=0">
-            <ion-item ng-if="reply.isRecommoned !=null" class="row bg-color-white text-size-small margin-big-bottom hm-border-gray-vertical color-dark-strong" ng-repeat="reply in replyList track by $index">
+            <ion-item ng-if="reply.isRecommoned == 1" class="row bg-color-white text-size-small margin-big-bottom hm-border-gray-vertical color-dark-strong" ng-repeat="reply in replyList track by $index">
                 <div class="col">
                     <span class="bg-color-main-red hm-border-small-radius color-light-normal text-size-small margin-normal-right padding-normal-horizontal">官方推荐</span>
-                    <div class="margin-big-top">推荐理由：<span  ng-bind="official.title"></span></div>
+                    <div class="margin-big-top">推荐理由：<span  ng-bind="reply.contents"></span></div>
                 </div>
                 <div class="col col-15">
-                    <div class="product-image" id="officialImage" ng-style="resizeImage('officialImage',official.image)"></div>
+                    <div ng-if="reply.recommonedProductImageList != null" class="product-image" id="officialImage" ng-style="resizeImage('officialImage{{$index}}',reply.recommonedProductImageList[0].location)"></div>
                 </div>
             </ion-item>
-            <ion-item ng-if="reply.isRecommoned ==null" class="row" ng-repeat="reply in replyList track by $index">
+            <ion-item ng-if="reply.isRecommoned == null" class="row" ng-repeat="reply in replyList track by $index">
                 <div class="col col-15">
                     <div class="user-header-image hm-border-round" ng-style="resizeImage('userHead{{$index}}',reply.createUser.userImg)" id="userHead{{$index}}"></div>
                 </div>
@@ -67,8 +69,8 @@
                     <div><span ng-bind="reply.createUser.nickName"></span><span class="text-size-smaller color-dark-thin margin-big-left" ng-bind="parseTime(reply.createDate)"></span><span class="text-size-smaller color-dark-thin">回复</span></div>
                     <div class="margin-big-top"><span class="text-line" ng-bind="reply.contents"></span></div>
                 </div>
-                <div class="col col-15" ng-if="(reply.recommonedProductImageList!=null&&reply.recommonedProductImageList!='')">
-                    <div class="product-image" id="replyImage{{$index}}" ng-style="resizeImage('replyImage{{$index}}',reply.recommonedProductImageList)"></div>
+                <div class="col col-15">
+                    <div ng-if="reply.recommonedProductImageList != null" class="product-image" id="replyImage{{$index}}" ng-style="resizeImage('replyImage{{$index}}',reply.recommonedProductImageList[0].location)"></div>
                 </div>
             </ion-item>
         </ion-list>

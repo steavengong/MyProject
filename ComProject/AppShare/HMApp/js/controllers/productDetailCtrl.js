@@ -11,10 +11,16 @@ angular.module("productDetailCtrl",[])
         "$console",
         function($scope,$ionicSlideBoxDelegate,$timeout,$httpServices,$stateParams,$console){
             var action = config.debug?config.requestAction.test:config.requestAction.product;
-            var slideBox1 = $ionicSlideBoxDelegate.$getByHandle('slideBox1');
-            $scope.showProductImage = function(index){
-                slideBox1.slide(index);
+            $scope.options = {
+                loop:true,
+                autoplay : 0,
+                autoplayDisableOnInteraction:false,
+                observer : true
             }
+
+            $scope.$on("$ionicSlides.sliderInitialized", function(event, data){
+                $scope.slider1 = data.slider;
+            });
             getProductDetail();
             function getProductDetail(){
                 var data = {
@@ -27,11 +33,15 @@ angular.module("productDetailCtrl",[])
                     .then(function(result){
                         $console(result);
                         $scope.product = result.response.data;
-                        slideBox1.update();
                         $timeout(function(){
-                            if(slideBox1.slidesCount() > 1){
-                                slideBox1.loop(true);
-                                $scope.showPager = true;
+                            if($scope.slider1.slides.length == 1){
+                                $scope.slider1.params.loop = false;
+                                $scope.$$childHead.$$childHead.showPager = false;
+                            }
+                            else{
+                                $scope.slider1.params.autoplay = 1000;
+                                $scope.slider1.startAutoplay();
+                                $scope.slider1.slideTo(2);
                             }
                         })
                     })
@@ -69,7 +79,8 @@ angular.module("productDetailCtrl",[])
                         "parameters":{
                             "productId":$stateParams.detailId,
                             "numberOfPerPage":numberOfPage,
-                            "pageNo":pageNo
+                            "pageNo":pageNo,
+                            "replyType":0
                         }
                     }
 
