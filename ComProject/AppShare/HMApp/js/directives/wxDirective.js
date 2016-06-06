@@ -36,11 +36,6 @@ angular.module("wxDirective",[])
                 return false;
             }
         }
-
-        //$scope.onApp = function(){
-        //    var appDownload="http://a.app.qq.com/o/simple.jsp?pkgname=com.cmbb.smartkids";
-        //    $window.location = appDownload
-        //}
     }
     return $wxFoot;
 })

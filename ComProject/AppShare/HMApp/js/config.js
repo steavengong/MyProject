@@ -3,9 +3,15 @@
  */
 
 var config = {
-  requestUrl:{
-    test:"http://192.168.100.67:8080/",
-    publish:"",
+  requestAction:{
+    test:"http://erpuat.mengbp.com:8094/wine-market-rest/cgi/",
+    publish:"http://192.168.100.67:8080/",
+  },
+  hook:false,
+  debug:true,
+  cmds:{
+    productDetail:"product/details",
+    productReplies:"product/reply/list"
   },
   loading:{
     templateUrl:"templates/loading/loading.html",

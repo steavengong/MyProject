@@ -22,6 +22,6 @@ angular.module('starter', ['ionic','starter.controllers','starter.services','sta
                 cache:false
             })
 
-        //$urlRouterProvider.otherwise("/shopDetail/121")
+        $urlRouterProvider.otherwise("/productDetail/121")
 
     }])
