@@ -10,7 +10,7 @@ angular.module("productDetailCtrl",[])
         "$stateParams",
         "$console",
         function($scope,$ionicSlideBoxDelegate,$timeout,$httpServices,$stateParams,$console){
-            var action = config.debug?config.requestAction.test:config.requestAction.product;
+            var action = config.debug?config.requestAction.test:config.requestAction.publish;
             $scope.options = {
                 loop:true,
                 autoplay : 0,
@@ -58,7 +58,7 @@ angular.module("productDetailCtrl",[])
             }
             $scope.parseTime = function(time){
                 if(time){
-                    return $.format.prettyDate(time);
+                    return DateFormat.format.prettyDate(time);
                 }
             }
 
@@ -67,7 +67,7 @@ angular.module("productDetailCtrl",[])
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             };
 
-            var numberOfPage = 1;
+            var numberOfPage = 10;
             var pageNo = 0;
             var itemFlag = true;
             $scope.replyList = [];

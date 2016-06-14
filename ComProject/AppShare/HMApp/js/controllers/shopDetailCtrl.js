@@ -12,7 +12,7 @@ angular.module("shopDetailCtrl",[])
         "$rootScope",
         function($scope,$ionicSlideBoxDelegate,$timeout,$httpServices,$stateParams,$console,$rootScope){
 
-            var action = config.debug?config.requestAction.test:config.requestAction.product;
+            var action = config.debug?config.requestAction.test:config.requestAction.publish;
 
             $scope.options = {
                 loop:true,
@@ -62,7 +62,7 @@ angular.module("shopDetailCtrl",[])
             }
             $scope.parseTime = function(time){
                 if(time){
-                    return $.format.prettyDate(time);
+                    return DateFormat.format.prettyDate(time);
                 }
             }
             $scope.loadMore = function() {
@@ -70,7 +70,7 @@ angular.module("shopDetailCtrl",[])
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             };
 
-            var numberOfPage = 1;
+            var numberOfPage = 10;
             var pageNo = 0;
             var itemFlag = true;
             $scope.replyList = [];

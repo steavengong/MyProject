@@ -14,17 +14,16 @@
                     <span class="bg-color-main-red hm-border-small-radius color-light-normal text-size-small margin-normal-right padding-normal-horizontal" ng-bind="product.targetGF" ng-if="product.isGF"></span><span ng-bind="product.title"></span>
                 </div>
                 <div class="col text-size-smaller text-right text-overflow color-dark-thin col-center">
-                    <i class="icon iconfont icon-hm-readers padding-small-right"></i><span ng-bind="product.browseNumber"></span>
+                    <i class="icon iconfont icon-hm-readers padding-small-right"></i><span ng-bind="(product.browseNumber||0)"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col color-dark-thin">
                     <span class="color-assertive margin-normal-right"><i class="icon iconfont icon-money"></i><span ng-bind="product.currentPrice"></span></span>
-                    <span class="margin-big-right text-size-small text-relative"><i class="icon iconfont icon-money"></i><span ng-bind="product.originalPrice"></span>
+                    <span class="margin-big-right text-size-small text-relative" ng-if="(product.originalPrice)"><i class="icon iconfont icon-money"></i><span ng-bind="product.originalPrice"></span>
                         <span class="text-decoration-through"></span>
                     </span>
-                    <span ng-if="product.freight == 0" class="text-size-small">(免运费)</span>
-                    <span ng-if="product.freight != 0" class="text-size-small">(已含运费)</span>
+                    <span class="text-size-small">运费：<span ng-bind="(product.freight||0)+'.0'"></span></span>
                 </div>
             </div>
             <div class="row">
@@ -54,7 +53,7 @@
 
         <div class="row bg-color-white text-size-normal color-dark-strong margin-big-bottom hm-border-gray-vertical">
             <div class="col col-20 col-center">
-                <div class="user-header-image hm-border-round" id="user-header-image" ng-style="resizeImage('user-header-image',product.publicUser.userImg)"></div>
+                <div class="user-header-image hm-border-round" id="user-header-image" ng-style="resizeImage('user-header-image',(product.publicUser.userImg||defaultHead))"></div>
             </div>
             <div class="col col-center">
                 <span ng-bind="product.publicUser.nickName"></span>
@@ -64,7 +63,7 @@
         <ion-list ng-if="replyList!=null&&replyList.length!=0">
             <ion-item class="row" ng-repeat="reply in replyList track by $index">
                 <div class="col col-15">
-                    <div class="user-header-image hm-border-round" ng-style="resizeImage('userHead{{$index}}',reply.createUser.userImg)" id="userHead{{$index}}"></div>
+                    <div class="user-header-image hm-border-round" ng-style="resizeImage('userHead{{$index}}',(reply.createUser.userImg||defaultHead))" id="userHead{{$index}}"></div>
                 </div>
                 <div class="col col-66 text-size-small color-dark-strong">
                     <div ng-bind="reply.createUser.nickName"></div>

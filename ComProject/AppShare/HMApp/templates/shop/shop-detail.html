@@ -13,14 +13,14 @@
                 <span ng-bind="product.title"></span>
             </div>
             <div class="col color-dark-thin text-right text-size-smaller">
-                <i class="icon iconfont icon-hm-readers padding-small-right"></i><span ng-bind="product.browseNumber"></span>
+                <i class="icon iconfont icon-hm-readers padding-small-right"></i><span ng-bind="(product.browseNumber||0)"></span>
             </div>
         </div>
 
         <div class="bg-color-white color-dark-strong text-size-normal margin-big-bottom hm-border-gray-vertical">
             <div class="row">
                 <div class="col col-20 col-center">
-                    <div class="user-header-image hm-border-round" ng-style="resizeImage('user-header-image',product.publicUser.userImg)" id="user-header-image"></div>
+                    <div class="user-header-image hm-border-round" ng-style="resizeImage('user-header-image',(product.publicUser.userImg||defaultHead))" id="user-header-image"></div>
                 </div>
                 <div class="col col-center">
                     <span ng-bind="product.publicUser.nickName"></span>
@@ -63,7 +63,7 @@
             </ion-item>
             <ion-item ng-if="reply.isRecommoned == null" class="row" ng-repeat="reply in replyList track by $index">
                 <div class="col col-15">
-                    <div class="user-header-image hm-border-round" ng-style="resizeImage('userHead{{$index}}',reply.createUser.userImg)" id="userHead{{$index}}"></div>
+                    <div class="user-header-image hm-border-round" ng-style="resizeImage('userHead{{$index}}',(reply.createUser.userImg||defaultHead))" id="userHead{{$index}}"></div>
                 </div>
                 <div class="col text-size-small color-dark-strong">
                     <div><span ng-bind="reply.createUser.nickName"></span><span class="text-size-smaller color-dark-thin margin-big-left" ng-bind="parseTime(reply.createDate)"></span><span class="text-size-smaller color-dark-thin">回复</span></div>

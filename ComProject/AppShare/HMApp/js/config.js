@@ -5,10 +5,14 @@
 var config = {
   requestAction:{
     test:"http://erpuat.mengbp.com:8094/wine-market-rest/cgi/",
-    publish:"http://192.168.100.67:8080/",
+    publish:"http://market.smart-kids.com:81/wine-market-rest/cgi/"
+  },
+  imgResource:{
+    test:"http://mbpz.image.alimmdn.com/MBPZShare/assets/",
+    publish:"http://mbpz.image.alimmdn.com/MBPZShare/assets/"
   },
   hook:false,
-  debug:true,
+  debug:false,
   cmds:{
     productDetail:"product/details",
     productReplies:"product/reply/list"

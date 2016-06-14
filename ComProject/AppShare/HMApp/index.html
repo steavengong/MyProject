@@ -7,14 +7,13 @@
 
     <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="font/hm-font.css" rel="stylesheet">
+    <link href="css/hm-font.css" rel="stylesheet">
     <link href="css/wx.css" rel="stylesheet">
     <link href="css/productDetail.css" rel="stylesheet">
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
-    <script src="lib/jquery/js/jquery.min.js"></script>
-    <script src="lib/dateformat/js/jquery.dateFormat.js"></script>
+    <script src="lib/dateformat/js/dateFormat.min.js"></script>
 
     <!-- your app's js -->
     <script src="js/config.js"></script>
@@ -22,13 +21,14 @@
     <script src="js/controllers.js"></script>
     <script src="js/controllers/productDetailCtrl.js"></script>
     <script src="js/controllers/shopDetailCtrl.js"></script>
+    <script src="js/controllers/starterCtrl.js"></script>
     <script src="js/services.js"></script>
     <script src="js/services/http.js"></script>
     <script src="js/services/console.js"></script>
     <script src="js/directives.js"></script>
     <script src="js/directives/wxDirective.js"></script>
   </head>
-  <body ng-app="starter">
+  <body ng-app="starter" ng-controller="starterCtrl">
     <ion-nav-view></ion-nav-view>
   </body>
 </html>
