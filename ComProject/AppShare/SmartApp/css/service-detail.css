@@ -111,6 +111,8 @@ i.star{
 
 .server-detail-normal-group .item-inner{
     padding-left: 0.75rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.15rem;
 }
 
 .server-detail-normal-group span{

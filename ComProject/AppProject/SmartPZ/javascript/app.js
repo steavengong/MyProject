@@ -1,20 +1,24 @@
 /**
  * Created by Administrator on 2016/6/6.
  */
-angular.module('starter', ['ionic','starter.controllers','starter.directives','starter.providers','starter.filters'])
+angular.module('starter', ['ionic','starter.controllers','starter.directives','starter.providers','starter.filters','starter.services'])
     .config([
         '$stateProvider',
         '$configProvider',
         '$consoleProvider',
         function($stateProvider,$configProvider,$consoleProvider){
             $stateProvider
+                .state($configProvider.controllers.index.name,{
+                    url:$configProvider.controllers.index.url,
+                    templateUrl:$configProvider.controllers.index.templateUrl,
+                    controller:$configProvider.controllers.index.controller
+                })
                 .state($configProvider.controllers.tabs.name,{
                     url:$configProvider.controllers.tabs.url,
                     templateUrl:$configProvider.controllers.tabs.templateUrl,
                     abstract:$configProvider.controllers.tabs.abstract,
                     controller:$configProvider.controllers.tabs.controller
                 })
-
                 .state($configProvider.controllers.tabsHome.name,{
                     url:$configProvider.controllers.tabsHome.url,
                     views:{
@@ -24,7 +28,6 @@ angular.module('starter', ['ionic','starter.controllers','starter.directives','s
                         }
                     }
                 })
-
                 .state($configProvider.controllers.tabsShop.name,{
                     url:$configProvider.controllers.tabsShop.url,
                     views:{
@@ -34,7 +37,6 @@ angular.module('starter', ['ionic','starter.controllers','starter.directives','s
                         }
                     }
                 })
-
                 .state($configProvider.controllers.tabsMessage.name,{
                     url:$configProvider.controllers.tabsMessage.url,
                     views:{
@@ -44,7 +46,6 @@ angular.module('starter', ['ionic','starter.controllers','starter.directives','s
                         }
                     }
                 })
-
                 .state($configProvider.controllers.tabsPersonal.name,{
                     url:$configProvider.controllers.tabsPersonal.url,
                     views:{

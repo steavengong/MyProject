@@ -6,4 +6,6 @@ angular.module('starter.controllers',[
     'controllers.home',
     'controllers.message',
     'controllers.personal',
-    'controllers.shop'])
+    'controllers.shop',
+    'controllers.start',
+    'controllers.index'])
