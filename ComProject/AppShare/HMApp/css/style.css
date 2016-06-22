@@ -5,6 +5,10 @@ img{
   height: auto!important;
 }
 
+ion-slides{
+  height: auto;
+}
+
 /*内边距*/
 .padding-small-top,
 .padding-small-vertical{
