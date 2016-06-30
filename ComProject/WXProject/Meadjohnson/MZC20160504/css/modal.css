@@ -177,7 +177,18 @@
 }
 
 .rule-part{
-    margin-bottom: 10px;
-    font-weight: 500;
-    line-height: 20px;
+    line-height: 24px;
+}
+
+.rule-part a{
+    text-decoration: none;
+    color: #FF4E72;
+}
+
+.rule-part + .rule-part{
+    margin-top: 10px;
+}
+
+.bg-modal .stress{
+    color: #FF4E72;
 }
