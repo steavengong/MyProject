@@ -23,7 +23,8 @@ angular.module("services.modal",[])
                     $modal.openModal($config.modals.enjoy);
                     break;
                 case 3:
-                    $modal.openModal($config.modals.prize);
+                    $modal.openModal($config.modals.prizeBaby);
+                    $popover.closePop($config.popover.rule)
                     break;
                 case 4:
                     $modal.openModal($config.modals.ruleMam);
@@ -34,6 +35,9 @@ angular.module("services.modal",[])
                     break;
                 case 6:
                     $modal.openModal($config.modals.edit);
+                case 7:
+                    $modal.openModal($config.modals.prizeMum);
+                    $popover.closePop($config.popover.rule)
                     break;
             }
         }
@@ -47,7 +51,7 @@ angular.module("services.modal",[])
                     $modal.closeModal($config.modals.enjoy);
                     break;
                 case 3:
-                    $modal.closeModal($config.modals.prize);
+                    $modal.closeModal($config.modals.prizeBaby);
                     break;
                 case 4:
                     $modal.closeModal($config.modals.ruleMam);
@@ -57,6 +61,8 @@ angular.module("services.modal",[])
                     break;
                 case 6:
                     $modal.closeModal($config.modals.edit);
+                case 7:
+                    $modal.closeModal($config.modals.prizeMum);
                     break;
             }
         }

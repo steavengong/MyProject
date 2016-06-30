@@ -9,7 +9,7 @@
         <div id="homeTop"><img class="img-auto" ng-src="{{resources.url + resources.images.head}}"></div>
         <!--模块按钮-->
         <div class="row text-center font-color-white padding-big-vertical padding-small-horizontal">
-            <div class="col bg-positive border-radius-big btn-bar" ng-click="openPop($event)">
+            <div class="col bg-positive border-radius-big btn-bar" ng-click="openPop($event,0)">
                 活动规则
             </div>
             <div class="col bg-positive border-radius-big btn-bar" ng-click="openModal(2)">
@@ -18,7 +18,7 @@
             <div class="col bg-positive border-radius-big btn-bar" ng-click="showPage()">
                 排行榜
             </div>
-            <div class="col bg-positive border-radius-big btn-bar" ng-click="openModal(3)">
+            <div class="col bg-positive border-radius-big btn-bar" ng-click="openPop($event,1)">
                 奖品展示
             </div>
         </div>

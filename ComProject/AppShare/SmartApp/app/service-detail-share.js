@@ -130,7 +130,7 @@ $(document).on("pageInit","#page-service-detail",function(e,id,page){
                     myBridge.callHandler("getServiceData", response, function(data, responseCallback) {});
                 }
 
-                $(".service-detail-header>img").attr({"src":response.servicesImg,"data-height":response.imgHeight,"data-width":response.imgWidth});
+                $(".service-detail-header>img").attr({"src":response.detailImage,"data-height":response.detailImageHeight,"data-width":response.detailImageWidth});
                 $(".service-title").text(response.title);
                 $(".service-price").text(response.price + "元/" + response.priceDesc);
                 $(".service-sell-total").text("已售" + (response.sellNum || 0) +"件");

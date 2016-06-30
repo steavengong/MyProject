@@ -14,8 +14,9 @@ angular.module("services.popover",[])
             })
         }
 
-        $rootScope.openPop = function($event){
+        $rootScope.openPop = function($event,type){
             $popover.openPop($config.popover.rule,$event);
+            $rootScope.type = type;
         }
 
         $popover.openPop = function(popover,$event){
@@ -37,8 +38,32 @@ angular.module("services.popover",[])
         }
 
         $popover.closePop = function(popover) {
-            $rootScope[popover.name].hide();
+            $rootScope[popover.name].hide().then(function(){
+                $rootScope[popover.name].remove().then(function(){
+                    $rootScope[popover.name]=null;
+                });
+            });
         };
+
+        $rootScope.selectModal = function(modalType){
+            if($rootScope.type == 0){
+                if(modalType == 0){
+                    $rootScope.openModal(1)
+                }
+                else{
+                    $rootScope.openModal(4)
+                }
+
+            }
+            else if($rootScope.type == 1){
+                if(modalType == 0){
+                    $rootScope.openModal(3)
+                }
+                else{
+                    $rootScope.openModal(7)
+                }
+            }
+        }
 
         return $popover;
     }])

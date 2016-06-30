@@ -1,0 +1,413 @@
+/* Empty. Add your own CSS if you like */
+/*基础样式*/
+img{
+  width: 100%!important;
+  height: auto!important;
+}
+
+ion-slides{
+  height: auto;
+}
+
+/*内边距*/
+.padding-small-top,
+.padding-small-vertical{
+  padding-top: 2px!important;
+}
+
+.padding-small-bottom,
+.padding-small-vertical{
+  padding-bottom: 2px!important;
+}
+
+.padding-small-left,
+.padding-small-horizontal{
+  padding-left: 2px!important;
+}
+
+.padding-small-right,
+.padding-small-horizontal{
+  padding-right: 2px!important;
+}
+
+.padding-small{
+  padding: 2px!important;
+}
+
+.padding-normal-top,
+.padding-normal-vertical{
+  padding-top: 2px!important;
+}
+
+.padding-normal-bottom,
+.padding-normal-vertical{
+  padding-bottom: 5px!important;
+}
+
+.padding-normal-left,
+.padding-normal-horizontal{
+  padding-left: 5px!important;
+}
+
+.padding-normal-right,
+.padding-normal-horizontal{
+  padding-right: 5px!important;
+}
+
+.padding-normal{
+  padding: 5px;
+}
+
+
+.padding-big-top,
+.padding-big-vertical{
+  padding-top: 10px!important;
+}
+
+.padding-big-bottom,
+.padding-big-vertical{
+  padding-bottom: 10px!important;
+}
+
+.padding-big-left,
+.padding-big-horizontal{
+  padding-left: 10px!important;
+}
+
+.padding-big-right,
+.padding-big-horizontal{
+  padding-right: 10px!important;
+}
+
+.padding-big{
+  padding: 10px!important;
+}
+
+.no-padding{
+  padding: 0px!important;
+}
+
+.no-padding-bottom{
+  padding-bottom: 0px!important;
+}
+
+/*外边距*/
+.margin-big-top,
+.margin-big-vertical{
+  margin-top: 10px!important;
+}
+
+.margin-big-bottom,
+.margin-big-vertical{
+  margin-bottom: 10px!important;
+}
+
+.margin-big-left,
+.margin-big-horizontal{
+  margin-left: 10px!important;
+}
+
+.margin-big-right,
+.margin-big-horizontal{
+  margin-right: 10px!important;
+}
+
+.margin-big{
+  margin: 10px!important;
+}
+
+
+.margin-small-top,
+.margin-small-vertical{
+  margin-top: 2px!important;
+}
+
+.margin-small-bottom,
+.margin-small-vertical{
+  margin-bottom: 2px!important;
+}
+
+.margin-small-left,
+.margin-small-horizontal{
+  margin-left: 2px!important;
+}
+
+.margin-small-right,
+.margin-small-horizontal{
+  margin-right: 2px!important;
+}
+
+.margin-small{
+  margin: 2px!important;
+}
+
+.margin-normal-top,
+.margin-normal-vertical{
+  margin-top: 5px!important;
+}
+
+.margin-normal-bottom,
+.margin-normal-vertical{
+  margin-bottom: 5px!important;
+}
+
+.margin-normal-left,
+.margin-normal-horizontal{
+  margin-left: 5px!important;
+}
+
+.margin-normal-right,
+.margin-normal-horizontal{
+  margin-right: 5px!important;
+}
+
+.margin-normal{
+  margin: 5px!important;
+}
+
+.no-margin-top{
+  margin-top: 0px!important;
+}
+
+.no-margin-bottom{
+  margin-bottom: 0px!important;
+}
+
+.no-text-decoration{
+  text-decoration: none;
+}
+
+/*背景色*/
+.bg-color-white{
+  background-color: #FFFFFF;
+}
+
+.bg-color-main{
+  background-color: #F5F5F5;
+}
+
+.bg-color-yellow{
+  background-color: #FDDA5E;
+}
+
+.bg-color-main-green{
+  background-color: #FFAF60;
+}
+
+.bg-color-main-green{
+  background-color: #FFAF60;
+}
+
+.bg-color-main-red{
+  background-color: #FF6982;
+}
+
+.bg-color-main-brown{
+  background-color: #FE6F5C;
+}
+
+.bg-color-modal-darkness{
+  background-color: rgba(0,0,0,.8);
+}
+
+/*字体颜色*/
+.color-dark-strong{
+  color: #333333;
+}
+
+.color-dark-normal{
+  color: #666666;
+}
+
+.color-dark-thin{
+  color: #999999;
+}
+
+.color-light-normal{
+  color: #FFFFFF;
+}
+
+.color-divide-normal{
+  color: #DDDDDD;
+}
+
+.color-assertive{
+  color: #FF4E72;
+}
+
+.color-positive{
+  color: #57B6E2;
+}
+
+.text-overflow{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.text-max-height-normal{
+  max-height: 40px;
+  overflow: hidden;
+}
+
+.text-size-bigger{
+  font-size: 32px;
+}
+
+.text-size-big{
+  font-size: 20px;
+}
+
+.text-size-normal{
+  font-size: 16px;
+}
+
+.text-size-small{
+  font-size: 14px;
+}
+
+.text-size-smaller{
+  font-size: 12px;
+}
+
+
+/*边框线样式*/
+.hm-border-normal-top,
+.hm-border-normal-vertical{
+  border-top: 1px solid #E8E8E8;
+}
+
+.hm-border-normal-bottom,
+.hm-border-normal-vertical{
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.hm-border-normal-left,
+.hm-border-normal-horizontal{
+  border-left: 1px solid #E8E8E8;
+}
+
+.hm-border-normal-right,
+.hm-border-normal-horizontal{
+  border-right: 1px solid #E8E8E8;
+}
+
+.hm-border-normal{
+  border: 1px solid #E8E8E8;
+}
+
+.hm-border-round{
+  -webkit-border-radius:50%;
+  border-radius:50%;
+}
+
+.hm-border-small-radius{
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+
+/*loading样式*/
+/*.spinner svg {
+  width: 32px;
+  height: 32px;
+  stroke: red;
+  fill: blue;
+}*/
+
+.hm-loading-msg{
+  margin: 0px;
+}
+
+/*bar样式*/
+.hm-bar-assertive{
+  background-image: none;
+}
+.hm-bar-assertive,
+.hm-bar-assertive .button{
+  background-color: #FF4E72;
+}
+
+.hm-bar-assertive .title{
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.hm-bar-assertive .title,
+.hm-bar-assertive .button,
+.hm-bar-assertive .address{
+  color: #FFFFFF;
+}
+
+.hm-bar-assertive .address{
+  position: absolute;
+  z-index:999;
+  vertical-align: bottom;
+  bottom: 7px;
+  left: 50%;
+  left: calc(50% + 40px)!important;
+  left: -webkit-calc(50% + 40px)!important;
+
+}
+
+.hm-bar-assertive .button.activated{
+  background: #FF8A9A;
+}
+
+.hm-bar-gray{
+  background-color: #F5F5F5;
+}
+
+
+/*新增*/
+.col-15{
+  -webkit-box-flex:0;
+  -webkit-flex:0 0 15%;
+  -moz-box-flex:0;
+  -moz-flex:0 0 15%;
+  -ms-flex:0 0 15%;
+  flex:0 0 15%;
+  max-width:15%
+}
+
+.text-line{
+  white-space: normal;
+}
+
+.text-decoration-through{
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #999999;
+  left: 1px;
+  top: calc(50% - 1px);
+}
+
+.text-relative{
+  position: relative;
+}
+
+.hm-border-gray-top,
+.hm-border-gray-vertical{
+  border-top: 1px solid #DDDDDD;
+}
+
+.hm-border-gray-bottom,
+.hm-border-gray-vertical{
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.hm-border-gray-left,
+.hm-border-gray-horizontal{
+  border-left: 1px solid #DDDDDD;
+}
+
+.hm-border-gray-right,
+.hm-border-gray-horizontal{
+  border-right: 1px solid #DDDDDD;
+}
+
+.hm-border-gray{
+  border: 1px solid #DDDDDD;
+}

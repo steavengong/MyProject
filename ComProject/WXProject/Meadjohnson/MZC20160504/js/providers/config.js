@@ -25,8 +25,8 @@ angular.module("providers.config",[])
 
         $config.indexUrl = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
 
-        //$config.indexUrlDebug = "http://192.168.100.67:8080/MZC/index.html";
-        $config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
+        $config.indexUrlDebug = "http://192.168.100.67:8080/MyProject/ComProject/WXProject/Meadjohnson/MZC20160504/index.html";
+        //$config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
 
         $config.cmds = {
             isAttentions:"mzc/weixin/isAttentions", //参数：code
@@ -41,8 +41,8 @@ angular.module("providers.config",[])
             shareDescription : "参与美赞臣宝宝SHOW，晒出你家最可爱软萌的新生宝宝，丰富奖品收到手软！",
             shareImageUrl : "http://smart.image.alimmdn.com/H5/MZC/Resources/Image/share.jpg",
             shareLinkUrl : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html",
-            //shareLinkUrlDebug : "http://192.168.100.67:8080/MZC/index.html",
-            shareLinkUrlDebug : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html",
+            shareLinkUrlDebug : "http://192.168.100.67:8080/MyProject/ComProject/WXProject/Meadjohnson/MZC20160504/index.html",
+            //shareLinkUrlDebug : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html",
             getShareUrl: function(){
                 if($config.debug){
                     return $config.shareObject.shareLinkUrlDebug
@@ -132,9 +132,13 @@ angular.module("providers.config",[])
                 name:"enjoy",
                 templateUrl:"templates/modal/enjoy.html"
             },
-            "prize":{
+            "prizeBaby":{
                 name:"prize",
-                templateUrl:"templates/modal/prize.html"
+                templateUrl:"templates/modal/prizeBaby.html"
+            },
+            "prizeMum":{
+                name:"prize",
+                templateUrl:"templates/modal/prizeMum.html"
             },
             "qrCode":{
                 name:"qrCode",

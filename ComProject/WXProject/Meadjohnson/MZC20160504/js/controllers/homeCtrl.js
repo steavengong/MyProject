@@ -2,8 +2,8 @@
  * Created by Administrator on 2016/5/6.
  */
 angular.module("controllers.home",[])
-    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal","$ionicLoading","$popover","$console",
-        function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading,$popover,$console){
+    .controller("homeCtrl",["$scope","$state","$config","$wx","$location","$timeout","$alert","$httpServices","$ionicScrollDelegate","$modal","$ionicLoading","$popover","$console","$rootScope",
+        function($scope,$state,$config,$wx,$location,$timeout,$alert,$httpServices,$ionicScrollDelegate,$modal,$ionicLoading,$popover,$console,$rootScope){
             var itemRankPageNo = 0;
             var itemRankFlag = true;
             var itemSearchPageNo = 0;
@@ -262,5 +262,12 @@ angular.module("controllers.home",[])
                     $scope.homeBoxItems = cacheRankBoxItems;
                 }
             }
+
+
+            $scope.$on('popover.hidden', function() {
+                $rootScope[$config.popover.rule.name].remove().then(function(){
+                    $rootScope[$config.popover.rule.name]=null;
+                });
+            });
 
         }])

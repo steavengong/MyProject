@@ -1,0 +1,37 @@
+.product-detail-line{
+    height: 1px;
+    background-color: #D2D2D2;
+}
+
+.product-image{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+    -webkit-background-size: cover;
+}
+
+.product-slider-group .swiper-pagination-bullet{
+    background-color: rgba(255,255,255,.7);
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+}
+
+.product-slider-group .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background-color: #FF4E72;
+    background-color: rgba(255,78,114,.7);
+}
+
+.user-header-image{
+    width: 80%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+    -webkit-background-size: cover;
+    margin: 0px auto;
+}
+
+.product-slider-group .swiper-wrapper{
+    position: relative;
+}
