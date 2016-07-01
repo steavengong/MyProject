@@ -11,12 +11,12 @@ angular.module("providers.config",[])
 
         $config.requestAction = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
 
-        //$config.requestActionDebug = "http://192.168.100.85:8081/wine-weixin-rest/cgi";
+        //$config.requestActionDebug = "http://192.168.100.98:8081/wine-weixin-rest/cgi";
         $config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
 
         $config.requestEnjoyAction = "http://weixin.mengbp.com/wine-weixin-rest/mzc/weixin/attendMzc";
 
-        //$config.requestEnjoyActionDebug = "http://192.168.100.85:8081/wine-weixin-rest/mzc/weixin/attendMzc";
+        //$config.requestEnjoyActionDebug = "http://192.168.100.98:8081/wine-weixin-rest/mzc/weixin/attendMzc";
         $config.requestEnjoyActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/mzc/weixin/attendMzc";
 
         $config.appId = "wx5bb398c959489ae4";

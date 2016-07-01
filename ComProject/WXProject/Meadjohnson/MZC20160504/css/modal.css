@@ -181,8 +181,9 @@
 }
 
 .rule-part a{
-    text-decoration: none;
     color: #FF4E72;
+    text-decoration: underline;
+    text-decoration-color: #FF4E72;
 }
 
 .rule-part + .rule-part{
