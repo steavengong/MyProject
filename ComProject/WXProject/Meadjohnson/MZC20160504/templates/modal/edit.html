@@ -1,6 +1,6 @@
 <ion-modal-view ng-controller="editCtrl" class="bg-modal">
     <span class="icon mzc mzc-close close-modal close-edit" ng-click="closeModal(6)"></span>
-    <ion-content class="bg-light border-radius-big padding-normal-vertical padding-big-horizontal edit-content" scroll="false">
+    <ion-content has-bouncing="true" overflow-scroll="false" class="bg-light border-radius-big padding-normal-vertical padding-big-horizontal edit-content" scroll="false">
         <div class="row row-no-padding">
             <div class="col col-25">
                 <img class="img-auto" ng-src="{{resources.url + resources.images.logo}}">

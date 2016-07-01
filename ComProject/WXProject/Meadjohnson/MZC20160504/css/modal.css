@@ -193,3 +193,8 @@
 .bg-modal .stress{
     color: #FF4E72;
 }
+
+.bg-modal .prize-scroll>.scroll{
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#FFFFFF), to(#FCF9EF));
+    background: -webkit-linear-gradient(top, #FFFFFF, #FCF9EF);
+}

@@ -88,6 +88,10 @@
     color: #C1C1C1!important;
 }
 
+.font-color-brown{
+    color: #623F2B;
+}
+
 ::-webkit-input-placeholder{
     color: #AEB8DD!important;
 }

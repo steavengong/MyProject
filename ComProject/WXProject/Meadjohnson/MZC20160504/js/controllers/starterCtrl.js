@@ -13,7 +13,10 @@ angular.module("controllers.starter",[])
                     logoPtl:"logo-ptl.png",
                     mzbaby:"mzbaby.jpg",
                     mzmam:"mzmam.jpg",
-                    qrCode:"qrCode.jpg"
+                    qrCode:"qrCode.jpg",
+                    prizeBaby:"prizeBaby.png",
+                    prizeMum:"prizeMum.png",
+                    thanks:"thanks.png"
                 }
             }
 
@@ -42,8 +45,8 @@ angular.module("controllers.starter",[])
             }
 
             if(isWeiXin()){
-                start();
-                //$state.go($config.controllers.home.name);
+                //start();
+                $state.go($config.controllers.home.name);
             }
             else{
                 $alert.show($config.messages.browser.error);

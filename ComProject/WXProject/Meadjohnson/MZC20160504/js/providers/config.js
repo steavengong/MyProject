@@ -10,23 +10,16 @@ angular.module("providers.config",[])
         $config.hook = false;
 
         $config.requestAction = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
-
-        //$config.requestActionDebug = "http://192.168.100.98:8081/wine-weixin-rest/cgi";
-        $config.requestActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/cgi";
+        $config.requestActionDebug = "http://weixin.mengbp.com/wine-weixin-rest/cgi";
 
         $config.requestEnjoyAction = "http://weixin.mengbp.com/wine-weixin-rest/mzc/weixin/attendMzc";
-
-        //$config.requestEnjoyActionDebug = "http://192.168.100.98:8081/wine-weixin-rest/mzc/weixin/attendMzc";
-        $config.requestEnjoyActionDebug = "http://erpuat.mengbp.com:8090/wine-weixin-rest/mzc/weixin/attendMzc";
+        $config.requestEnjoyActionDebug = "http://weixin.mengbp.com/wine-weixin-rest/mzc/weixin/attendMzc";
 
         $config.appId = "wx5bb398c959489ae4";
-
         $config.appIdDebug = "wx03fc01e909d9a654";
 
-        $config.indexUrl = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
-
-        $config.indexUrlDebug = "http://192.168.100.67:8080/MyProject/ComProject/WXProject/Meadjohnson/MZC20160504/index.html";
-        //$config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
+        $config.indexUrl = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160701/index.html";
+        $config.indexUrlDebug = "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html";
 
         $config.cmds = {
             isAttentions:"mzc/weixin/isAttentions", //参数：code
@@ -38,11 +31,10 @@ angular.module("providers.config",[])
 
         $config.shareObject = {
             shareTitle : "我家萌宝肿么辣么可爱o(〃'▽'〃)o",
-            shareDescription : "参与美赞臣宝宝SHOW，晒出你家最可爱软萌的新生宝宝，丰富奖品收到手软！",
+            shareDescription : "参与家有萌宝初长成，宝照大集赞，晒出你家最可爱软萌的新生宝宝，丰富奖品收到手软！",
             shareImageUrl : "http://smart.image.alimmdn.com/H5/MZC/Resources/Image/share.jpg",
-            shareLinkUrl : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html",
-            shareLinkUrlDebug : "http://192.168.100.67:8080/MyProject/ComProject/WXProject/Meadjohnson/MZC20160504/index.html",
-            //shareLinkUrlDebug : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html",
+            shareLinkUrl : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160701/index.html",
+            shareLinkUrlDebug : "http://www.mengbp.com/web/WXH5/Meadjohnson/MZC20160504/index.html",
             getShareUrl: function(){
                 if($config.debug){
                     return $config.shareObject.shareLinkUrlDebug
@@ -54,7 +46,7 @@ angular.module("providers.config",[])
         $config.personInfo = {
             subscribe:1,
             isJoin:0,
-            openId:"osFl-s9U62wClHjqywSNyFIy-Inc",
+            openId:"",
             status:1,
             isDeadline:1
         }
